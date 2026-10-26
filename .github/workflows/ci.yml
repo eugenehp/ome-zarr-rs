@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+  # ome-zarr-py commit the parity fixtures are generated with
+  OME_ZARR_PY_REF: dfd7273e6e0ebb8a82e58003e35052b0b9021348
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo doc --no-deps
+        env:
+          RUSTDOCFLAGS: -D warnings
+
+  msrv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.91.0
+      - run: cargo check --lib --bins
+
+  wasm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - run: sudo apt-get update && sudo apt-get install -y clang llvm
+      - run: cargo install wasm-bindgen-cli --version 0.2.129 --locked
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: scripts/check-wasm.sh
+      - run: scripts/test-wasm.sh
+
+  # Regenerate every Python fixture with ome-zarr-py and the pinned
+  # environment of ci/requirements-parity.txt, then run the test suite.
+  parity:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ome/ome-zarr-py
+          ref: ${{ env.OME_ZARR_PY_REF }}
+          path: ome-zarr-py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Python environment
+        run: |
+          pip install -r ci/requirements-parity.txt
+          pip install --no-deps -e ome-zarr-py
+      - name: Fixtures
+        run: |
+          cd "$RUNNER_TEMP"
+          for s in gen_parity_fixtures gen_ndimage_fixtures gen_zarr_fixtures gen_cli_fixtures \
+                   gen_server_fixtures gen_linalg_fixtures gen_pydantic_fixtures gen_location_fixtures; do
+            python -I "$GITHUB_WORKSPACE/scripts/$s.py" > "$s.log" 2>&1 || { tail -30 "$s.log"; exit 1; }
+          done
+      - run: cargo test --release --no-fail-fast

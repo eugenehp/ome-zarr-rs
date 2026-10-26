@@ -1,0 +1,1786 @@
+{
+ "fuzz_0.zarr": {
+  "scenario": {
+   "name": "fuzz_0.zarr",
+   "axes": "yx",
+   "shape": [
+    69,
+    48
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": [
+    16,
+    16
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    13,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_1.zarr": {
+  "scenario": {
+   "name": "fuzz_1.zarr",
+   "axes": "tyx",
+   "shape": [
+    3,
+    40,
+    48
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_2.zarr": {
+  "scenario": {
+   "name": "fuzz_2.zarr",
+   "axes": "czyx",
+   "shape": [
+    2,
+    4,
+    65,
+    40
+   ],
+   "dtype": "uint16",
+   "fmt": "0.5",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    16,
+    16
+   ],
+   "shards": [
+    32,
+    32
+   ],
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_3.zarr": {
+  "scenario": {
+   "name": "fuzz_3.zarr",
+   "axes": "cyx",
+   "shape": [
+    2,
+    20,
+    44
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "c": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    32,
+    7
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_4.zarr": {
+  "scenario": {
+   "name": "fuzz_4.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    7,
+    69,
+    55
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    16,
+    32
+   ],
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_5.zarr": {
+  "scenario": {
+   "name": "fuzz_5.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    1,
+    12,
+    53,
+    20
+   ],
+   "dtype": "uint8",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_6.zarr": {
+  "scenario": {
+   "name": "fuzz_6.zarr",
+   "axes": "czyx",
+   "shape": [
+    3,
+    8,
+    48,
+    69
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    40,
+    13,
+    5,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_7.zarr": {
+  "scenario": {
+   "name": "fuzz_7.zarr",
+   "axes": "yx",
+   "shape": [
+    66,
+    69
+   ],
+   "dtype": "int16",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    {
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    13,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_8.zarr": {
+  "scenario": {
+   "name": "fuzz_8.zarr",
+   "axes": "zyx",
+   "shape": [
+    9,
+    43,
+    46
+   ],
+   "dtype": "uint16",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    16,
+    16
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    13,
+    40,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_9.zarr": {
+  "scenario": {
+   "name": "fuzz_9.zarr",
+   "axes": "czyx",
+   "shape": [
+    2,
+    7,
+    40,
+    29
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    2
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_10.zarr": {
+  "scenario": {
+   "name": "fuzz_10.zarr",
+   "axes": "tyx",
+   "shape": [
+    2,
+    63,
+    50
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    32,
+    32
+   ],
+   "shards": [
+    64,
+    64
+   ],
+   "compressor": "zlib",
+   "dask_chunks": [
+    13,
+    40,
+    5
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_11.zarr": {
+  "scenario": {
+   "name": "fuzz_11.zarr",
+   "axes": "tczyx",
+   "shape": [
+    3,
+    1,
+    4,
+    67,
+    31
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": [
+    40,
+    40,
+    40,
+    5,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_12.zarr": {
+  "scenario": {
+   "name": "fuzz_12.zarr",
+   "axes": "yx",
+   "shape": [
+    55,
+    69
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    2
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_13.zarr": {
+  "scenario": {
+   "name": "fuzz_13.zarr",
+   "axes": "yx",
+   "shape": [
+    48,
+    62
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    5,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_14.zarr": {
+  "scenario": {
+   "name": "fuzz_14.zarr",
+   "axes": "yx",
+   "shape": [
+    70,
+    60
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    16,
+    7
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_15.zarr": {
+  "scenario": {
+   "name": "fuzz_15.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    3,
+    10,
+    55,
+    68
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    40,
+    13,
+    40,
+    5,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_16.zarr": {
+  "scenario": {
+   "name": "fuzz_16.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    5,
+    29,
+    45
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    40,
+    13,
+    13,
+    5
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_17.zarr": {
+  "scenario": {
+   "name": "fuzz_17.zarr",
+   "axes": "zyx",
+   "shape": [
+    3,
+    58,
+    40
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    5,
+    5,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_18.zarr": {
+  "scenario": {
+   "name": "fuzz_18.zarr",
+   "axes": "tzyx",
+   "shape": [
+    3,
+    9,
+    70,
+    49
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    16,
+    7
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_19.zarr": {
+  "scenario": {
+   "name": "fuzz_19.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    3,
+    67,
+    23
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "local_mean",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    32,
+    32
+   ],
+   "shards": [
+    64,
+    64
+   ],
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_20.zarr": {
+  "scenario": {
+   "name": "fuzz_20.zarr",
+   "axes": "tzyx",
+   "shape": [
+    2,
+    12,
+    64,
+    21
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    5,
+    40,
+    40,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_21.zarr": {
+  "scenario": {
+   "name": "fuzz_21.zarr",
+   "axes": "tzyx",
+   "shape": [
+    3,
+    12,
+    53,
+    44
+   ],
+   "dtype": "uint16",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": [
+    14,
+    14
+   ],
+   "compressor": "default",
+   "dask_chunks": [
+    40,
+    13,
+    5,
+    13
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_22.zarr": {
+  "scenario": {
+   "name": "fuzz_22.zarr",
+   "axes": "yx",
+   "shape": [
+    39,
+    59
+   ],
+   "dtype": "uint16",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    {
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    32,
+    7
+   ],
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_23.zarr": {
+  "scenario": {
+   "name": "fuzz_23.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    3,
+    6,
+    28,
+    23
+   ],
+   "dtype": "float32",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_24.zarr": {
+  "scenario": {
+   "name": "fuzz_24.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    7,
+    33,
+    63
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    16,
+    32
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_25.zarr": {
+  "scenario": {
+   "name": "fuzz_25.zarr",
+   "axes": "cyx",
+   "shape": [
+    3,
+    59,
+    30
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [],
+   "chunks": [
+    7,
+    16
+   ],
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_26.zarr": {
+  "scenario": {
+   "name": "fuzz_26.zarr",
+   "axes": "tyx",
+   "shape": [
+    3,
+    65,
+    22
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_27.zarr": {
+  "scenario": {
+   "name": "fuzz_27.zarr",
+   "axes": "zyx",
+   "shape": [
+    4,
+    31,
+    32
+   ],
+   "dtype": "int16",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_28.zarr": {
+  "scenario": {
+   "name": "fuzz_28.zarr",
+   "axes": "zyx",
+   "shape": [
+    4,
+    38,
+    42
+   ],
+   "dtype": "uint8",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [
+    {
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    13,
+    5,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_29.zarr": {
+  "scenario": {
+   "name": "fuzz_29.zarr",
+   "axes": "zyx",
+   "shape": [
+    4,
+    20,
+    37
+   ],
+   "dtype": "uint16",
+   "fmt": "0.5",
+   "method": "local_mean",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    40,
+    13,
+    13
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_30.zarr": {
+  "scenario": {
+   "name": "fuzz_30.zarr",
+   "axes": "zyx",
+   "shape": [
+    3,
+    22,
+    38
+   ],
+   "dtype": "int16",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    13,
+    13,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_31.zarr": {
+  "scenario": {
+   "name": "fuzz_31.zarr",
+   "axes": "yx",
+   "shape": [
+    49,
+    54
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    5,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_32.zarr": {
+  "scenario": {
+   "name": "fuzz_32.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    59,
+    48
+   ],
+   "dtype": "uint16",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [
+    2
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    13,
+    5,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_33.zarr": {
+  "scenario": {
+   "name": "fuzz_33.zarr",
+   "axes": "czyx",
+   "shape": [
+    3,
+    9,
+    18,
+    53
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": [
+    5,
+    40,
+    40,
+    40
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_34.zarr": {
+  "scenario": {
+   "name": "fuzz_34.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    5,
+    39,
+    53
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_35.zarr": {
+  "scenario": {
+   "name": "fuzz_35.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    10,
+    36,
+    67
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    7,
+    16
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    40,
+    13,
+    13,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_36.zarr": {
+  "scenario": {
+   "name": "fuzz_36.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    2,
+    7,
+    28,
+    43
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    5,
+    13,
+    13,
+    13,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_37.zarr": {
+  "scenario": {
+   "name": "fuzz_37.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    2,
+    7,
+    44,
+    26
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [],
+   "chunks": [
+    16,
+    16
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    5,
+    5,
+    5,
+    40,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_38.zarr": {
+  "scenario": {
+   "name": "fuzz_38.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    7,
+    46,
+    70
+   ],
+   "dtype": "int16",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": [
+    14,
+    14
+   ],
+   "compressor": "zlib",
+   "dask_chunks": [
+    5,
+    40,
+    13,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_39.zarr": {
+  "scenario": {
+   "name": "fuzz_39.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    3,
+    8,
+    65,
+    59
+   ],
+   "dtype": "uint16",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    5,
+    5,
+    5,
+    13,
+    5
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_40.zarr": {
+  "scenario": {
+   "name": "fuzz_40.zarr",
+   "axes": "cyx",
+   "shape": [
+    2,
+    40,
+    28
+   ],
+   "dtype": "uint8",
+   "fmt": "0.4",
+   "method": "nearest",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    32,
+    32
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    13,
+    40,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_41.zarr": {
+  "scenario": {
+   "name": "fuzz_41.zarr",
+   "axes": "tzyx",
+   "shape": [
+    2,
+    11,
+    19,
+    59
+   ],
+   "dtype": "float32",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    32,
+    7
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    5,
+    5,
+    5,
+    13
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_42.zarr": {
+  "scenario": {
+   "name": "fuzz_42.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    7,
+    48,
+    57
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": [
+    7,
+    16
+   ],
+   "shards": [
+    14,
+    32
+   ],
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_43.zarr": {
+  "scenario": {
+   "name": "fuzz_43.zarr",
+   "axes": "yx",
+   "shape": [
+    32,
+    53
+   ],
+   "dtype": "uint8",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_44.zarr": {
+  "scenario": {
+   "name": "fuzz_44.zarr",
+   "axes": "cyx",
+   "shape": [
+    1,
+    28,
+    18
+   ],
+   "dtype": "uint16",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "c": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_45.zarr": {
+  "scenario": {
+   "name": "fuzz_45.zarr",
+   "axes": "tyx",
+   "shape": [
+    3,
+    21,
+    39
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "zoom",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_46.zarr": {
+  "scenario": {
+   "name": "fuzz_46.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    26,
+    37
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "t": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    32,
+    32
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_47.zarr": {
+  "scenario": {
+   "name": "fuzz_47.zarr",
+   "axes": "tczyx",
+   "shape": [
+    3,
+    2,
+    10,
+    57,
+    50
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    13,
+    5,
+    5,
+    40,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_48.zarr": {
+  "scenario": {
+   "name": "fuzz_48.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    8,
+    56,
+    20
+   ],
+   "dtype": "int16",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    2,
+    4
+   ],
+   "chunks": [
+    16,
+    16
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": [
+    40,
+    40,
+    40,
+    13
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_49.zarr": {
+  "scenario": {
+   "name": "fuzz_49.zarr",
+   "axes": "tczyx",
+   "shape": [
+    3,
+    1,
+    11,
+    34,
+    52
+   ],
+   "dtype": "float64",
+   "fmt": "0.5",
+   "method": "local_mean",
+   "scale_factors": [],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    13,
+    40,
+    13,
+    5,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_50.zarr": {
+  "scenario": {
+   "name": "fuzz_50.zarr",
+   "axes": "zyx",
+   "shape": [
+    4,
+    55,
+    68
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    13,
+    40,
+    40
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_51.zarr": {
+  "scenario": {
+   "name": "fuzz_51.zarr",
+   "axes": "tzyx",
+   "shape": [
+    3,
+    3,
+    26,
+    29
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "zoom",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    7,
+    7
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_52.zarr": {
+  "scenario": {
+   "name": "fuzz_52.zarr",
+   "axes": "tzyx",
+   "shape": [
+    3,
+    12,
+    24,
+    45
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    2
+   ],
+   "chunks": [
+    32,
+    32
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_53.zarr": {
+  "scenario": {
+   "name": "fuzz_53.zarr",
+   "axes": "yx",
+   "shape": [
+    40,
+    25
+   ],
+   "dtype": "float64",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    16,
+    32
+   ],
+   "shards": null,
+   "compressor": "default",
+   "dask_chunks": [
+    40,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_54.zarr": {
+  "scenario": {
+   "name": "fuzz_54.zarr",
+   "axes": "yx",
+   "shape": [
+    32,
+    58
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    2
+   ],
+   "chunks": null,
+   "shards": null,
+   "compressor": "zlib",
+   "dask_chunks": [
+    13,
+    40
+   ],
+   "labels": true
+  },
+  "error": null
+ },
+ "fuzz_55.zarr": {
+  "scenario": {
+   "name": "fuzz_55.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    2,
+    5,
+    26,
+    43
+   ],
+   "dtype": "float32",
+   "fmt": "0.4",
+   "method": "local_mean",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 2,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    32,
+    7
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    13,
+    40,
+    40,
+    13,
+    13
+   ],
+   "labels": true
+  },
+  "error": {
+   "type": "ValueError",
+   "msg": "could not broadcast input array from shape (1,2,2,6,1) into shape (1,2,3,6,1)"
+  }
+ },
+ "fuzz_56.zarr": {
+  "scenario": {
+   "name": "fuzz_56.zarr",
+   "axes": "tzyx",
+   "shape": [
+    3,
+    11,
+    39,
+    44
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": [
+    16,
+    7
+   ],
+   "shards": null,
+   "compressor": "blosc",
+   "dask_chunks": [
+    5,
+    13,
+    5,
+    5
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_57.zarr": {
+  "scenario": {
+   "name": "fuzz_57.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    29,
+    33
+   ],
+   "dtype": "uint8",
+   "fmt": "0.5",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": [
+    16,
+    7
+   ],
+   "shards": [
+    32,
+    14
+   ],
+   "compressor": "blosc",
+   "dask_chunks": null,
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_58.zarr": {
+  "scenario": {
+   "name": "fuzz_58.zarr",
+   "axes": "tzyx",
+   "shape": [
+    1,
+    7,
+    64,
+    38
+   ],
+   "dtype": "float32",
+   "fmt": "0.5",
+   "method": "nearest",
+   "scale_factors": [
+    {
+     "t": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "chunks": [
+    32,
+    7
+   ],
+   "shards": [
+    64,
+    14
+   ],
+   "compressor": "zlib",
+   "dask_chunks": [
+    40,
+    13,
+    5,
+    40
+   ],
+   "labels": false
+  },
+  "error": null
+ },
+ "fuzz_59.zarr": {
+  "scenario": {
+   "name": "fuzz_59.zarr",
+   "axes": "tyx",
+   "shape": [
+    2,
+    43,
+    33
+   ],
+   "dtype": "int16",
+   "fmt": "0.4",
+   "method": "resize",
+   "scale_factors": [],
+   "chunks": [
+    16,
+    32
+   ],
+   "shards": null,
+   "compressor": "zstd",
+   "dask_chunks": [
+    5,
+    40,
+    40
+   ],
+   "labels": true
+  },
+  "error": null
+ }
+}

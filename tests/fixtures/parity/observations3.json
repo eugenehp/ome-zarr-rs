@@ -1,0 +1,64 @@
+{
+ "errors": {
+  "image_tf_no_input": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation at index 0 is missing input coordinate system: type='scale' input=None output=None name=None scale=(1.0, 2.0)"
+  },
+  "image_tf_not_default": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation at index 0 must have either input or output coordinate system name matching the default coordinate system name 'physical': type='scale' input=CoordinateSystemIdentifier(name='a', path=None) output=CoordinateSystemIdentifier(name='b', path=None) name=None scale=(1.0, 2.0)"
+  },
+  "image_tf_unknown_cs": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation type='translation' input=CoordinateSystemIdentifier(name='physical', path=None) output=CoordinateSystemIdentifier(name='nope', path=None) name=None translation=(1.0, 2.0) has input coordinate system name 'physical' or output coordinate system name 'nope' which does not match any of the defined coordinate systems: ['physical', 'other']"
+  },
+  "image_tf_unknown_cs_affine": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation type='affine' input=CoordinateSystemIdentifier(name='physical', path='x') output=CoordinateSystemIdentifier(name='zz', path=None) name=None affine=((1.0, 0.5, 2.0), (0.0, 1.0, -1.0)) path=None has input coordinate system name 'physical' or output coordinate system name 'zz' which does not match any of the defined coordinate systems: ['physical']"
+  },
+  "image_tf_unknown_cs_seq": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation type='sequence' input=CoordinateSystemIdentifier(name='physical', path=None) output=CoordinateSystemIdentifier(name='other', path=None) name=None transformations=(Scale(type='scale', input=None, output=None, name=None, scale=(2.0, 2.0)), MapAxis(type='mapAxis', input=None, output=None, name=None, mapAxis=(1, 0))) has input coordinate system name 'physical' or output coordinate system name 'other' which does not match any of the defined coordinate systems: ['physical']"
+  },
+  "scene_tf_no_io": {
+   "type": "ValueError",
+   "msg": "Coordinate transformation type='scale' input=None output=None name=None scale=(1.0, 2.0) is missing input or output information."
+  },
+  "nearest_too_large": {
+   "type": "ValueError",
+   "msg": "All scale factors must not be greater than the dimension length: ((1, 8)) <= ((4, 4))"
+  },
+  "nearest_dims": {
+   "type": "ValueError",
+   "msg": "Dimension mismatch: 2 image dimensions, 1 scale factors"
+  },
+  "axes_unknown_types": {
+   "type": "ValueError",
+   "msg": "Too many unknown axes types. 1 allowed, found: ['foo', 'bar']"
+  },
+  "tnd_not_affine": {
+   "type": "ValueError",
+   "msg": "Transformation matrix is not affine (expected bottom row [0. 0. 1.], got [0.5 0.  1. ])."
+  },
+  "tnd_not_affine2": {
+   "type": "ValueError",
+   "msg": "Transformation matrix is not affine (expected bottom row [0. 1.], got [-1.225e+01  1.000e-03])."
+  },
+  "tnd_not_affine3": {
+   "type": "ValueError",
+   "msg": "Transformation matrix is not affine (expected bottom row [0. 0. 1.], got [  3. 100.   2.])."
+  },
+  "graph_unknown_source": {
+   "type": "ValueError",
+   "msg": "Unknown source space ('q', 'physical')"
+  },
+  "graph_unknown_target": {
+   "type": "ValueError",
+   "msg": "Unknown target space ('a', 'physical')"
+  },
+  "graph_no_path": {
+   "type": "NetworkXNoPath",
+   "msg": "No path between ('a', 'physical') and ('b', 'physical')."
+  }
+ }
+}

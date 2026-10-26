@@ -1,0 +1,21 @@
+# The Python environment the parity fixtures are generated with (pinned to
+# the versions the committed fixtures came from). ome-zarr-py itself is
+# installed from a checkout (see ci/Dockerfile).
+dask==2026.8.0
+dask-image==2026.5.0
+fsspec==2026.9.0
+networkx==3.7
+numcodecs==0.17.1
+numpy==2.5.4
+ome-zarr-models==1.8.1
+pydantic==2.12.5
+pydantic-zarr==0.10.0
+rangehttpserver==1.4.0
+requests==2.34.2
+s3fs==2026.9.0
+scikit-image==0.26.0
+scipy==1.18.1
+transformnd==0.9.2
+zarr==3.4.1
+Deprecated==3.0.0
+toolz==1.2.0

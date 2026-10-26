@@ -1,0 +1,202 @@
+{
+ "cwd": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores",
+ "cases": {
+  "coins_0.4.zarr": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
+   "path": "coins_0.4.zarr",
+   "basename": "coins_0.4.zarr",
+   "parts": [
+    "coins_0.4.zarr"
+   ],
+   "version": "0.4",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr",
+   "root_attrs": [
+    "multiscales",
+    "omero"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup]",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+  },
+  "coins_0.4.zarr/": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
+   "path": "coins_0.4.zarr/",
+   "basename": "coins_0.4.zarr",
+   "parts": [
+    "coins_0.4.zarr"
+   ],
+   "version": "0.4",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr",
+   "root_attrs": [
+    "multiscales",
+    "omero"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup]",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+  },
+  "./coins_0.5.zarr": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]",
+   "path": "./coins_0.5.zarr",
+   "basename": "coins_0.5.zarr",
+   "parts": [
+    "coins_0.5.zarr"
+   ],
+   "version": "0.5",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr",
+   "root_attrs": [
+    "multiscales",
+    "omero",
+    "version"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup]",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]"
+  },
+  "coins_0.4.zarr/labels": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup]",
+   "path": "coins_0.4.zarr/labels",
+   "basename": "labels",
+   "parts": [
+    "coins_0.4.zarr",
+    "labels"
+   ],
+   "version": "0.5",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels",
+   "root_attrs": [
+    "labels"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/labels",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup]"
+  },
+  "coins_0.5.zarr/labels/coins": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]",
+   "path": "coins_0.5.zarr/labels/coins",
+   "basename": "coins",
+   "parts": [
+    "coins_0.5.zarr",
+    "labels",
+    "coins"
+   ],
+   "version": "0.5",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins",
+   "root_attrs": [
+    "image-label",
+    "multiscales",
+    "version"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins/labels",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]"
+  },
+  "plate_0.4.zarr/A/1": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]",
+   "path": "plate_0.4.zarr/A/1",
+   "basename": "1",
+   "parts": [
+    "plate_0.4.zarr",
+    "A",
+    "1"
+   ],
+   "version": "0.4",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1",
+   "root_attrs": [
+    "well"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/labels",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]"
+  },
+  "scene.zarr": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr [zgroup]",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr [zgroup]",
+   "path": "scene.zarr",
+   "basename": "scene.zarr",
+   "parts": [
+    "scene.zarr"
+   ],
+   "version": "0.5",
+   "exists": true,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr",
+   "root_attrs": [
+    "scene",
+    "version"
+   ],
+   "create_labels": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/labels",
+   "parse_url": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr [zgroup]"
+  },
+  "nope.zarr": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/nope.zarr",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/nope.zarr",
+   "path": "nope.zarr",
+   "basename": "nope.zarr",
+   "parts": [
+    "nope.zarr"
+   ],
+   "version": "0.5",
+   "exists": false,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/nope.zarr/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/nope.zarr",
+   "root_attrs": [],
+   "parse_url": null
+  },
+  "coins_0.4.zarr/s0": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "path": "coins_0.4.zarr/s0",
+   "basename": "s0",
+   "parts": [
+    "coins_0.4.zarr",
+    "s0"
+   ],
+   "version": "0.5",
+   "exists": false,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "root_attrs": [],
+   "parse_url": null
+  },
+  "coins_0.4.zarr/labels/../s0": {
+   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "str": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "path": "coins_0.4.zarr/labels/../s0",
+   "basename": "s0",
+   "parts": [
+    "coins_0.4.zarr",
+    "labels",
+    "..",
+    "s0"
+   ],
+   "version": "0.5",
+   "exists": false,
+   "subpath": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0/x",
+   "subpath_up": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/y",
+   "subpath_empty": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/s0",
+   "root_attrs": [],
+   "parse_url": null
+  }
+ }
+}

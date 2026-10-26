@@ -1,0 +1,381 @@
+[
+ {
+  "argv": [],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: the following arguments are required: command\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\n\npositional arguments:\n  {info,download,view,finder,create,scale,csv_to_labels}\n\noptions:\n  -h, --help            show this help message and exit\n  -v, --verbose         increase loglevel for each use, e.g. -vvv\n  -q, --quiet           decrease loglevel for each use, e.q. -qqq\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "--help"
+  ],
+  "stdout": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\n\npositional arguments:\n  {info,download,view,finder,create,scale,csv_to_labels}\n\noptions:\n  -h, --help            show this help message and exit\n  -v, --verbose         increase loglevel for each use, e.g. -vvv\n  -q, --quiet           decrease loglevel for each use, e.q. -qqq\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "frobnicate"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: argument command: invalid choice: 'frobnicate' (choose from info, download, view, finder, create, scale, csv_to_labels)\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "--bogus",
+   "info",
+   "x"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: unrecognized arguments: --bogus\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "-V"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: the following arguments are required: command\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "info"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr info [-h] [--stats] path\nome_zarr info: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "info",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr info [-h] [--stats] path\n\npositional arguments:\n  path        Path to image.zarr\n\noptions:\n  -h, --help  show this help message and exit\n  --stats\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "info",
+   "a",
+   "b"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: unrecognized arguments: b\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "info",
+   "a",
+   "--nope"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: unrecognized arguments: --nope\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "info",
+   "a",
+   "b",
+   "--nope",
+   "c"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: unrecognized arguments: b --nope c\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "download"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr download [-h] [--output OUTPUT] path\nome_zarr download: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "download",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr download [-h] [--output OUTPUT] path\n\npositional arguments:\n  path\n\noptions:\n  -h, --help       show this help message and exit\n  --output OUTPUT\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "download",
+   "x",
+   "--output"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr download [-h] [--output OUTPUT] path\nome_zarr download: error: argument --output: expected one argument\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "download",
+   "x",
+   "--out"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr download [-h] [--output OUTPUT] path\nome_zarr download: error: argument --output: expected one argument\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "view"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr view [-h] [--port PORT] [--force] path\nome_zarr view: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "view",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr view [-h] [--port PORT] [--force] path\n\npositional arguments:\n  path         Path to image.zarr to open in ome-ngff-validator\n\noptions:\n  -h, --help   show this help message and exit\n  --port PORT  Port to serve the data (default: 8000)\n  --force, -f  Force open in browser. Don't check for OME-Zarr data first.\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "view",
+   "x",
+   "--port",
+   "y"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr view [-h] [--port PORT] [--force] path\nome_zarr view: error: argument --port: invalid int value: 'y'\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "view",
+   "x",
+   "--port=abc"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr view [-h] [--port PORT] [--force] path\nome_zarr view: error: argument --port: invalid int value: 'abc'\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "finder"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr finder [-h] [--port PORT] path\nome_zarr finder: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "finder",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr finder [-h] [--port PORT] path\n\npositional arguments:\n  path         Directory to open in BioFile Finder\n\noptions:\n  -h, --help   show this help message and exit\n  --port PORT  Port to serve the data (default: 8000)\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "create"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\nome_zarr create: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "create",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\n\npositional arguments:\n  path\n\noptions:\n  -h, --help            show this help message and exit\n  --method {coins,astronaut}\n  --format FORMAT       OME-Zarr version to create. e.g. '0.4'\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "create",
+   "--method=nope",
+   "x"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\nome_zarr create: error: argument --method: invalid choice: 'nope' (choose from coins, astronaut)\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "create",
+   "--method",
+   "nope",
+   "x"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\nome_zarr create: error: argument --method: invalid choice: 'nope' (choose from coins, astronaut)\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "create",
+   "--m",
+   "coins"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\nome_zarr create: error: the following arguments are required: path\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "create",
+   "--f"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr create [-h] [--method {coins,astronaut}] [--format FORMAT]\n                       path\nome_zarr create: error: argument --format: expected one argument\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: the following arguments are required: input_array, output_directory, axes\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\n\npositional arguments:\n  input_array\n  output_directory\n  axes                  Dimensions of input data, i.e. 'zyx' or 'tczyx'.\n\noptions:\n  -h, --help            show this help message and exit\n  --copy-metadata       copies the array metadata to the new group\n  --method {nearest,resize,laplacian,local_mean,zoom}\n  --in-place            if true, don't write the base array\n  --downscale DOWNSCALE\n  --max_layer MAX_LAYER\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "scale",
+   "a",
+   "b"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: the following arguments are required: axes\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale",
+   "a",
+   "b",
+   "c",
+   "--method",
+   "nope"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: argument --method: invalid choice: 'nope' (choose from nearest, resize, laplacian, local_mean, zoom)\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale",
+   "a",
+   "b",
+   "c",
+   "--max_layer",
+   "x"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: argument --max_layer: invalid int value: 'x'\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale",
+   "a",
+   "b",
+   "c",
+   "--m",
+   "zoom"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: ambiguous option: --m could match --method, --max_layer\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "scale",
+   "a",
+   "b",
+   "c",
+   "--downscale"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr scale [-h] [--copy-metadata]\n                      [--method {nearest,resize,laplacian,local_mean,zoom}]\n                      [--in-place] [--downscale DOWNSCALE]\n                      [--max_layer MAX_LAYER]\n                      input_array output_directory axes\nome_zarr scale: error: argument --downscale: expected one argument\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "csv_to_labels"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr csv_to_labels [-h] csv_path csv_id csv_keys zarr_path zarr_id\nome_zarr csv_to_labels: error: the following arguments are required: csv_path, csv_id, csv_keys, zarr_path, zarr_id\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "csv_to_labels",
+   "-h"
+  ],
+  "stdout": "usage: ome_zarr csv_to_labels [-h] csv_path csv_id csv_keys zarr_path zarr_id\n\npositional arguments:\n  csv_path    path to csv file\n  csv_id      csv column name containing ID for identifying label properties\n              to update\n  csv_keys    Comma-separated list of columns to read from csv to zarr\n  zarr_path   path to local zarr plate or image\n  zarr_id     Labels properties key. Values should match csv_id column values\n\noptions:\n  -h, --help  show this help message and exit\n",
+  "stderr": "",
+  "code": 0
+ },
+ {
+  "argv": [
+   "csv_to_labels",
+   "a",
+   "b"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr csv_to_labels [-h] csv_path csv_id csv_keys zarr_path zarr_id\nome_zarr csv_to_labels: error: the following arguments are required: csv_keys, zarr_path, zarr_id\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "-v",
+   "-x",
+   "info",
+   "p"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: unrecognized arguments: -x\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "-vvq"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr [-h] [-v] [-q]\n                {info,download,view,finder,create,scale,csv_to_labels} ...\nome_zarr: error: the following arguments are required: command\n",
+  "code": 2
+ },
+ {
+  "argv": [
+   "-vvq",
+   "info"
+  ],
+  "stdout": "",
+  "stderr": "usage: ome_zarr info [-h] [--stats] path\nome_zarr info: error: the following arguments are required: path\n",
+  "code": 2
+ }
+]

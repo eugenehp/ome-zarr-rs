@@ -1,0 +1,1439 @@
+{
+ "cls_0.zarr": {
+  "scenario": {
+   "name": "cls_0.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    35,
+    34
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 0.5,
+    "x": 0.5
+   },
+   "units": {
+    "x": "micrometer",
+    "t": "second"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "t": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "nearest",
+   "version": "0.6",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_1.zarr": {
+  "scenario": {
+   "name": "cls_1.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    1,
+    6,
+    30,
+    47
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 1.0,
+    "y": 2.0,
+    "x": 0.325
+   },
+   "units": {
+    "z": "nanometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "resize",
+   "version": "0.6",
+   "labels": true,
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_2.zarr": {
+  "scenario": {
+   "name": "cls_2.zarr",
+   "axes": "cyx",
+   "shape": [
+    1,
+    38,
+    25
+   ],
+   "dtype": "uint8",
+   "scale": null,
+   "units": {
+    "y": "nanometer"
+   },
+   "image_name": "img",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.4",
+   "labels": false,
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_3.zarr": {
+  "scenario": {
+   "name": "cls_3.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    30,
+    49
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "y": 1.0,
+    "x": 0.5
+   },
+   "units": {
+    "y": "micrometer",
+    "t": "second"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    2
+   ],
+   "method": "local_mean",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_4.zarr": {
+  "scenario": {
+   "name": "cls_4.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    5,
+    55,
+    54
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 0.325,
+    "x": 1.0
+   },
+   "units": {
+    "y": "nanometer",
+    "x": "micrometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    2
+   ],
+   "method": "nearest",
+   "version": "0.6",
+   "labels": false,
+   "channel_names": [
+    "ch0"
+   ],
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_5.zarr": {
+  "scenario": {
+   "name": "cls_5.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    3,
+    8,
+    41,
+    27
+   ],
+   "dtype": "float32",
+   "scale": {
+    "z": 1.0,
+    "y": 2.0
+   },
+   "units": {
+    "x": "nanometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "nearest",
+   "version": "0.5",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ]
+  },
+  "error": null
+ },
+ "cls_6.zarr": {
+  "scenario": {
+   "name": "cls_6.zarr",
+   "axes": "yx",
+   "shape": [
+    27,
+    43
+   ],
+   "dtype": "float32",
+   "scale": null,
+   "units": {
+    "y": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    2
+   ],
+   "method": "resize",
+   "version": "0.6",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_7.zarr": {
+  "scenario": {
+   "name": "cls_7.zarr",
+   "axes": "cyx",
+   "shape": [
+    3,
+    53,
+    58
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "y": 1.0
+   },
+   "units": null,
+   "image_name": "img",
+   "scale_factors": [
+    {
+     "c": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "local_mean",
+   "version": "0.5",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    "FF0000",
+    "00FF00",
+    "0000FF"
+   ],
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ],
+    [
+     0.0,
+     101.0
+    ],
+    [
+     0.0,
+     102.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_8.zarr": {
+  "scenario": {
+   "name": "cls_8.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    3,
+    4,
+    23,
+    34
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 0.5,
+    "x": 1.0
+   },
+   "units": {
+    "z": "nanometer",
+    "y": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "zoom",
+   "version": "0.5",
+   "labels": true,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ],
+    [
+     10,
+     20,
+     30
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_9.zarr": {
+  "scenario": {
+   "name": "cls_9.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    23,
+    45
+   ],
+   "dtype": "uint16",
+   "scale": null,
+   "units": {
+    "y": "micrometer",
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    2
+   ],
+   "method": "nearest",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_10.zarr": {
+  "scenario": {
+   "name": "cls_10.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    1,
+    8,
+    35,
+    30
+   ],
+   "dtype": "float32",
+   "scale": {
+    "z": 0.325,
+    "y": 0.325
+   },
+   "units": {
+    "z": "micrometer",
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "zoom",
+   "version": "0.4",
+   "labels": true,
+   "channel_names": [
+    "ch0"
+   ],
+   "channel_colors": [
+    "FF0000"
+   ]
+  },
+  "error": null
+ },
+ "cls_11.zarr": {
+  "scenario": {
+   "name": "cls_11.zarr",
+   "axes": "yx",
+   "shape": [
+    52,
+    53
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "y": 0.5
+   },
+   "units": {
+    "y": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    2
+   ],
+   "method": "nearest",
+   "version": "0.6",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_12.zarr": {
+  "scenario": {
+   "name": "cls_12.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    2,
+    8,
+    40,
+    36
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 2.0,
+    "y": 0.325,
+    "x": 2.0
+   },
+   "units": {
+    "z": "micrometer",
+    "y": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    2
+   ],
+   "method": "nearest",
+   "version": "0.5",
+   "labels": true,
+   "channel_names": [
+    "ch0",
+    "ch1"
+   ],
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ],
+    [
+     0.0,
+     101.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_13.zarr": {
+  "scenario": {
+   "name": "cls_13.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    39,
+    26
+   ],
+   "dtype": "float32",
+   "scale": {
+    "x": 0.5
+   },
+   "units": {
+    "t": "second"
+   },
+   "image_name": "image",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_14.zarr": {
+  "scenario": {
+   "name": "cls_14.zarr",
+   "axes": "zyx",
+   "shape": [
+    9,
+    25,
+    60
+   ],
+   "dtype": "float32",
+   "scale": {
+    "z": 2.0,
+    "y": 2.0
+   },
+   "units": {
+    "y": "nanometer"
+   },
+   "image_name": "image",
+   "scale_factors": [],
+   "method": "resize",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_15.zarr": {
+  "scenario": {
+   "name": "cls_15.zarr",
+   "axes": "tyx",
+   "shape": [
+    1,
+    57,
+    55
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "y": 1.0,
+    "x": 2.0
+   },
+   "units": null,
+   "image_name": "a b",
+   "scale_factors": [],
+   "method": "nearest",
+   "version": "0.6",
+   "labels": true
+  },
+  "error": null
+ },
+ "cls_16.zarr": {
+  "scenario": {
+   "name": "cls_16.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    3,
+    8,
+    31,
+    46
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 2.0,
+    "x": 1.0
+   },
+   "units": {
+    "z": "micrometer",
+    "y": "micrometer",
+    "t": "second"
+   },
+   "image_name": "img",
+   "scale_factors": [],
+   "method": "nearest",
+   "version": "0.4",
+   "labels": true,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    "FF0000",
+    "00FF00",
+    "0000FF"
+   ]
+  },
+  "error": null
+ },
+ "cls_17.zarr": {
+  "scenario": {
+   "name": "cls_17.zarr",
+   "axes": "zyx",
+   "shape": [
+    7,
+    54,
+    41
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 2.0,
+    "x": 2.0
+   },
+   "units": {
+    "z": "nanometer",
+    "y": "nanometer",
+    "x": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_18.zarr": {
+  "scenario": {
+   "name": "cls_18.zarr",
+   "axes": "yx",
+   "shape": [
+    24,
+    41
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "y": 0.5
+   },
+   "units": {
+    "y": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.6",
+   "labels": true
+  },
+  "error": null
+ },
+ "cls_19.zarr": {
+  "scenario": {
+   "name": "cls_19.zarr",
+   "axes": "czyx",
+   "shape": [
+    3,
+    8,
+    56,
+    39
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 0.5,
+    "y": 1.0,
+    "x": 2.0
+   },
+   "units": {
+    "z": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "resize",
+   "version": "0.5",
+   "labels": false,
+   "channel_colors": [
+    "FF0000",
+    "00FF00",
+    "0000FF"
+   ]
+  },
+  "error": null
+ },
+ "cls_20.zarr": {
+  "scenario": {
+   "name": "cls_20.zarr",
+   "axes": "cyx",
+   "shape": [
+    1,
+    35,
+    50
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "y": 0.5,
+    "x": 1.0
+   },
+   "units": {
+    "x": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    2
+   ],
+   "method": "resize",
+   "version": "0.4",
+   "labels": false,
+   "channel_names": [
+    "ch0"
+   ]
+  },
+  "error": null
+ },
+ "cls_21.zarr": {
+  "scenario": {
+   "name": "cls_21.zarr",
+   "axes": "czyx",
+   "shape": [
+    3,
+    4,
+    28,
+    49
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 2.0
+   },
+   "units": null,
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "zoom",
+   "version": "0.5",
+   "labels": true,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ]
+  },
+  "error": null
+ },
+ "cls_22.zarr": {
+  "scenario": {
+   "name": "cls_22.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    3,
+    4,
+    38,
+    35
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 2.0,
+    "x": 1.0
+   },
+   "units": {
+    "z": "micrometer",
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "image",
+   "scale_factors": [],
+   "method": "nearest",
+   "version": "0.5",
+   "labels": true,
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ],
+    [
+     0.0,
+     101.0
+    ],
+    [
+     0.0,
+     102.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_23.zarr": {
+  "scenario": {
+   "name": "cls_23.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    2,
+    3,
+    46,
+    54
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 1.0,
+    "x": 2.0
+   },
+   "units": {
+    "z": "micrometer",
+    "y": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    2
+   ],
+   "method": "resize",
+   "version": "0.5",
+   "labels": false,
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ]
+   ],
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ],
+    [
+     0.0,
+     101.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_24.zarr": {
+  "scenario": {
+   "name": "cls_24.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    5,
+    33,
+    49
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 0.325,
+    "y": 0.325,
+    "x": 0.5
+   },
+   "units": {
+    "z": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "nearest",
+   "version": "0.4",
+   "labels": false,
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_25.zarr": {
+  "scenario": {
+   "name": "cls_25.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    2,
+    8,
+    58,
+    58
+   ],
+   "dtype": "uint16",
+   "scale": null,
+   "units": {
+    "z": "nanometer",
+    "y": "micrometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [],
+   "method": "nearest",
+   "version": "0.4",
+   "labels": false,
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_26.zarr": {
+  "scenario": {
+   "name": "cls_26.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    3,
+    9,
+    47,
+    43
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 2.0,
+    "y": 0.325
+   },
+   "units": {
+    "z": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.6",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ],
+    [
+     10,
+     20,
+     30
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_27.zarr": {
+  "scenario": {
+   "name": "cls_27.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    2,
+    9,
+    48,
+    35
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 0.325,
+    "x": 0.325
+   },
+   "units": {
+    "y": "micrometer",
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "resize",
+   "version": "0.6",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1"
+   ]
+  },
+  "error": null
+ },
+ "cls_28.zarr": {
+  "scenario": {
+   "name": "cls_28.zarr",
+   "axes": "cyx",
+   "shape": [
+    3,
+    48,
+    21
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 1.0,
+    "x": 1.0
+   },
+   "units": {
+    "y": "nanometer",
+    "x": "nanometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [],
+   "method": "local_mean",
+   "version": "0.5",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    "FF0000",
+    "00FF00",
+    "0000FF"
+   ]
+  },
+  "error": null
+ },
+ "cls_29.zarr": {
+  "scenario": {
+   "name": "cls_29.zarr",
+   "axes": "zyx",
+   "shape": [
+    7,
+    32,
+    33
+   ],
+   "dtype": "float32",
+   "scale": {
+    "y": 2.0
+   },
+   "units": {
+    "y": "nanometer",
+    "x": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "local_mean",
+   "version": "0.4",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_30.zarr": {
+  "scenario": {
+   "name": "cls_30.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    3,
+    4,
+    20,
+    56
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 0.325,
+    "y": 1.0
+   },
+   "units": {
+    "z": "nanometer",
+    "y": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "nearest",
+   "version": "0.6",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ],
+    [
+     10,
+     20,
+     30
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_31.zarr": {
+  "scenario": {
+   "name": "cls_31.zarr",
+   "axes": "tczyx",
+   "shape": [
+    1,
+    3,
+    6,
+    57,
+    47
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "z": 0.5,
+    "y": 0.5
+   },
+   "units": {
+    "z": "micrometer",
+    "y": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    2
+   ],
+   "method": "zoom",
+   "version": "0.6",
+   "labels": false,
+   "channel_names": [
+    "ch0",
+    "ch1",
+    "ch2"
+   ],
+   "channel_colors": [
+    [
+     255,
+     0,
+     0
+    ],
+    [
+     0,
+     128,
+     255
+    ],
+    [
+     10,
+     20,
+     30
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_32.zarr": {
+  "scenario": {
+   "name": "cls_32.zarr",
+   "axes": "czyx",
+   "shape": [
+    3,
+    4,
+    57,
+    32
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 1.0,
+    "y": 2.0
+   },
+   "units": {
+    "z": "micrometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    {
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "resize",
+   "version": "0.5",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_33.zarr": {
+  "scenario": {
+   "name": "cls_33.zarr",
+   "axes": "czyx",
+   "shape": [
+    1,
+    7,
+    40,
+    58
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "z": 0.5,
+    "y": 0.5
+   },
+   "units": {
+    "y": "micrometer"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    2
+   ],
+   "method": "zoom",
+   "version": "0.5",
+   "labels": true,
+   "channel_names": [
+    "ch0"
+   ]
+  },
+  "error": null
+ },
+ "cls_34.zarr": {
+  "scenario": {
+   "name": "cls_34.zarr",
+   "axes": "yx",
+   "shape": [
+    41,
+    40
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "y": 1.0,
+    "x": 0.325
+   },
+   "units": {
+    "y": "nanometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    {
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "resize",
+   "version": "0.5",
+   "labels": true
+  },
+  "error": null
+ },
+ "cls_35.zarr": {
+  "scenario": {
+   "name": "cls_35.zarr",
+   "axes": "yx",
+   "shape": [
+    20,
+    54
+   ],
+   "dtype": "uint8",
+   "scale": {
+    "y": 0.5,
+    "x": 2.0
+   },
+   "units": {
+    "x": "nanometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    2
+   ],
+   "method": "nearest",
+   "version": "0.5",
+   "labels": false
+  },
+  "error": null
+ },
+ "cls_36.zarr": {
+  "scenario": {
+   "name": "cls_36.zarr",
+   "axes": "tyx",
+   "shape": [
+    2,
+    58,
+    35
+   ],
+   "dtype": "float32",
+   "scale": {
+    "x": 0.5
+   },
+   "units": {
+    "x": "micrometer",
+    "t": "second"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    2
+   ],
+   "method": "zoom",
+   "version": "0.6",
+   "labels": true
+  },
+  "error": null
+ },
+ "cls_37.zarr": {
+  "scenario": {
+   "name": "cls_37.zarr",
+   "axes": "tyx",
+   "shape": [
+    2,
+    50,
+    35
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "y": 1.0,
+    "x": 1.0
+   },
+   "units": {
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "image",
+   "scale_factors": [
+    {
+     "t": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "local_mean",
+   "version": "0.6",
+   "labels": true
+  },
+  "error": null
+ },
+ "cls_38.zarr": {
+  "scenario": {
+   "name": "cls_38.zarr",
+   "axes": "tczyx",
+   "shape": [
+    2,
+    1,
+    6,
+    41,
+    55
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "y": 2.0
+   },
+   "units": {
+    "y": "nanometer",
+    "x": "nanometer",
+    "t": "second"
+   },
+   "image_name": "a b",
+   "scale_factors": [
+    {
+     "t": 1,
+     "c": 1,
+     "z": 1,
+     "y": 2,
+     "x": 2
+    }
+   ],
+   "method": "zoom",
+   "version": "0.5",
+   "labels": false,
+   "contrast_limits": [
+    [
+     0.0,
+     100.0
+    ]
+   ]
+  },
+  "error": null
+ },
+ "cls_39.zarr": {
+  "scenario": {
+   "name": "cls_39.zarr",
+   "axes": "yx",
+   "shape": [
+    41,
+    26
+   ],
+   "dtype": "uint16",
+   "scale": {
+    "x": 0.325
+   },
+   "units": {
+    "y": "micrometer",
+    "x": "micrometer"
+   },
+   "image_name": "img",
+   "scale_factors": [
+    2
+   ],
+   "method": "local_mean",
+   "version": "0.6",
+   "labels": false
+  },
+  "error": null
+ }
+}

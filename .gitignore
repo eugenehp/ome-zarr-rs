@@ -1,0 +1,6 @@
+/target
+*.png
+!assets/*.png
+*.zarr
+.DS_Store
+.claude/

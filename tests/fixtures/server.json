@@ -1,0 +1,746 @@
+[
+ {
+  "method": "GET",
+  "path": "/img.zarr/zarr.json",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/json"
+   ],
+   [
+    "Content-Length",
+    "58"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "{\"zarr_format\": 3, \"node_type\": \"group\", \"attributes\": {}}"
+ },
+ {
+  "method": "HEAD",
+  "path": "/img.zarr/zarr.json",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/json"
+   ],
+   [
+    "Content-Length",
+    "58"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": ""
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Length",
+    "1024"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=10-19"
+  },
+  "status": 206,
+  "reason": "Partial Content",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Range",
+    "bytes 10-19/1024"
+   ],
+   [
+    "Content-Length",
+    "10"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=1000-"
+  },
+  "status": 206,
+  "reason": "Partial Content",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Range",
+    "bytes 1000-1023/1024"
+   ],
+   [
+    "Content-Length",
+    "24"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=-5"
+  },
+  "status": 400,
+  "reason": "Invalid byte range",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "350"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 400</p>\n        <p>Message: Invalid byte range.</p>\n        <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=5000-6000"
+  },
+  "status": 416,
+  "reason": "Requested Range Not Satisfiable",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "351"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 416</p>\n        <p>Message: Requested Range Not Satisfiable.</p>\n        <p>Error code explanation: 416 - Cannot satisfy request range.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=20-10"
+  },
+  "status": 400,
+  "reason": "Invalid byte range",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "350"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 400</p>\n        <p>Message: Invalid byte range.</p>\n        <p>Error code explanation: 400 - Bad request syntax or unsupported method.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=0-2000"
+  },
+  "status": 206,
+  "reason": "Partial Content",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Range",
+    "bytes 0-1023/1024"
+   ],
+   [
+    "Content-Length",
+    "1024"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff\u0000\u0001\u0002\u0003\u0004\u0005\u0006\u0007\b\t\n\u000b\f\r\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\u007f\u0080\u0081\u0082\u0083\u0084\u0085\u0086\u0087\u0088\u0089\u008a\u008b\u008c\u008d\u008e\u008f\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097\u0098\u0099\u009a\u009b\u009c\u009d\u009e\u009f\u00a0\u00a1\u00a2\u00a3\u00a4\u00a5\u00a6\u00a7\u00a8\u00a9\u00aa\u00ab\u00ac\u00ad\u00ae\u00af\u00b0\u00b1\u00b2\u00b3\u00b4\u00b5\u00b6\u00b7\u00b8\u00b9\u00ba\u00bb\u00bc\u00bd\u00be\u00bf\u00c0\u00c1\u00c2\u00c3\u00c4\u00c5\u00c6\u00c7\u00c8\u00c9\u00ca\u00cb\u00cc\u00cd\u00ce\u00cf\u00d0\u00d1\u00d2\u00d3\u00d4\u00d5\u00d6\u00d7\u00d8\u00d9\u00da\u00db\u00dc\u00dd\u00de\u00df\u00e0\u00e1\u00e2\u00e3\u00e4\u00e5\u00e6\u00e7\u00e8\u00e9\u00ea\u00eb\u00ec\u00ed\u00ee\u00ef\u00f0\u00f1\u00f2\u00f3\u00f4\u00f5\u00f6\u00f7\u00f8\u00f9\u00fa\u00fb\u00fc\u00fd\u00fe\u00ff"
+ },
+ {
+  "method": "HEAD",
+  "path": "/img.zarr/s0/c/0/0",
+  "headers": {
+   "Range": "bytes=0-9"
+  },
+  "status": 206,
+  "reason": "Partial Content",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Range",
+    "bytes 0-9/1024"
+   ],
+   [
+    "Content-Length",
+    "10"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": ""
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/.zattrs",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Length",
+    "2"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "{}"
+ },
+ {
+  "method": "GET",
+  "path": "/biofile_finder.csv",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "text/csv"
+   ],
+   [
+    "Content-Length",
+    "38"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "File Path,File Name\nhttp://x,img.zarr\n"
+ },
+ {
+  "method": "GET",
+  "path": "/empty.bin",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/octet-stream"
+   ],
+   [
+    "Content-Length",
+    "0"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": ""
+ },
+ {
+  "method": "GET",
+  "path": "/empty.bin",
+  "headers": {
+   "Range": "bytes=0-1"
+  },
+  "status": 416,
+  "reason": "Requested Range Not Satisfiable",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "351"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 416</p>\n        <p>Message: Requested Range Not Satisfiable.</p>\n        <p>Error code explanation: 416 - Cannot satisfy request range.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/missing.json",
+  "headers": {},
+  "status": 404,
+  "reason": "File not found",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "335"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 404</p>\n        <p>Message: File not found.</p>\n        <p>Error code explanation: 404 - Nothing matches the given URI.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "HEAD",
+  "path": "/missing.json",
+  "headers": {},
+  "status": 404,
+  "reason": "File not found",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "335"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": ""
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr",
+  "headers": {},
+  "status": 301,
+  "reason": "Moved Permanently",
+  "response_headers": [
+   [
+    "Location",
+    "/img.zarr/"
+   ],
+   [
+    "Content-Length",
+    "0"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": ""
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "text/html; charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "318"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Directory listing for /img.zarr/</title>\n</head>\n<body>\n<h1>Directory listing for /img.zarr/</h1>\n<hr>\n<ul>\n<li><a href=\".zattrs\">.zattrs</a></li>\n<li><a href=\"s0/\">s0/</a></li>\n<li><a href=\"zarr.json\">zarr.json</a></li>\n</ul>\n<hr>\n</body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/?x=1",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "text/html; charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "326"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Directory listing for /img.zarr/?x=1</title>\n</head>\n<body>\n<h1>Directory listing for /img.zarr/?x=1</h1>\n<hr>\n<ul>\n<li><a href=\".zattrs\">.zattrs</a></li>\n<li><a href=\"s0/\">s0/</a></li>\n<li><a href=\"zarr.json\">zarr.json</a></li>\n</ul>\n<hr>\n</body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/zarr.json?x=1",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/json"
+   ],
+   [
+    "Content-Length",
+    "58"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "{\"zarr_format\": 3, \"node_type\": \"group\", \"attributes\": {}}"
+ },
+ {
+  "method": "GET",
+  "path": "/dir%20with%20space/a%20b.txt",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "text/plain"
+   ],
+   [
+    "Content-Length",
+    "6"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "spaced"
+ },
+ {
+  "method": "GET",
+  "path": "/../server.json",
+  "headers": {},
+  "status": 404,
+  "reason": "File not found",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "335"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 404</p>\n        <p>Message: File not found.</p>\n        <p>Error code explanation: 404 - Nothing matches the given URI.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/img.zarr/s0/../zarr.json",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "application/json"
+   ],
+   [
+    "Content-Length",
+    "58"
+   ],
+   [
+    "Last-Modified",
+    "Tue, 14 Nov 2023 22:13:20 GMT"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "{\"zarr_format\": 3, \"node_type\": \"group\", \"attributes\": {}}"
+ },
+ {
+  "method": "OPTIONS",
+  "path": "/img.zarr/zarr.json",
+  "headers": {},
+  "status": 501,
+  "reason": "Unsupported method ('OPTIONS')",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "360"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 501</p>\n        <p>Message: Unsupported method ('OPTIONS').</p>\n        <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "POST",
+  "path": "/img.zarr/zarr.json",
+  "headers": {},
+  "status": 501,
+  "reason": "Unsupported method ('POST')",
+  "response_headers": [
+   [
+    "Connection",
+    "close"
+   ],
+   [
+    "Content-Type",
+    "text/html;charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "357"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 501</p>\n        <p>Message: Unsupported method ('POST').</p>\n        <p>Error code explanation: 501 - Server does not support this operation.</p>\n    </body>\n</html>\n"
+ },
+ {
+  "method": "GET",
+  "path": "/",
+  "headers": {},
+  "status": 200,
+  "reason": "OK",
+  "response_headers": [
+   [
+    "Content-type",
+    "text/html; charset=utf-8"
+   ],
+   [
+    "Content-Length",
+    "393"
+   ],
+   [
+    "Access-Control-Allow-Origin",
+    "*"
+   ]
+  ],
+  "server": "SimpleHTTP/0.6 Python/3.12.13",
+  "version": 10,
+  "body": "<!DOCTYPE HTML>\n<html lang=\"en\">\n<head>\n<meta charset=\"utf-8\">\n<title>Directory listing for /</title>\n</head>\n<body>\n<h1>Directory listing for /</h1>\n<hr>\n<ul>\n<li><a href=\"biofile_finder.csv\">biofile_finder.csv</a></li>\n<li><a href=\"dir%20with%20space/\">dir with space/</a></li>\n<li><a href=\"empty.bin\">empty.bin</a></li>\n<li><a href=\"img.zarr/\">img.zarr/</a></li>\n</ul>\n<hr>\n</body>\n</html>\n"
+ }
+]

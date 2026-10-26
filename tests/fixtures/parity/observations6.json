@@ -1,0 +1,3176 @@
+{
+ "legacy_0.1.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.1.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "old",
+     "channel_names": [
+      "g",
+      "g"
+     ],
+     "visible": [
+      true,
+      true
+     ],
+     "contrast_limits": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "aab71277cafa276eab3ff4d4e2214c95ff61ea588b359309f5e431f9db8c5190"
+     },
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       8,
+       8
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        8
+       ],
+       [
+        8
+       ]
+      ],
+      "sha256": "e0b5a4f77272e6dc583d8fa9ada7f6ff3d07e383c3269fdf3419412201a33d80"
+     }
+    ]
+   }
+  ]
+ },
+ "legacy_0.2.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.2.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": null,
+     "channel_names": [
+      "g",
+      "g"
+     ],
+     "visible": [
+      true,
+      true
+     ],
+     "contrast_limits": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "aab71277cafa276eab3ff4d4e2214c95ff61ea588b359309f5e431f9db8c5190"
+     },
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       8,
+       8
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        8
+       ],
+       [
+        8
+       ]
+      ],
+      "sha256": "e0b5a4f77272e6dc583d8fa9ada7f6ff3d07e383c3269fdf3419412201a33d80"
+     }
+    ]
+   }
+  ]
+ },
+ "legacy_0.3.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.3.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": null,
+     "channel_names": [
+      "g",
+      "g"
+     ],
+     "visible": [
+      true,
+      true
+     ],
+     "contrast_limits": [
+      [
+       0,
+       1
+      ],
+      [
+       0,
+       1
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1,
+        1,
+        1
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "aab71277cafa276eab3ff4d4e2214c95ff61ea588b359309f5e431f9db8c5190"
+     },
+     {
+      "shape": [
+       1,
+       2,
+       3,
+       8,
+       8
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        3
+       ],
+       [
+        8
+       ],
+       [
+        8
+       ]
+      ],
+      "sha256": "e0b5a4f77272e6dc583d8fa9ada7f6ff3d07e383c3269fdf3419412201a33d80"
+     }
+    ]
+   }
+  ]
+ },
+ "exists.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/exists.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "x",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Channel 0"
+     ],
+     "visible": [
+      true
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       255.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        1.0,
+        1.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "8e621822fe751c882dd407632a75bbd11c717e421d904684bf8e871a53d7d3a8"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "49626307a05d53e0797115d9d767f942234a9b183db383d8d077561c498c3b1a"
+     }
+    ]
+   }
+  ]
+ },
+ "scene.zarr": {
+  "nodes": []
+ },
+ "scene.zarr/a": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/a [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "a",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Channel 0"
+     ],
+     "visible": [
+      true
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       255.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        1.0,
+        1.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "8e621822fe751c882dd407632a75bbd11c717e421d904684bf8e871a53d7d3a8"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "49626307a05d53e0797115d9d767f942234a9b183db383d8d077561c498c3b1a"
+     }
+    ]
+   }
+  ]
+ },
+ "scene2.zarr": {
+  "nodes": []
+ },
+ "scene2.zarr/ia": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "ia",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Channel 0"
+     ],
+     "visible": [
+      true
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       510.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        1.0,
+        1.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "579dbfa2f568230dd1014845226e659a561f20ee8ab0ad97cdd3252e1f212ca1"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "124b3657ccafda2784831aefc0c03a4d426793ed04df65e298e55da211734e9b"
+     }
+    ]
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Labels"
+    ],
+    "metadata": {},
+    "data": []
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Label",
+     "Multiscales"
+    ],
+    "metadata": {
+     "visible": false,
+     "name": "lab",
+     "color": {
+      "0": [
+       0.7568627450980392,
+       0.2784313725490196,
+       0.30196078431372547,
+       1.0
+      ],
+      "1": [
+       0.011764705882352941,
+       0.3137254901960784,
+       0.08627450980392157,
+       1.0
+      ],
+      "2": [
+       0.050980392156862744,
+       0.8980392156862745,
+       0.0784313725490196,
+       1.0
+      ]
+     },
+     "metadata": {
+      "image": {},
+      "path": "lab"
+     },
+     "properties": {
+      "0": {},
+      "1": {},
+      "2": {}
+     },
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "7e19aef1698430e5bab1bcd05102110c263c0d16a7205b3136c794ae4dee0b10"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "dd0ba6e2ae840a4935f0ce1dc25fb51c1d9a929a8e06800525a9cdd8f7dd1445"
+     }
+    ]
+   }
+  ]
+ },
+ "scene2.zarr/ia/labels/lab": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "ia",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Channel 0"
+     ],
+     "visible": [
+      false
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       510.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        1.0,
+        1.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "579dbfa2f568230dd1014845226e659a561f20ee8ab0ad97cdd3252e1f212ca1"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "124b3657ccafda2784831aefc0c03a4d426793ed04df65e298e55da211734e9b"
+     }
+    ]
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Labels"
+    ],
+    "metadata": {},
+    "data": []
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup]",
+    "visible": true,
+    "specs": [
+     "Label",
+     "Multiscales"
+    ],
+    "metadata": {
+     "visible": true,
+     "name": "lab",
+     "color": {
+      "0": [
+       0.7568627450980392,
+       0.2784313725490196,
+       0.30196078431372547,
+       1.0
+      ],
+      "1": [
+       0.011764705882352941,
+       0.3137254901960784,
+       0.08627450980392157,
+       1.0
+      ],
+      "2": [
+       0.050980392156862744,
+       0.8980392156862745,
+       0.0784313725490196,
+       1.0
+      ]
+     },
+     "metadata": {
+      "image": {},
+      "path": "lab"
+     },
+     "properties": {
+      "0": {},
+      "1": {},
+      "2": {}
+     },
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "coordinateTransformations": [
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s0"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           1.0,
+           1.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.0,
+           0.0
+          ]
+         }
+        ]
+       }
+      ],
+      [
+       {
+        "type": "sequence",
+        "input": {
+         "path": "s1"
+        },
+        "output": {
+         "name": "physical"
+        },
+        "transformations": [
+         {
+          "type": "scale",
+          "scale": [
+           2.0,
+           2.0
+          ]
+         },
+         {
+          "type": "translation",
+          "translation": [
+           0.5,
+           0.5
+          ]
+         }
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "7e19aef1698430e5bab1bcd05102110c263c0d16a7205b3136c794ae4dee0b10"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "dd0ba6e2ae840a4935f0ce1dc25fb51c1d9a929a8e06800525a9cdd8f7dd1445"
+     }
+    ]
+   }
+  ]
+ },
+ "coins_0.4.zarr/s0": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ },
+ "coins_0.5.zarr/s1": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ },
+ "plate_0.4.zarr/A/1": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]",
+    "visible": true,
+    "specs": [
+     "Well"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "image",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0,
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0,
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0,
+         0.5,
+         0.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1,
+       2,
+       1,
+       48,
+       60
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        1
+       ],
+       [
+        24,
+        24
+       ],
+       [
+        30,
+        30
+       ]
+      ],
+      "sha256": "d41acb0d56bfc8bf6fe5b6a723bb7add8ab5c47cc14640fb35be0fe5e23dcaab"
+     },
+     {
+      "shape": [
+       1,
+       2,
+       1,
+       24,
+       30
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        1
+       ],
+       [
+        12,
+        12
+       ],
+       [
+        15,
+        15
+       ]
+      ],
+      "sha256": "899ae86d9faf8c3b344f0e200eff21e9dd91bb98fdca049a106ba39bc2da1d7a"
+     }
+    ]
+   }
+  ]
+ },
+ "plate_0.5.zarr/A/1/0": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "image",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0,
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0,
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0,
+         0.5,
+         0.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1,
+       2,
+       1,
+       24,
+       30
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        1
+       ],
+       [
+        24
+       ],
+       [
+        30
+       ]
+      ],
+      "sha256": "8334c232fda6d0a859dcaddb5b2985292133bac05f969176db6b135ace02ffb7"
+     },
+     {
+      "shape": [
+       1,
+       2,
+       1,
+       12,
+       15
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1
+       ],
+       [
+        2
+       ],
+       [
+        1
+       ],
+       [
+        12
+       ],
+       [
+        15
+       ]
+      ],
+      "sha256": "1c69a46199f001c4ad0257df5fc0ee5f2a70a78102c0a66ae9a54121e67cc71f"
+     }
+    ]
+   }
+  ]
+ },
+ "plate_0.5.zarr/A/3": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ },
+ "csv_0.4.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "coins",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         2.00990099009901,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.504950495049505,
+         0.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         4.06,
+         4.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         1.5299999999999998,
+         1.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         8.12,
+         8.114285714285714
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         3.5599999999999996,
+         3.557142857142857
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         16.916666666666668,
+         16.705882352941178
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         7.958333333333334,
+         7.852941176470589
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Channel 0"
+     ],
+     "visible": [
+      true
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       255.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1.0,
+        0.0,
+        0.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       203,
+       284
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        3
+       ],
+       [
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        35,
+        4
+       ]
+      ],
+      "sha256": "b7e624b96a5cefd790f4f68887e1df6a221a34694ad1f3e67cd42f8db31d5a01"
+     },
+     {
+      "shape": [
+       101,
+       142
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        25,
+        25,
+        25,
+        25,
+        1
+       ],
+       [
+        35,
+        35,
+        35,
+        35,
+        2
+       ]
+      ],
+      "sha256": "a6214089928baf4f95958ea29677a7ba79d47f9fa47b4bd5f8e5b7673d330e98"
+     },
+     {
+      "shape": [
+       50,
+       71
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        25,
+        25
+       ],
+       [
+        35,
+        35,
+        1
+       ]
+      ],
+      "sha256": "53a5525a95e1ebbf4b9f77811a36868a01c00efc0725828efca4e214fccb1246"
+     },
+     {
+      "shape": [
+       25,
+       35
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        25
+       ],
+       [
+        35
+       ]
+      ],
+      "sha256": "37e3674723a24ab191a2584d4cb5b6a748a51647d690a61752e21e4509b6799b"
+     },
+     {
+      "shape": [
+       12,
+       17
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        12
+       ],
+       [
+        17
+       ]
+      ],
+      "sha256": "63d5dc8533a1741db5cb84fa0b2f17a2b7a1ab82070a4b84996154030ffafcb5"
+     }
+    ]
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Labels"
+    ],
+    "metadata": {},
+    "data": []
+   }
+  ]
+ },
+ "labels_0.4.zarr": {
+  "nodes": []
+ },
+ "labels_0.5.zarr": {
+  "nodes": []
+ },
+ "multiscale_labels_0.5.zarr": {
+  "nodes": []
+ },
+ "multiscales_metadata_0.4.zarr": {
+  "error": {
+   "type": "ArrayNotFoundError",
+   "msg": "No array found in store file:///Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/multiscales_metadata_0.4.zarr at path 0"
+  }
+ },
+ "compressed_0.5.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/compressed_0.5.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "image",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.5,
+         0.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         4.0,
+         4.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         1.5,
+         1.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         8.0,
+         8.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         3.5,
+         3.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         16.0,
+         16.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         7.5,
+         7.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       3,
+       64,
+       64
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        3
+       ],
+       [
+        32,
+        32
+       ],
+       [
+        32,
+        32
+       ]
+      ],
+      "sha256": "33dedb0e009b7af64a4aad859b8bf05b33640de901a023cba3bcecda7cdf93c2"
+     },
+     {
+      "shape": [
+       3,
+       32,
+       32
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        3
+       ],
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "dedcb5d32ce068f5d055a7f3d7eaba0320a13b3fe478b7d8f3c02b3025cc4ad4"
+     },
+     {
+      "shape": [
+       3,
+       16,
+       16
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        3
+       ],
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "9a69ca796a5c0c46119c9f3851374c6177d9492b660fdb9539ae4476fffa1479"
+     },
+     {
+      "shape": [
+       3,
+       8,
+       8
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        3
+       ],
+       [
+        8
+       ],
+       [
+        8
+       ]
+      ],
+      "sha256": "4d12f95c49137510ebdbb5e14a992f1beaa7f0f0caeb955bb22b04b4ae492f81"
+     },
+     {
+      "shape": [
+       3,
+       4,
+       4
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        3
+       ],
+       [
+        4
+       ],
+       [
+        4
+       ]
+      ],
+      "sha256": "2f80176e808ff75940c5ff1bf7bfa496beb18e4056f5837a2ea6d30a9cf5b4eb"
+     }
+    ]
+   }
+  ]
+ },
+ "dask5d.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dask5d.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "t",
+       "type": "time"
+      },
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "z",
+       "type": "space"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "image",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0,
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         2.0,
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.5,
+         0.5,
+         0.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         2.0,
+         4.125,
+         4.125
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.5,
+         1.5625,
+         1.5625
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       2,
+       3,
+       10,
+       66,
+       66
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        1,
+        1
+       ],
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        3,
+        3,
+        3,
+        1
+       ],
+       [
+        20,
+        20,
+        20,
+        6
+       ],
+       [
+        20,
+        20,
+        20,
+        6
+       ]
+      ],
+      "sha256": "f3db5d81dc80cf953fcaa227597fea9e551c6b42439bd6a45ddc313184167ece"
+     },
+     {
+      "shape": [
+       2,
+       3,
+       5,
+       33,
+       33
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        1,
+        1
+       ],
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        20,
+        13
+       ],
+       [
+        20,
+        13
+       ]
+      ],
+      "sha256": "bb090cb59b824daa75f274b47987304badf8ff92e42e61d02bfe1ab91319bcb3"
+     },
+     {
+      "shape": [
+       2,
+       3,
+       5,
+       16,
+       16
+      ],
+      "dtype": "uint16",
+      "chunks": [
+       [
+        1,
+        1
+       ],
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        3,
+        2
+       ],
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "201c499f68928970215e12bb02ee0ca7211a9e169c3f1c7d1ab5a8c6210b1818"
+     }
+    ]
+   }
+  ]
+ },
+ "bool_nearest.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/bool_nearest.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "image",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.5,
+         0.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       32,
+       32
+      ],
+      "dtype": "bool",
+      "chunks": [
+       [
+        32
+       ],
+       [
+        32
+       ]
+      ],
+      "sha256": "fb4a2a58808028146c9767301ac66860d5ead4e8cfbe66f8e8f65f719db1df2d"
+     },
+     {
+      "shape": [
+       16,
+       16
+      ],
+      "dtype": "bool",
+      "chunks": [
+       [
+        16
+       ],
+       [
+        16
+       ]
+      ],
+      "sha256": "4e9fd34cc1279eeffd29cbd472834f8923dc2093de91ebe43b5a4456ebf0eb22"
+     }
+    ]
+   }
+  ]
+ },
+ "axes_no_name.zarr": {
+  "error": {
+   "type": "ArrayNotFoundError",
+   "msg": "No array found in store file:///Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/axes_no_name.zarr at path 0"
+  }
+ },
+ "conv_v04_swap.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/conv_v04_swap.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "swap",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "translation",
+        "translation": [
+         1,
+         2
+        ]
+       },
+       {
+        "type": "scale",
+        "scale": [
+         2,
+         3
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       4,
+       4
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        4
+       ],
+       [
+        4
+       ]
+      ],
+      "sha256": "de61d681f84866df75b4e95af06d3f124f0ee711beee6e044b3f4b584cccee5c"
+     }
+    ]
+   }
+  ]
+ },
+ "conv_v05_top.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/conv_v05_top.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "y",
+       "type": "space",
+       "unit": "micrometer"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": null,
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1,
+         0.5,
+         0.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       4,
+       4,
+       4
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        4
+       ],
+       [
+        4
+       ],
+       [
+        4
+       ]
+      ],
+      "sha256": "de39b240c602683624728ab65acd7a43b8b47c285992da9aa436f5f5f516614c"
+     }
+    ]
+   }
+  ]
+ },
+ "download_plate/plate_0.4.zarr": {
+  "error": {
+   "type": "ValueError",
+   "msg": "Could not find first well"
+  }
+ },
+ "download_scene/scene.zarr": {
+  "nodes": []
+ },
+ "astronaut_0.5.zarr": {
+  "nodes": [
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]",
+    "visible": true,
+    "specs": [
+     "Multiscales",
+     "OMERO"
+    ],
+    "metadata": {
+     "axes": [
+      {
+       "name": "c",
+       "type": "channel"
+      },
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "name": "astronaut",
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.5,
+         0.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         4.0,
+         4.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         1.5,
+         1.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         8.0,
+         8.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         3.5,
+         3.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         16.0,
+         16.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         7.5,
+         7.5
+        ]
+       }
+      ]
+     ],
+     "channel_names": [
+      "Red",
+      "Green",
+      "Blue"
+     ],
+     "visible": [
+      true,
+      true,
+      true
+     ],
+     "contrast_limits": [
+      [
+       0.0,
+       255.0
+      ],
+      [
+       0.0,
+       255.0
+      ],
+      [
+       0.0,
+       255.0
+      ]
+     ],
+     "colormap": [
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        1.0,
+        0.0,
+        0.0
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        1.0,
+        0.0
+       ]
+      ],
+      [
+       [
+        0,
+        0,
+        0
+       ],
+       [
+        0.0,
+        0.0,
+        1.0
+       ]
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       3,
+       1024,
+       1024
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+       ],
+       [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+       ]
+      ],
+      "sha256": "51a15c24e8e985ea93c140c35009ce5b56ad15c2e4e1e1756d9bacb220d85e87"
+     },
+     {
+      "shape": [
+       3,
+       512,
+       512
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        128,
+        128,
+        128,
+        128
+       ],
+       [
+        128,
+        128,
+        128,
+        128
+       ]
+      ],
+      "sha256": "18c0599bd267149a1f21186d716f005fbd36ad7d040d638e63c927eb12231f3b"
+     },
+     {
+      "shape": [
+       3,
+       256,
+       256
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        128,
+        128
+       ],
+       [
+        128,
+        128
+       ]
+      ],
+      "sha256": "d57f57c806fc34bd4cc10c938ec5a41a97a21579cccbaeb32d3b18f7dc16cd81"
+     },
+     {
+      "shape": [
+       3,
+       128,
+       128
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        128
+       ],
+       [
+        128
+       ]
+      ],
+      "sha256": "47dec49bbce9649a234761d142b3b8e5034653c0a84d2ddc13e05040a55b9533"
+     },
+     {
+      "shape": [
+       3,
+       64,
+       64
+      ],
+      "dtype": "uint8",
+      "chunks": [
+       [
+        1,
+        1,
+        1
+       ],
+       [
+        64
+       ],
+       [
+        64
+       ]
+      ],
+      "sha256": "d689f9e8334913210fd10305330f68ffdb565901878f9bf225b115006778c1a7"
+     }
+    ]
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Labels"
+    ],
+    "metadata": {},
+    "data": []
+   },
+   {
+    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)",
+    "visible": false,
+    "specs": [
+     "Label",
+     "Multiscales"
+    ],
+    "metadata": {
+     "visible": false,
+     "name": "astronaut_labels",
+     "color": {
+      "0": [
+       0.10588235294117647,
+       0.8627450980392157,
+       0.7411764705882353,
+       1.0
+      ],
+      "1": [
+       0.5450980392156862,
+       0.047058823529411764,
+       0.6901960784313725,
+       1.0
+      ],
+      "2": [
+       0.6431372549019608,
+       0.9333333333333333,
+       0.1411764705882353,
+       1.0
+      ]
+     },
+     "metadata": {
+      "image": {},
+      "path": "astronaut_labels"
+     },
+     "properties": {
+      "0": {},
+      "1": {},
+      "2": {}
+     },
+     "axes": [
+      {
+       "name": "y",
+       "type": "space"
+      },
+      {
+       "name": "x",
+       "type": "space"
+      }
+     ],
+     "coordinateTransformations": [
+      [
+       {
+        "type": "scale",
+        "scale": [
+         1.0,
+         1.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.0,
+         0.0
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         2.0,
+         2.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         0.5,
+         0.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         4.0,
+         4.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         1.5,
+         1.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         8.0,
+         8.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         3.5,
+         3.5
+        ]
+       }
+      ],
+      [
+       {
+        "type": "scale",
+        "scale": [
+         16.0,
+         16.0
+        ]
+       },
+       {
+        "type": "translation",
+        "translation": [
+         7.5,
+         7.5
+        ]
+       }
+      ]
+     ]
+    },
+    "data": [
+     {
+      "shape": [
+       1024,
+       1024
+      ],
+      "dtype": "int8",
+      "chunks": [
+       [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+       ],
+       [
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128,
+        128
+       ]
+      ],
+      "sha256": "19f26bde94a85a0e08b487024b0bec166e7e9da97cba1176af3459a3917c7e34"
+     },
+     {
+      "shape": [
+       512,
+       512
+      ],
+      "dtype": "int8",
+      "chunks": [
+       [
+        128,
+        128,
+        128,
+        128
+       ],
+       [
+        128,
+        128,
+        128,
+        128
+       ]
+      ],
+      "sha256": "cdd5b4bd247cfd0822b235e43db1a5564b252d36ab9251cd2a14547e3aabacef"
+     },
+     {
+      "shape": [
+       256,
+       256
+      ],
+      "dtype": "int8",
+      "chunks": [
+       [
+        128,
+        128
+       ],
+       [
+        128,
+        128
+       ]
+      ],
+      "sha256": "8c4c13a2d29b274ddc853079ae05a70b0596a035925d377f2250096e601d3633"
+     },
+     {
+      "shape": [
+       128,
+       128
+      ],
+      "dtype": "int8",
+      "chunks": [
+       [
+        128
+       ],
+       [
+        128
+       ]
+      ],
+      "sha256": "023b717c56b65ef630de1f37923c4bce3ed7ff34e9dc76a681a5c9e671c80b6e"
+     },
+     {
+      "shape": [
+       64,
+       64
+      ],
+      "dtype": "int8",
+      "chunks": [
+       [
+        64
+       ],
+       [
+        64
+       ]
+      ],
+      "sha256": "616f6dbbd79137c1d5a155a95d50c1de97fff6913e848606fbfcdc91ec814f9b"
+     }
+    ]
+   }
+  ]
+ },
+ "big_dask_level1.zarr": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ },
+ "does_not_exist.zarr": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ },
+ "finder": {
+  "error": {
+   "type": "AttributeError",
+   "msg": "'NoneType' object has no attribute 'exists'"
+  }
+ }
+}

@@ -1,0 +1,174 @@
+{
+ "delayed:jobs": 2,
+ "scene2:graph": {
+  "nodes": [
+   [
+    "ia",
+    "physical"
+   ],
+   [
+    "ia",
+    "rot"
+   ],
+   [
+    "ib",
+    "physical"
+   ]
+  ],
+  "paths": {
+   "('ia', 'rot')->('ib', 'physical')": {
+    "len": 1,
+    "affine": [
+     [
+      0.0,
+      -1.0,
+      3.5
+     ],
+     [
+      1.0,
+      0.0,
+      -7.0
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "points": [
+     [
+      1.5,
+      -6.0
+     ],
+     [
+      0.25,
+      3.5
+     ],
+     [
+      -26.5,
+      13.0
+     ],
+     [
+      -3.5,
+      -10.0
+     ]
+    ]
+   },
+   "('ib', 'physical')->('ia', 'rot')": {
+    "len": 1,
+    "affine": [
+     [
+      0.0,
+      1.0,
+      7.0
+     ],
+     [
+      -1.0,
+      0.0,
+      3.5
+     ],
+     [
+      0.0,
+      0.0,
+      1.0
+     ]
+    ],
+    "points": [
+     [
+      9.0,
+      2.5
+     ],
+     [
+      10.25,
+      -7.0
+     ],
+     [
+      37.0,
+      -16.5
+     ],
+     [
+      14.0,
+      6.5
+     ]
+    ]
+   }
+  }
+ },
+ "finder:csv": [
+  "File Path,File Name,Folders",
+  "http://localhost:8123/finder/sub/plate.zarr/A/1/0,plate.zarr,sub",
+  "http://localhost:8123/finder/sub/scene.zarr/a,scene.zarr,sub",
+  "http://localhost:8123/finder/coins.zarr,coins.zarr,."
+ ],
+ "find_multiscales": {
+  "coins_0.4.zarr": [
+   [
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr",
+    "coins_0.4.zarr",
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+   ]
+  ],
+  "plate_0.5.zarr": [
+   [
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0",
+    "plate_0.5.zarr",
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+   ]
+  ],
+  "scene.zarr": [
+   [
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/a",
+    "scene.zarr",
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+   ]
+  ],
+  "dtype_uint8_resize.zarr": [
+   [
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dtype_uint8_resize.zarr",
+    "dtype_uint8_resize.zarr",
+    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+   ]
+  ]
+ },
+ "view:stdout": "No OME-Zarr images found in /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1. Try $ ome_zarr finder /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 or use -f to force open in browser.\n",
+ "scaler_scale:error": {
+  "type": "AttributeError",
+  "msg": "'Group' object has no attribute 'create_dataset'"
+ },
+ "cli_scale:error": null,
+ "cli_scale:stdout": "copying attribute keys: []\n",
+ "errors": {
+  "plate_from_ome_zarr": {
+   "type": "ValueError",
+   "msg": "Could not find 'version' in group attributes. Expected location: group.attrs['ome']['version'] (v0.5+) or group.attrs['multiscales'][0]['version'] (v0.4 or lower)"
+  },
+  "well_from_ome_zarr": {
+   "type": "ValueError",
+   "msg": "Multiscales metadata not found in group attributes. Opening groups other than multiscales (i.e., HCS, Plates, Wells) is currently not supported."
+  },
+  "resize_bool": {
+   "type": "ValueError",
+   "msg": "anti_aliasing must be False for boolean images"
+  },
+  "labels_float": {
+   "type": "ValidationError",
+   "msg": "108 validation errors for LabelBase\ncolors.1.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=0.42857142857142855, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.2.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=0.7142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.3.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=1.4285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.4.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.5.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.4285714285714284, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.6.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=3.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.7.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=3.857142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.8.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=4.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.9.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=4.857142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.10.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=5.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.11.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=6.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.12.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=6.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.13.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=7.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.15.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=8.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.17.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=9.714285714285714, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.19.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=10.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.20.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=10.714285714285714, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.21.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=11.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.22.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=12.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.23.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=12.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.24.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=13.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.25.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=13.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.26.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=14.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.27.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=14.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.28.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=15.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.29.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=16.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.30.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=16.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.31.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=17.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.33.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=18.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.35.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=19.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.37.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=20.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.38.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=20.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.39.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=21.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.40.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=22.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.41.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=22.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.42.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=23.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.43.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=23.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.44.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=24.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.45.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=24.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.46.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=25.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.47.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=26.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.48.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=26.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.49.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=27.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.51.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=28.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.53.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=29.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.55.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=30.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.56.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=31.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.57.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=32.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.58.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=32.42857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.59.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=33.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.60.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=33.857142857142854, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.61.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=34.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.62.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=34.857142857142854, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\ncolors.63.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=35.57142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.1.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=0.42857142857142855, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.2.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=0.7142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.3.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=1.4285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.4.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.5.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=2.4285714285714284, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.6.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=3.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.7.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=3.857142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.8.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=4.142857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.9.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=4.857142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.10.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=5.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.11.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=6.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.12.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=6.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.13.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=7.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.15.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=8.285714285714286, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.17.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=9.714285714285714, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.19.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=10.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.20.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=10.714285714285714, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.21.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=11.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.22.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=12.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.23.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=12.428571428571429, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.24.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=13.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.25.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=13.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.26.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=14.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.27.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=14.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.28.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=15.571428571428571, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.29.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=16.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.30.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=16.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.31.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=17.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.33.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=18.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.35.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=19.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.37.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=20.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.38.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=20.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.39.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=21.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.40.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=22.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.41.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=22.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.42.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=23.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.43.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=23.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.44.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=24.142857142857142, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.45.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=24.857142857142858, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.46.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=25.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.47.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=26.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.48.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=26.571428571428573, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.49.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=27.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.51.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=28.285714285714285, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.53.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=29.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.55.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=30.714285714285715, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.56.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=31.428571428571427, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.57.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=32.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.58.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=32.42857142857143, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.59.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=33.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.60.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=33.857142857142854, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.61.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=34.142857142857146, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.62.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=34.857142857142854, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float\nproperties.63.label-value\n  Input should be a valid integer, got a number with a fractional part [type=int_from_float, input_value=35.57142857142857, input_type=float]\n    For further information visit https://errors.pydantic.dev/2.12/v/int_from_float"
+  },
+  "v03_axes": {
+   "type": "ValueError",
+   "msg": "2D data must have axes ('y', 'x') ('x', 'y')"
+  },
+  "scaler_unknown": {
+   "type": "ValueError",
+   "msg": "Unknown method: nope"
+  },
+  "info_missing": {
+   "type": "AssertionError",
+   "msg": "not a zarr: None"
+  },
+  "download_exists": {
+   "type": "AssertionError",
+   "msg": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/download_0.4/coins_0.4.zarr already exists!"
+  }
+ }
+}

@@ -1,0 +1,4 @@
+id,area,name,flag,n
+1,10.5,one,x,2.5
+2,20,two,,3.5
+7,1e3,seven,y,x
