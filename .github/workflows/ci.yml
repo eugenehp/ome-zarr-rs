@@ -58,7 +58,7 @@ jobs:
         with:
           components: clippy
       - run: cargo clippy --lib --no-default-features --features io,http,cloud,tls-rustcrypto -- -D warnings
-      - run: cargo test --lib --no-default-features --features io,http,cloud,tls-rustcrypto net::
+      - run: 'cargo test --lib --no-default-features --features io,http,cloud,tls-rustcrypto net::'
       - run: cargo test --no-default-features --features io,http,cloud,tls-rustcrypto --test test_remote
 
   wasm:
