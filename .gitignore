@@ -2,5 +2,7 @@
 *.png
 !assets/*.png
 *.zarr
+# zarr-python's arrays for tests/codecs.rs: checked in (CI does not make them)
+!tests/fixtures/codecs/*.zarr
 .DS_Store
 .claude/

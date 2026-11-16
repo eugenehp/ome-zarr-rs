@@ -49,7 +49,8 @@ jobs:
       - run: cargo check --lib --no-default-features --target wasm32-unknown-unknown
 
   # https and the cloud clients on RustCrypto's cryptography rather than
-  # graviola's (the default)
+  # graviola's (the default). test_remote needs the parity stores, which only
+  # the parity job generates; it runs there, on graviola.
   tls-rustcrypto:
     runs-on: ubuntu-latest
     steps:
@@ -59,7 +60,6 @@ jobs:
           components: clippy
       - run: cargo clippy --lib --no-default-features --features io,http,cloud,tls-rustcrypto -- -D warnings
       - run: 'cargo test --lib --no-default-features --features io,http,cloud,tls-rustcrypto net::'
-      - run: cargo test --no-default-features --features io,http,cloud,tls-rustcrypto --test test_remote
 
   wasm:
     runs-on: ubuntu-latest
