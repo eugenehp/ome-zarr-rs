@@ -188,7 +188,9 @@ platform (`src/linalg.rs`): `np.linalg.inv` up to 4x4 (the largest matrix a
 `getrs`. OpenBLAS selects x86-64 kernels by CPU model: the generic kernels (as
 under emulation) are matched, except for the tail rows of 4-term products;
 on CPUs where it picks FMA kernels, transform outputs can differ from numpy
-in the last bit.
+in the last bit. The containers get Nehalem's kernels on x86-64 (under
+Rosetta) and NeoverseN1's on arm64; CI's Linux runners, newer CPUs, are told
+to use the same with `OPENBLAS_CORETYPE` while they make the fixtures.
 
 ### WebAssembly
 

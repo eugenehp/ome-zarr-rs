@@ -82,6 +82,16 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+        # numpy's OpenBLAS picks its kernels by CPU, and they round small
+        # products differently; src/linalg.rs reproduces the ones it picks in
+        # ci/run-parity.sh's containers (Nehalem under Rosetta, NeoverseN1 on
+        # Apple silicon), so the runners are told to use those. macOS numpy
+        # is Accelerate.
+        include:
+          - os: ubuntu-latest
+            openblas: Nehalem
+          - os: ubuntu-24.04-arm
+            openblas: NeoverseN1
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -99,6 +109,8 @@ jobs:
           pip install -r ci/requirements-parity.txt
           pip install --no-deps -e ome-zarr-py
       - name: Fixtures
+        env:
+          OPENBLAS_CORETYPE: ${{ matrix.openblas }}
         run: |
           cd "$RUNNER_TEMP"
           for s in gen_parity_fixtures gen_ndimage_fixtures gen_zarr_fixtures gen_cli_fixtures \
