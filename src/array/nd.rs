@@ -204,6 +204,60 @@ impl NdArray {
         dtype_dispatch!(dtype, T => ArrayD::<T>::default(IxDyn(shape)).into_nd())
     }
 
+    /// An array from its elements' little-endian bytes, in C order.
+    pub fn from_le_bytes(dtype: DType, shape: &[usize], bytes: &[u8]) -> Result<NdArray> {
+        let size = dtype.itemsize();
+        let n: usize = shape.iter().product();
+        if bytes.len() != n * size {
+            return Err(Error::Zarr(format!(
+                "{} bytes for {n} {dtype} elements of shape {shape:?}",
+                bytes.len()
+            )));
+        }
+        dtype_dispatch!(dtype, T => {
+            let v: Vec<T> = bytes.chunks_exact(size).map(T::read_le).collect();
+            Ok(ArrayD::from_shape_vec(IxDyn(shape), v)
+                .map_err(|e| Error::value(e.to_string()))?
+                .into_nd())
+        })
+    }
+
+    /// The elements' little-endian bytes, in C order.
+    pub fn to_le_bytes(&self) -> Vec<u8> {
+        let size = self.dtype().itemsize();
+        let mut out = vec![0u8; self.len() * size];
+        crate::nd_dispatch!(self, a => {
+            for (v, o) in a.iter().zip(out.chunks_exact_mut(size)) {
+                v.write_le(o);
+            }
+        });
+        out
+    }
+
+    /// Whether every element's little-endian bytes are `value` (a NaN fill
+    /// value is matched bit for bit, as zarr-python does).
+    pub fn all_le(&self, value: &[u8]) -> bool {
+        let mut buf = vec![0u8; value.len()];
+        crate::nd_dispatch!(self, a => a.iter().all(|v| {
+            v.write_le(&mut buf);
+            buf == value
+        }))
+    }
+
+    /// An array of `shape`, every element `value`'s little-endian bytes.
+    pub fn filled_le(dtype: DType, shape: &[usize], value: &[u8]) -> NdArray {
+        dtype_dispatch!(dtype, T => ArrayD::<T>::from_elem(IxDyn(shape), T::read_le(value)).into_nd())
+    }
+
+    /// The axes in the order `axes` (numpy `transpose`), in C order.
+    pub fn permuted(&self, axes: &[usize]) -> NdArray {
+        crate::nd_map!(self, a => a
+            .view()
+            .permuted_axes(IxDyn(axes))
+            .as_standard_layout()
+            .into_owned())
+    }
+
     /// Array filled with a value (cast to dtype).
     pub fn full(dtype: DType, shape: &[usize], value: f64) -> NdArray {
         dtype_dispatch!(dtype, T => ArrayD::<T>::from_elem(IxDyn(shape), T::from_f64(value)).into_nd())

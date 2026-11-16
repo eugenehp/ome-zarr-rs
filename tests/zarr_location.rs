@@ -10,9 +10,12 @@ use serde_json::{Value, json};
 #[test]
 fn accessors_match_python() {
     let fx = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures");
-    let obs: Value =
-        serde_json::from_str(&std::fs::read_to_string(fx.join("zarr_location.json")).unwrap())
-            .unwrap();
+    let obs: Value = serde_json::from_str(
+        &std::fs::read_to_string(fx.join("zarr_location.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
+    )
+    .unwrap();
     std::env::set_current_dir(fx.join("parity/stores")).unwrap();
     let mut failures = vec![];
     for (p, want) in obs["cases"].as_object().unwrap() {

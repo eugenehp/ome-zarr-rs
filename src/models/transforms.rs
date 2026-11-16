@@ -7,7 +7,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
 use crate::error::{Error, Result};
-use crate::zarr::JsonMap;
+use crate::pyjson::JsonMap;
 
 fn is_none_bool(b: &Option<bool>) -> bool {
     b.is_none()
@@ -78,9 +78,7 @@ impl CoordinateSystem {
     }
 
     pub fn from_json(v: &Value) -> Result<CoordinateSystem> {
-        crate::models::pydantic::validate_model("CoordinateSystem", v)?;
-        let cs: CoordinateSystem = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid coordinate system: {e}")))?;
+        let cs: CoordinateSystem = super::parse("CoordinateSystem", "coordinate system", v)?;
         cs.validate()?;
         Ok(cs)
     }
@@ -388,16 +386,14 @@ impl Rotation {
 impl Transform {
     /// Parse and validate from JSON.
     pub fn from_json(v: &Value) -> Result<Transform> {
-        crate::models::pydantic::validate_model("Transform", v)?;
-        let t: Transform = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid transform: {e}")))?;
+        let t: Transform = super::parse("Transform", "transform", v)?;
         t.validate()?;
         Ok(t)
     }
 
     /// Serialize (only set fields, like `model_dump(exclude_none=True)`).
     pub fn to_json(&self) -> Value {
-        serde_json::to_value(self).expect("transform serialization")
+        super::dump(self)
     }
 
     /// The `type` string.

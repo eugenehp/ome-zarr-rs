@@ -1,5 +1,6 @@
 //! Stores fetched as they are read, for hosts that cannot block on I/O: the
-//! browser above all, where zarrs' synchronous reads cannot wait on a network.
+//! browser above all, where a [`Store`]'s synchronous reads cannot wait on a
+//! network.
 //!
 //! A [`LazyStore`] starts empty and records every key it is asked for and does
 //! not have. The host fetches those keys however it can (`fetch`, a `File`, a
@@ -35,29 +36,14 @@ use std::collections::HashSet;
 use std::future::Future;
 use std::sync::{Arc, Mutex};
 
+use bytes::Bytes;
 use futures::stream::{self, StreamExt};
-use zarrs_storage::byte_range::ByteRangeIterator;
-use zarrs_storage::{
-    Bytes, ListableStorageTraits, MaybeBytes, MaybeBytesIterator, OffsetBytesIterator,
-    ReadableStorageTraits, StorageError, StoreKey, StoreKeys, StoreKeysPrefixes, StorePrefix,
-    WritableStorageTraits,
-};
 
 use crate::error::{Error, Result};
-use crate::store::{MemoryStore, Store, StoreKind};
+use crate::store::{ByteRange, MemoryStore, Storage, Store, StoreKind};
 
-const V2_METADATA: [&str; 4] = [".zattrs", ".zgroup", ".zarray", ".zmetadata"];
-
-fn name_of(key: &str) -> &str {
-    key.rsplit('/').next().unwrap_or(key)
-}
-
-/// Is `key` a metadata document (`zarr.json`, `.zattrs`, `.zgroup`,
-/// `.zarray`, `.zmetadata`)?
-pub fn is_metadata(key: &str) -> bool {
-    let n = name_of(key);
-    n == "zarr.json" || V2_METADATA.contains(&n)
-}
+pub use crate::zarr::is_metadata;
+use crate::zarr::{ZARR_JSON, ZARRAY, ZATTRS, ZGROUP, document_name, is_v2_document};
 
 /// Which Zarr format the store turned out to be, once a metadata document
 /// was found: the other format's documents are then not asked for.
@@ -74,7 +60,7 @@ enum Seen {
 /// keys are read from it instead, and nothing is ever missing.
 pub struct LazyStore {
     inner: MemoryStore,
-    fallback: Option<Arc<dyn ReadableStorageTraits>>,
+    fallback: Option<Arc<dyn Storage>>,
     absent: Mutex<HashSet<String>>,
     missed: Mutex<Vec<String>>,
     seen: Mutex<Seen>,
@@ -100,7 +86,7 @@ impl LazyStore {
 
     /// Reads served by `fallback` (e.g. a [`ZipStore`](crate::store::ZipStore)),
     /// each key kept once read.
-    pub fn over(fallback: Arc<dyn ReadableStorageTraits>) -> LazyStore {
+    pub fn over(fallback: Arc<dyn Storage>) -> LazyStore {
         LazyStore {
             fallback: Some(fallback),
             ..LazyStore::new()
@@ -112,13 +98,10 @@ impl LazyStore {
         Store::from_dyn(self.clone(), StoreKind::Other, None)
     }
 
-    fn key(key: &str) -> Result<StoreKey> {
-        StoreKey::new(key.trim_start_matches('/')).map_err(|e| Error::Storage(e.to_string()))
-    }
-
     /// A key fetched: its bytes.
     pub fn put(&self, key: &str, bytes: Vec<u8>) -> Result<()> {
-        Ok(self.inner.set(&Self::key(key)?, Bytes::from(bytes))?)
+        self.inner
+            .set(key.trim_start_matches('/'), Bytes::from(bytes))
     }
 
     /// A key fetched and not there (an HTTP 404).
@@ -140,9 +123,7 @@ impl LazyStore {
     /// trip at a time arrive together.
     pub fn want(&self, key: &str) {
         let k = key.trim_start_matches('/');
-        let here = StoreKey::new(k)
-            .ok()
-            .is_some_and(|sk| self.inner.get(&sk).ok().flatten().is_some());
+        let here = self.inner.get(k).ok().flatten().is_some();
         if here || self.fallback.is_some() || self.absent.lock().unwrap().contains(k) {
             return;
         }
@@ -175,9 +156,9 @@ impl LazyStore {
             }
         };
         let (array, group) = if zarr_format == 2 {
-            (&[".zarray", ".zattrs"][..], &[".zgroup", ".zattrs"][..])
+            (&[ZARRAY, ZATTRS][..], &[ZGROUP, ZATTRS][..])
         } else {
-            (&["zarr.json"][..], &["zarr.json"][..])
+            (&[ZARR_JSON][..], &[ZARR_JSON][..])
         };
         for ms in multiscales.into_iter().flatten() {
             for ds in ms
@@ -207,11 +188,8 @@ impl LazyStore {
     /// [`evict_chunks`](Self::evict_chunks) for the keys under `prefix`
     /// only (one array's): others fetched ahead stay.
     pub fn evict_chunks_under(&self, prefix: &str) {
-        if let Ok(keys) = self.inner.list() {
-            for k in keys
-                .iter()
-                .filter(|k| k.as_str().starts_with(prefix) && !is_metadata(k.as_str()))
-            {
+        if let Ok(keys) = self.inner.list_prefix(prefix) {
+            for k in keys.iter().filter(|k| !is_metadata(k)) {
                 let _ = self.inner.erase(k);
             }
         }
@@ -224,17 +202,16 @@ impl LazyStore {
 
     /// `key`'s bytes if here (or in the fallback); else noted as missing,
     /// unless known absent or a document of the other Zarr format.
-    fn find(&self, key: &StoreKey) -> std::result::Result<MaybeBytes, StorageError> {
-        let k = key.as_str();
-        let name = name_of(k);
-        let v2 = V2_METADATA.contains(&name);
-        let found = match self.inner.get(key)? {
+    fn find(&self, k: &str) -> Result<Option<Bytes>> {
+        let name = document_name(k);
+        let v2 = is_v2_document(name);
+        let found = match self.inner.get(k)? {
             Some(v) => Some(v),
             None => match &self.fallback {
                 Some(f) => {
-                    let v = f.get(key)?;
+                    let v = f.get(k)?;
                     if let Some(v) = &v {
-                        self.inner.set(key, v.clone())?;
+                        self.inner.set(k, v.clone())?;
                     }
                     v
                 }
@@ -243,14 +220,14 @@ impl LazyStore {
         };
         let mut seen = self.seen.lock().unwrap();
         if found.is_some() {
-            if name == "zarr.json" {
+            if name == ZARR_JSON {
                 *seen = Seen::V3;
             } else if v2 {
                 *seen = Seen::V2;
             }
             return Ok(found);
         }
-        let other_format = (*seen == Seen::V3 && v2) || (*seen == Seen::V2 && name == "zarr.json");
+        let other_format = (*seen == Seen::V3 && v2) || (*seen == Seen::V2 && name == ZARR_JSON);
         if self.fallback.is_none() && !other_format && !self.absent.lock().unwrap().contains(k) {
             {
                 let mut m = self.missed.lock().unwrap();
@@ -260,76 +237,44 @@ impl LazyStore {
             }
             // a v2 node's attributes are read right after it is found: ask
             // for them in the same round
-            if name == ".zgroup" || name == ".zarray" {
+            if name == ZGROUP || name == ZARRAY {
                 drop(seen);
-                self.want(&format!("{}.zattrs", &k[..k.len() - name.len()]));
+                self.want(&format!("{}{ZATTRS}", &k[..k.len() - name.len()]));
             }
         }
         Ok(None)
     }
 }
 
-impl ReadableStorageTraits for LazyStore {
-    fn get(&self, key: &StoreKey) -> std::result::Result<MaybeBytes, StorageError> {
+/// Listing covers only the keys fetched so far: a remote store cannot be
+/// listed, so readers that walk a hierarchy see what they asked for.
+impl Storage for LazyStore {
+    fn get(&self, key: &str) -> Result<Option<Bytes>> {
         self.find(key)
     }
-    fn get_partial_many<'a>(
-        &'a self,
-        key: &StoreKey,
-        byte_ranges: ByteRangeIterator<'a>,
-    ) -> std::result::Result<MaybeBytesIterator<'a>, StorageError> {
+    fn get_ranges(&self, key: &str, ranges: &[ByteRange]) -> Result<Option<Vec<Bytes>>> {
         if self.find(key)?.is_none() {
             return Ok(None);
         }
-        self.inner.get_partial_many(key, byte_ranges)
+        self.inner.get_ranges(key, ranges)
     }
-    fn size_key(&self, key: &StoreKey) -> std::result::Result<Option<u64>, StorageError> {
-        Ok(self.find(key)?.map(|v| v.len() as u64))
-    }
-    fn supports_get_partial(&self) -> bool {
+    fn supports_ranges(&self) -> bool {
         true
     }
-}
-
-/// Listing covers only the keys fetched so far: a remote store cannot be
-/// listed, so readers that walk a hierarchy see what they asked for.
-impl ListableStorageTraits for LazyStore {
-    fn list(&self) -> std::result::Result<StoreKeys, StorageError> {
-        self.inner.list()
+    fn size(&self, key: &str) -> Result<Option<u64>> {
+        Ok(self.find(key)?.map(|v| v.len() as u64))
     }
-    fn list_prefix(&self, prefix: &StorePrefix) -> std::result::Result<StoreKeys, StorageError> {
-        self.inner.list_prefix(prefix)
-    }
-    fn list_dir(
-        &self,
-        prefix: &StorePrefix,
-    ) -> std::result::Result<StoreKeysPrefixes, StorageError> {
-        self.inner.list_dir(prefix)
-    }
-    fn size_prefix(&self, prefix: &StorePrefix) -> std::result::Result<u64, StorageError> {
-        self.inner.size_prefix(prefix)
-    }
-}
-
-impl WritableStorageTraits for LazyStore {
-    fn set(&self, key: &StoreKey, value: Bytes) -> std::result::Result<(), StorageError> {
+    fn set(&self, key: &str, value: Bytes) -> Result<()> {
         self.inner.set(key, value)
     }
-    fn set_partial_many(
-        &self,
-        key: &StoreKey,
-        offset_values: OffsetBytesIterator,
-    ) -> std::result::Result<(), StorageError> {
-        self.inner.set_partial_many(key, offset_values)
-    }
-    fn erase(&self, key: &StoreKey) -> std::result::Result<(), StorageError> {
+    fn erase(&self, key: &str) -> Result<()> {
         self.inner.erase(key)
     }
-    fn erase_prefix(&self, prefix: &StorePrefix) -> std::result::Result<(), StorageError> {
+    fn erase_prefix(&self, prefix: &str) -> Result<()> {
         self.inner.erase_prefix(prefix)
     }
-    fn supports_set_partial(&self) -> bool {
-        false
+    fn list_prefix(&self, prefix: &str) -> Result<Vec<String>> {
+        self.inner.list_prefix(prefix)
     }
 }
 
@@ -377,6 +322,10 @@ where
 /// Fetch `keys` into `store`, `parallel` at a time: one round. With a key
 /// list found ahead (a read's misses, recorded by running it once), the
 /// fetching can run alongside other work — another level read meanwhile.
+///
+/// A key that fails is asked for once more. One that fails again does not
+/// end the round: the rest arrive and are kept, so running the read again
+/// fetches only what is still missing, and its error is returned at the end.
 pub async fn fetch_keys<F, Fut>(
     store: &LazyStore,
     keys: Vec<String>,
@@ -395,23 +344,33 @@ where
     progress.pending += keys.len();
     progress.rounds += 1;
     let mut arriving = stream::iter(keys.into_iter().map(|k| async move {
-        let r = fetch(k.clone()).await;
+        let r = match fetch(k.clone()).await {
+            Err(_) => fetch(k.clone()).await,
+            r => r,
+        };
         (k, r)
     }))
     .buffer_unordered(parallel.max(1));
+    let mut failed = None;
     while let Some((k, r)) = arriving.next().await {
-        match r.map_err(Error::Storage)? {
-            Some(b) => {
+        match r {
+            Ok(Some(b)) => {
                 progress.bytes += b.len();
                 store.put(&k, b)?;
+                progress.files += 1;
             }
-            None => store.absent(&k),
+            Ok(None) => {
+                store.absent(&k);
+                progress.files += 1;
+            }
+            Err(e) => {
+                failed.get_or_insert(e);
+            }
         }
-        progress.files += 1;
         progress.pending -= 1;
         on_progress(*progress);
     }
-    Ok(())
+    failed.map_or(Ok(()), |e| Err(Error::Storage(e)))
 }
 
 /// The folder a tree of files' store is rooted in (`""`, or ending in `/`):

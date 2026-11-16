@@ -21,7 +21,7 @@
 //! | [`transformnd`] | `transformnd` (functional transforms and transform graphs) |
 //! | [`ndimage`], [`skimage`] | the `scipy.ndimage` / `scikit-image` functions used for downsampling |
 //! | [`array`](mod@array) | numpy / dask: [`NdArray`](array::NdArray), [`LazyArray`](array::LazyArray) |
-//! | [`zarr`], [`store`] | zarr-python groups, arrays and stores (on top of `zarrs`) |
+//! | [`zarr`], [`store`] | zarr-python groups, arrays and stores; their chunks through [`codecs`] |
 //! | [`render`] | GPU rendering and the native viewer (threers) |
 //!
 //! ```no_run
@@ -38,33 +38,56 @@
 // Index loops mirror the reference (scipy C / Python) implementations.
 #![allow(clippy::needless_range_loop)]
 
+#[cfg(feature = "io")]
 pub mod argparse;
+#[cfg(feature = "io")]
 pub mod array;
+#[cfg(feature = "io")]
 pub mod axes;
+#[cfg(feature = "io")]
+pub mod blosc;
+#[cfg(feature = "io")]
 pub mod classes;
+#[cfg(feature = "io")]
 pub mod cli;
+#[cfg(feature = "io")]
 pub mod codecs;
+#[cfg(feature = "io")]
 pub mod conversions;
+#[cfg(feature = "io")]
 pub mod csv;
+#[cfg(feature = "io")]
 pub mod data;
 pub mod error;
+#[cfg(feature = "io")]
 pub mod format;
+#[cfg(feature = "io")]
 pub mod io;
+#[cfg(feature = "io")]
 pub mod lazy;
 pub mod linalg;
 pub mod models;
+#[cfg(feature = "io")]
 pub mod ndimage;
+#[cfg(all(feature = "http", not(target_arch = "wasm32")))]
+mod net;
+#[cfg(feature = "io")]
 pub mod par;
 pub mod pyjson;
+#[cfg(feature = "io")]
 pub mod reader;
+#[cfg(feature = "io")]
 pub mod remote_zip;
 #[cfg(feature = "render")]
 pub mod render;
+#[cfg(all(feature = "http", not(target_arch = "wasm32")))]
+mod retry;
+#[cfg(feature = "io")]
 pub mod scale;
-#[cfg(not(target_arch = "wasm32"))]
+#[cfg(all(feature = "io", not(target_arch = "wasm32")))]
 pub mod server;
 /// No sockets or browser on wasm: `view --web` / `finder` cannot serve.
-#[cfg(target_arch = "wasm32")]
+#[cfg(all(feature = "io", target_arch = "wasm32"))]
 pub mod server {
     pub fn open_browser(_url: &str) {}
     pub fn serve(_root: &std::path::Path, _port: u16) -> crate::Result<()> {
@@ -73,13 +96,20 @@ pub mod server {
         ))
     }
 }
+#[cfg(feature = "io")]
 pub mod skimage;
+#[cfg(feature = "io")]
 pub mod store;
+#[cfg(feature = "io")]
 pub mod transformnd;
+#[cfg(feature = "io")]
 pub mod utils;
+#[cfg(feature = "io")]
 pub mod writer;
+#[cfg(feature = "io")]
 pub mod zarr;
 
+#[cfg(feature = "io")]
 pub use classes::{OmeZarrImage, OmeZarrLabels, OmeZarrMultiscale, OmeZarrScene};
 pub use error::{Error, Result};
 

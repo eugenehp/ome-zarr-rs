@@ -41,7 +41,14 @@ from ome_zarr.writer import (  # noqa: E402
     write_well_metadata,
 )
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent / "tests" / "fixtures" / "parity"
+REPO = pathlib.Path(__file__).resolve().parent.parent
+ROOT = REPO / "tests" / "fixtures" / "parity"
+
+
+def portable(text):
+    """Observations name paths by the repository's root as `${REPO}` (the tests
+    put their own back), so they hold wherever the repository is."""
+    return text.replace(str(REPO), "${REPO}")
 if ROOT.exists():
     shutil.rmtree(ROOT)
 ROOT.mkdir(parents=True)
@@ -349,7 +356,7 @@ def nan_to_str(x):
     return x
 
 
-(ROOT / "observations.json").write_text(json.dumps(nan_to_str(OBS), indent=1))
+(ROOT / "observations.json").write_text(portable(json.dumps(nan_to_str(OBS), indent=1)))
 print("wrote", len(OBS), "observations and", len(list(STORES.iterdir())), "stores to", ROOT)
 
 
@@ -443,7 +450,7 @@ E2 = {
 OBS2["errors"] = {k: err(f) for k, f in E2.items()}
 for p in ["e_bool.zarr", "e_v03.zarr"]:
     shutil.rmtree(STORES / p, ignore_errors=True)
-(ROOT / "observations2.json").write_text(json.dumps(nan_to_str(OBS2), indent=1))
+(ROOT / "observations2.json").write_text(portable(json.dumps(nan_to_str(OBS2), indent=1)))
 print("round 2:", len(OBS2), "observations")
 
 
@@ -493,7 +500,7 @@ write_multiscales_metadata(g3, [{"path": "0", "coordinateTransformations": [{"ty
                            axes=[{"type": "space"}, {"name": "x", "type": "space"}])
 OBS3 = {"errors": {k: err(f) for k, f in E3.items()}}
 shutil.rmtree(STORES / "e3.zarr", ignore_errors=True)
-(ROOT / "observations3.json").write_text(json.dumps(nan_to_str(OBS3), indent=1))
+(ROOT / "observations3.json").write_text(portable(json.dumps(nan_to_str(OBS3), indent=1)))
 
 
 # ================================================================ round 4: tests/test_scaler.py grids
@@ -568,7 +575,7 @@ for name in ["astronaut_0.4.zarr", "astronaut_0.5.zarr"]:
     shutil.rmtree(out, ignore_errors=True)
     OBS5[f"download:{name}"] = run_logged(lambda: download(store(name), str(out)), "INFO")
     shutil.rmtree(out, ignore_errors=True)
-(ROOT / "observations5.json").write_text(json.dumps(nan_to_str(OBS5), indent=1))
+(ROOT / "observations5.json").write_text(portable(json.dumps(nan_to_str(OBS5), indent=1)))
 print("round 5:", len(OBS5))
 
 
@@ -605,7 +612,7 @@ for name in READER_PATHS:
         OBS6[name] = {"nodes": node_obs2(store(name))}
     except Exception as e:  # noqa: BLE001
         OBS6[name] = {"error": {"type": type(e).__name__, "msg": str(e)}}
-(ROOT / "observations6.json").write_text(json.dumps(nan_to_str(OBS6), indent=1))
+(ROOT / "observations6.json").write_text(portable(json.dumps(nan_to_str(OBS6), indent=1)))
 print("round 6:", {k: (len(v["nodes"]) if "nodes" in v else v["error"]["type"]) for k, v in OBS6.items()})
 
 
@@ -650,7 +657,7 @@ for cname, comp in COMPRESSORS.items():
                                 storage_options={"compressors": [v3c]}))
     if e:
         OBS7["errors"][name] = e
-(ROOT / "observations7.json").write_text(json.dumps(nan_to_str(OBS7), indent=1))
+(ROOT / "observations7.json").write_text(portable(json.dumps(nan_to_str(OBS7), indent=1)))
 print("round 7:", OBS7["errors"])
 
 

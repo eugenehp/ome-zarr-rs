@@ -1,12 +1,11 @@
 [package]
 name = "ome-zarr"
-version = "0.1.0"
+version = "0.3.0"
 edition = "2024"
-rust-version = "1.91"
+rust-version = "1.99"
 description = "Implementation of images in Zarr files (OME-Zarr / OME-NGFF). A Rust port of ome-zarr-py."
 license = "BSD-2-Clause"
 repository = "https://github.com/eugenehp/ome-zarr-rs"
-homepage = "https://github.com/eugenehp/ome-zarr-rs"
 documentation = "https://docs.rs/ome-zarr"
 readme = "README.md"
 keywords = ["ome-zarr", "ngff", "zarr", "microscopy", "imaging"]
@@ -24,73 +23,102 @@ path = "src/main.rs"
 required-features = ["render"]
 
 [features]
-default = ["http", "cloud", "render"]
+default = ["io", "http", "cloud", "render", "tls-graviola"]
+# Everything but the metadata: arrays, stores, codecs, pyramids, reading and
+# writing. Off, the crate is `models`, `linalg`, `pyjson` and `error`: OME-NGFF
+# metadata parsed and validated, with no Zarr I/O and no C, for an app with
+# its own Zarr reader.
+io = [
+    "dep:bytes", "dep:bzip2", "dep:chrono", "dep:crc32c", "dep:csv", "dep:flate2",
+    "dep:futures", "dep:half", "dep:lz4_flex", "dep:lzma-rs", "dep:snap", "dep:zstd-rs",
+    "dep:ndarray", "dep:num-complex", "dep:percent-encoding", "dep:rayon", "dep:roxmltree",
+    "dep:url", "dep:zip",
+]
 # GPU rendering and the native viewer (threers, winit), the CLI's `view` and
 # `render`, and the sample images (`data`, decoded with threers' PNG reader).
 # Off, the crate is metadata, I/O, pyramids and transforms only: what a wasm
 # app embedding it as a reader needs.
-render = ["dep:threers", "dep:winit"]
+render = ["io", "dep:threers", "dep:winit"]
 # Read OME-Zarr (and zipped OME-Zarr) over http(s) (native only; on wasm,
-# supply a store of your own or `Store::zip_bytes`)
-http = ["dep:zarrs_http", "dep:reqwest"]
-# Read/write OME-Zarr in cloud object storage via object_store (native only):
-# s3://bucket/path, gs://bucket/path, az://container/path
-cloud = ["dep:zarrs_object_store", "dep:object_store", "dep:tokio"]
+# supply a store of your own or `Store::zip_bytes`): ureq and rustls, with
+# the cryptography of a `tls-*` feature
+http = ["io", "dep:ureq"]
+# Read/write OME-Zarr in cloud object storage (native only), signed in pure
+# Rust: s3://bucket/path (SigV4), gs://bucket/path (OAuth 2, RS256),
+# az://container/path (Shared Key, SAS, OAuth 2)
+cloud = ["http", "dep:base64", "dep:hmac", "dep:sha2"]
 s3 = ["cloud"]
+# https's cryptography (and the RS256 of Google's service accounts), pure
+# Rust either way, no ring or aws-lc: graviola's (formally verified, x86-64
+# and aarch64 only) or RustCrypto's (rustls-rustcrypto, any target). With
+# both, graviola where it runs.
+tls-graviola = ["dep:rustls-graviola", "dep:graviola"]
+tls-rustcrypto = ["dep:rustls-rustcrypto", "dep:rsa"]
 
 [dependencies]
-bytes = "1"
+bytes = { version = "1", optional = true }
 # the `lazy` module's fetch loop (any executor: the browser's, or a test's)
-futures = { version = "0.3", default-features = false, features = ["std", "async-await"] }
-csv = "1.3"
-half = { version = "2.4", features = ["bytemuck"] }
-inventory = "0.3.21"
-lz4_flex = { version = "0.11", default-features = false, features = ["std", "safe-encode", "safe-decode"] }
-lzma-rs = "0.3"
+futures = { version = "0.3", default-features = false, features = ["std", "async-await"], optional = true }
+csv = { version = "1.3", optional = true }
+half = { version = "2.4", features = ["bytemuck"], optional = true }
+lz4_flex = { version = "0.11", default-features = false, features = ["std", "safe-encode", "safe-decode"], optional = true }
+# the codecs (src/codecs.rs, src/blosc.rs), all pure Rust
+bzip2 = { version = "0.6", optional = true }
+crc32c = { version = "0.6", optional = true }
+snap = { version = "1", optional = true }
+zstd-rs = { version = "=0.1.0", optional = true }
+lzma-rs = { version = "0.3", optional = true }
 log = "0.4"
-ndarray = "0.17"
-num-complex = { version = "0.4", features = ["bytemuck"] }
-percent-encoding = "2.3"
-roxmltree = "0.20"
+ndarray = { version = "0.17", optional = true }
+num-complex = { version = "0.4", features = ["bytemuck"], optional = true }
+percent-encoding = { version = "2.3", optional = true }
+roxmltree = { version = "0.20", optional = true }
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["preserve_order", "float_roundtrip"] }
 thiserror = "2"
-url = "2.5"
-zarrs = { version = "0.23", default-features = false, features = ["gzip", "zlib", "bz2", "zstd", "blosc", "crc32c", "sharding", "transpose", "ndarray"] }
-zarrs_storage = "0.4"
-zarrs_codec = "0.2.1"
-zarrs_metadata = "0.7.2"
-zarrs_plugin = "0.4.1"
-zip = { version = "2", default-features = false, features = ["deflate"] }
-# deflated members of a zip read in ranges (`remote_zip`); already zip's
-flate2 = "1"
+url = { version = "2.5", optional = true }
+zip = { version = "9", default-features = false, features = ["deflate"], optional = true }
+# gzip and zlib (`codecs`), and deflated members of a zip read in ranges
+# (`remote_zip`)
+flate2 = { version = "1", optional = true }
 # Primary renderer: GPU slices, channel composites and label overlays (WebGPU on wasm)
 # The crates.io release, pinned: the API used here (volume slices, headless
 # targets, the PNG codec) is all in it, so no threers checkout is needed.
-threers = { version = "=0.0.8", default-features = false, optional = true }
+threers = { version = "=0.0.12", default-features = false, features = ["render"], optional = true }
 
 # Native only: filesystem stores, threads, http, the CLI and the windowed viewer.
 [target.'cfg(not(target_arch = "wasm32"))'.dependencies]
-chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
-rayon = "1.10"
-winit = { version = "0.29", optional = true }
-zarrs = { version = "0.23", default-features = false, features = ["filesystem"] }
-zarrs_http = { version = "0.3.1", optional = true }
-zarrs_object_store = { version = "0.7", optional = true }
-object_store = { version = "0.14", optional = true, features = ["aws", "gcp", "azure"] }
-reqwest = { version = "0.12", optional = true, features = ["blocking"] }
-tokio = { version = "1", optional = true, features = ["rt-multi-thread"] }
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"], optional = true }
+rayon = { version = "1.10", optional = true }
+winit = { version = "0.30", optional = true }
+# https: ureq with rustls and webpki's roots, the crypto from a `tls-*`
+# feature (ureq's default rustls would build ring's C)
+ureq = { version = "3", optional = true, default-features = false, features = ["rustls-no-provider", "rustls-webpki-roots"] }
+rustls-rustcrypto = { version = "0.1.0-pre.0", optional = true }
+rsa = { version = "0.10", optional = true }
+# signing cloud requests
+base64 = { version = "0.22", optional = true }
+hmac = { version = "0.13", optional = true }
+sha2 = { version = "0.11", optional = true }
+
+[target.'cfg(any(target_arch = "x86_64", target_arch = "aarch64"))'.dependencies]
+rustls-graviola = { version = "0.4", optional = true }
+graviola = { version = "0.4", optional = true }
 
 [dev-dependencies]
 futures = { version = "0.3", default-features = false, features = ["std", "async-await", "executor"] }
+# tests/codecs.rs decodes numcodecs' zstd frames directly
+zstd-rs = "=0.1.0"
+# tests/parity5.rs captures log records with `set_boxed_logger`
+log = { version = "0.4", features = ["std"] }
 
 [target.'cfg(not(target_arch = "wasm32"))'.dev-dependencies]
-sha2 = "0.10"
+sha2 = "0.11"
 tempfile = "3"
 
 [target.'cfg(target_arch = "wasm32")'.dev-dependencies]
 wasm-bindgen-test = "0.3.79"
-wasm-bindgen = "=0.2.129"
+wasm-bindgen = "=0.2.130"
 
 [profile.dev.package."*"]
 opt-level = 2

@@ -119,21 +119,3 @@ impl Error {
         matches!(self, Error::Key(_))
     }
 }
-
-impl From<zarrs_storage::StorageError> for Error {
-    fn from(e: zarrs_storage::StorageError) -> Self {
-        Error::Storage(e.to_string())
-    }
-}
-
-impl From<zarrs::array::ArrayError> for Error {
-    fn from(e: zarrs::array::ArrayError) -> Self {
-        Error::Zarr(e.to_string())
-    }
-}
-
-impl From<zarrs::array::ArrayCreateError> for Error {
-    fn from(e: zarrs::array::ArrayCreateError) -> Self {
-        Error::Zarr(e.to_string())
-    }
-}

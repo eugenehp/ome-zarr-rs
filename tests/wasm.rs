@@ -144,7 +144,6 @@ fn transforms_graph() {
 #[test]
 fn zip_bytes_store() {
     use std::io::Write;
-    use zarrs_storage::{ListableStorageTraits, ReadableStorageTraits};
     let mem = Store::memory();
     let g = Group::open(&mem, "", Mode::Write, Some(3)).unwrap();
     let opts = ImageOptions {
@@ -156,7 +155,7 @@ fn zip_bytes_store() {
     let mut buf = std::io::Cursor::new(Vec::new());
     {
         let mut z = zip::ZipWriter::new(&mut buf);
-        for key in mem.inner().list().unwrap() {
+        for key in mem.inner().list_prefix("").unwrap() {
             let bytes = mem.inner().get(&key).unwrap().unwrap();
             z.start_file(key.as_str(), zip::write::SimpleFileOptions::default())
                 .unwrap();
@@ -175,7 +174,7 @@ fn zip_bytes_store() {
     assert!(a == data(&[32, 32]));
 }
 
-/// The numcodecs compressors (zlib, bz2, lz4, lzma: pure Rust or bundled C)
+/// The numcodecs compressors (zlib, bz2, lz4, lzma: all pure Rust)
 /// round-trip on every target.
 #[test]
 fn numcodecs_compressors_roundtrip() {

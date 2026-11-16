@@ -394,6 +394,8 @@ impl LazyArray {
             .block_regions()
             .into_par_iter()
             .map(|r| self.read(&r).map(|a| a.min_max()))
+            .collect::<Vec<Result<_>>>()
+            .into_iter()
             .collect::<Result<_>>()?;
         let mut out: Option<(f64, f64)> = None;
         for (lo, hi) in parts.into_iter().flatten() {
@@ -417,6 +419,8 @@ impl LazyArray {
             .block_regions()
             .into_par_iter()
             .map(|r| self.read(&r).map(|a| a.min_max_complex()))
+            .collect::<Vec<Result<_>>>()
+            .into_iter()
             .collect::<Result<_>>()?;
         let lt = |a: (f64, f64), b: (f64, f64)| a.0 < b.0 || (a.0 == b.0 && a.1 < b.1);
         let mut out: Option<((f64, f64), (f64, f64))> = None;
@@ -438,6 +442,8 @@ impl LazyArray {
             .block_regions()
             .into_par_iter()
             .map(|r| self.read(&r).map(|a| a.unique_f64()))
+            .collect::<Vec<Result<_>>>()
+            .into_iter()
             .collect::<Result<_>>()?;
         let mut v: Vec<f64> = parts.into_iter().flatten().collect();
         v.sort_by(|a, b| a.partial_cmp(b).unwrap_or(std::cmp::Ordering::Equal));

@@ -103,34 +103,34 @@
  "find_multiscales": {
   "coins_0.4.zarr": [
    [
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr",
+    "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr",
     "coins_0.4.zarr",
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+    "${REPO}/tests/fixtures/parity/stores"
    ]
   ],
   "plate_0.5.zarr": [
    [
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0",
+    "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0",
     "plate_0.5.zarr",
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+    "${REPO}/tests/fixtures/parity/stores"
    ]
   ],
   "scene.zarr": [
    [
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/a",
+    "${REPO}/tests/fixtures/parity/stores/scene.zarr/a",
     "scene.zarr",
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+    "${REPO}/tests/fixtures/parity/stores"
    ]
   ],
   "dtype_uint8_resize.zarr": [
    [
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dtype_uint8_resize.zarr",
+    "${REPO}/tests/fixtures/parity/stores/dtype_uint8_resize.zarr",
     "dtype_uint8_resize.zarr",
-    "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores"
+    "${REPO}/tests/fixtures/parity/stores"
    ]
   ]
  },
- "view:stdout": "No OME-Zarr images found in /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1. Try $ ome_zarr finder /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 or use -f to force open in browser.\n",
+ "view:stdout": "No OME-Zarr images found in ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1. Try $ ome_zarr finder ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 or use -f to force open in browser.\n",
  "scaler_scale:error": {
   "type": "AttributeError",
   "msg": "'Group' object has no attribute 'create_dataset'"
@@ -168,7 +168,7 @@
   },
   "download_exists": {
    "type": "AssertionError",
-   "msg": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/download_0.4/coins_0.4.zarr already exists!"
+   "msg": "${REPO}/tests/fixtures/parity/stores/download_0.4/coins_0.4.zarr already exists!"
   }
  }
 }

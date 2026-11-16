@@ -10,7 +10,7 @@ use super::transforms::{
     Axis, CoordinateSystem, CoordinateSystemIdentifier, Scale, Sequence, Transform, Translation,
 };
 use crate::error::{Error, Result};
-use crate::zarr::JsonMap;
+use crate::pyjson::JsonMap;
 
 /// An element of `Multiscale.datasets`.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -235,18 +235,14 @@ pub fn validate_axis_types(types: &[Option<String>]) -> Result<()> {
 impl Multiscale {
     /// Parse and validate from JSON.
     pub fn from_json(v: &Value) -> Result<Multiscale> {
-        crate::models::pydantic::validate_model("Multiscale", v)?;
-        let m: Multiscale = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid multiscale: {e}")))?;
+        let m: Multiscale = super::parse("Multiscale", "multiscale", v)?;
         m.validate()?;
         Ok(m)
     }
 
     /// Serialize (`model_dump` + `_recursive_pop_nones`).
     pub fn to_json(&self) -> Value {
-        crate::utils::recursive_pop_nones(
-            &serde_json::to_value(self).expect("serialize multiscale"),
-        )
+        super::dump_without_nones(self)
     }
 
     /// Validate (pydantic validators of `Multiscale` v0.6).
@@ -444,7 +440,7 @@ impl Multiscale {
             "name": self.name,
             "type": self.type_,
         });
-        Ok(crate::utils::recursive_pop_nones(&v))
+        Ok(crate::pyjson::recursive_pop_nones(&v))
     }
 
     /// Convert to the v0.4 JSON form (same structure as 0.5).

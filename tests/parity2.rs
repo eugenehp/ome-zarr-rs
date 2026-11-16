@@ -18,8 +18,12 @@ use ome_zarr::zarr::{Group, Mode};
 use serde_json::{Value, json};
 
 fn observations2() -> Value {
-    serde_json::from_str(&std::fs::read_to_string(fixtures().join("observations2.json")).unwrap())
-        .unwrap()
+    serde_json::from_str(
+        &std::fs::read_to_string(fixtures().join("observations2.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
+    )
+    .unwrap()
 }
 
 fn group(dir: &Path, name: &str) -> (std::path::PathBuf, Group) {

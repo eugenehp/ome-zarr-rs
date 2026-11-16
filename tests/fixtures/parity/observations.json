@@ -1,7 +1,7 @@
 {
  "nodes:coins_0.4.zarr": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]",
    "visible": true,
    "specs": [
     "Multiscales",
@@ -239,7 +239,7 @@
    ]
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Labels"
@@ -248,7 +248,7 @@
    "data": []
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Label",
@@ -532,11 +532,11 @@
    ]
   }
  ],
- "info:coins_0.4.zarr:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
- "info:coins_0.4.zarr:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
+ "info:coins_0.4.zarr:False": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
+ "info:coins_0.4.zarr:True": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
  "nodes:coins_0.5.zarr": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]",
    "visible": true,
    "specs": [
     "Multiscales",
@@ -774,7 +774,7 @@
    ]
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Labels"
@@ -783,7 +783,7 @@
    "data": []
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Label",
@@ -1067,11 +1067,11 @@
    ]
   }
  ],
- "info:coins_0.5.zarr:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
- "info:coins_0.5.zarr:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
+ "info:coins_0.5.zarr:False": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
+ "info:coins_0.5.zarr:True": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
  "nodes:plate_0.4.zarr": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]",
    "visible": true,
    "specs": [
     "Plate"
@@ -1298,11 +1298,11 @@
    ]
   }
  ],
- "info:plate_0.4.zarr:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
- "info:plate_0.4.zarr:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+ "info:plate_0.4.zarr:False": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+ "info:plate_0.4.zarr:True": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
  "nodes:plate_0.5.zarr": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]",
    "visible": true,
    "specs": [
     "Plate"
@@ -1529,11 +1529,11 @@
    ]
   }
  ],
- "info:plate_0.5.zarr:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
- "info:plate_0.5.zarr:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+ "info:plate_0.5.zarr:False": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+ "info:plate_0.5.zarr:True": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
  "nodes:plate_0.4.zarr/B/3": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]",
    "visible": true,
    "specs": [
     "Well"
@@ -1673,11 +1673,11 @@
    ]
   }
  ],
- "info:plate_0.4.zarr/B/3:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]\n - version: \n - metadata\n   - Well\n - data\n   - (1, 2, 1, 48, 60)\n   - (1, 2, 1, 24, 30)\n",
- "info:plate_0.4.zarr/B/3:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]\n - version: \n - metadata\n   - Well\n - data\n   - (1, 2, 1, 48, 60) minmax=(np.uint8(0), np.uint8(102))\n   - (1, 2, 1, 24, 30) minmax=(np.uint8(0), np.uint8(80))\n",
+ "info:plate_0.4.zarr/B/3:False": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]\n - version: \n - metadata\n   - Well\n - data\n   - (1, 2, 1, 48, 60)\n   - (1, 2, 1, 24, 30)\n",
+ "info:plate_0.4.zarr/B/3:True": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/B/3 [zgroup]\n - version: \n - metadata\n   - Well\n - data\n   - (1, 2, 1, 48, 60) minmax=(np.uint8(0), np.uint8(102))\n   - (1, 2, 1, 24, 30) minmax=(np.uint8(0), np.uint8(80))\n",
  "nodes:coins_0.5.zarr/labels/coins": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Multiscales",
@@ -1915,7 +1915,7 @@
    ]
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Labels"
@@ -1924,7 +1924,7 @@
    "data": []
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]",
    "visible": true,
    "specs": [
     "Label",
@@ -2208,11 +2208,11 @@
    ]
   }
  ],
- "info:coins_0.5.zarr/labels/coins:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
- "info:coins_0.5.zarr/labels/coins:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
+ "info:coins_0.5.zarr/labels/coins:False": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
+ "info:coins_0.5.zarr/labels/coins:True": "${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.5.zarr/labels/coins [zgroup]\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
  "nodes:astronaut_0.4.zarr/labels": [
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]",
    "visible": true,
    "specs": [
     "Labels"
@@ -2221,7 +2221,7 @@
    "data": []
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)",
+   "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)",
    "visible": false,
    "specs": [
     "Multiscales",
@@ -2534,7 +2534,7 @@
    ]
   },
   {
-   "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]",
+   "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]",
    "visible": true,
    "specs": [
     "Label",
@@ -2771,8 +2771,8 @@
    ]
   }
  ],
- "info:astronaut_0.4.zarr/labels:False": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
- "info:astronaut_0.4.zarr/labels:True": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
+ "info:astronaut_0.4.zarr/labels:False": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
+ "info:astronaut_0.4.zarr/labels:True": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup]\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup]\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
  "from_ome_zarr:legacy_0.1.zarr": {
   "type": "OMEZarrMultiscale",
   "metadata": {

@@ -1,24 +1,25 @@
 //! Zarr groups and arrays (v2 and v3) on top of a [`Store`].
 //!
 //! Metadata documents (`zarr.json`, `.zgroup`, `.zarray`, `.zattrs`) are read and
-//! written directly so that the output matches zarr-python; chunk encoding and
-//! decoding is delegated to `zarrs`.
+//! written directly so that the output matches zarr-python; chunks are
+//! encoded and decoded by [`crate::codecs`]. As zarr-python, a chunk holding
+//! only the fill value is not stored, nor is such an inner chunk of a shard.
 
 use std::ops::Range;
 use std::sync::Arc;
 
-use serde_json::{Map, Value, json};
-use zarrs::array::{Array as ZarrsArray, ArraySubset};
-use zarrs_storage::ReadableWritableListableStorageTraits;
+use serde_json::{Value, json};
 
-use crate::array::{ChunkedSource, Element};
-use crate::array::{Chunks, DType, LazyArray, NdArray, Region, chunks::blockdims_from_blockshape};
+use crate::array::ChunkedSource;
+use crate::array::chunks::{block_region, blockdims_from_blockshape, blocks_under, overlap};
+use crate::array::{Chunks, DType, LazyArray, NdArray, Region};
+use crate::codecs::Chain;
+use crate::dtype_dispatch;
 use crate::error::{Error, Result};
-use crate::store::Store;
-use crate::{dtype_dispatch, nd_dispatch};
+use crate::store::{ByteRange, Store, slice_all};
 
 /// JSON object type used for attributes.
-pub type JsonMap = Map<String, Value>;
+pub use crate::pyjson::JsonMap;
 
 /// Mode in which to open a group (as in `zarr.open_group`).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -60,6 +61,37 @@ pub enum NodeKind {
     Array,
 }
 
+/// Zarr v3's metadata document: a node's type, its array's description and
+/// its attributes.
+pub const ZARR_JSON: &str = "zarr.json";
+/// Zarr v2's group marker.
+pub const ZGROUP: &str = ".zgroup";
+/// Zarr v2's array description.
+pub const ZARRAY: &str = ".zarray";
+/// Zarr v2's attributes.
+pub const ZATTRS: &str = ".zattrs";
+/// Zarr v2's consolidated metadata (every node's, at the root).
+pub const ZMETADATA: &str = ".zmetadata";
+
+/// The metadata documents a node can have, v3's then v2's.
+pub const NODE_DOCUMENTS: [&str; 4] = [ZARR_JSON, ZGROUP, ZATTRS, ZARRAY];
+
+/// The last component of a key: the document's name.
+pub fn document_name(key: &str) -> &str {
+    key.rsplit('/').next().unwrap_or(key)
+}
+
+/// Is `name` one of Zarr v2's metadata documents (consolidated included)?
+pub fn is_v2_document(name: &str) -> bool {
+    matches!(name, ZGROUP | ZARRAY | ZATTRS | ZMETADATA)
+}
+
+/// Is `key` a metadata document of either format (not a chunk)?
+pub fn is_metadata(key: &str) -> bool {
+    let name = document_name(key);
+    name == ZARR_JSON || is_v2_document(name)
+}
+
 /// Join zarr paths, ignoring empty components.
 pub fn join_path(a: &str, b: &str) -> String {
     let a = a.trim_matches('/');
@@ -77,17 +109,17 @@ fn key(path: &str, name: &str) -> String {
 
 /// Determine what (if anything) exists at `path`, and in which zarr format.
 pub fn node_at(store: &Store, path: &str) -> Result<Option<(NodeKind, u8)>> {
-    if let Some(v) = store.get_json(&key(path, "zarr.json"))? {
+    if let Some(v) = store.get_json(&key(path, ZARR_JSON))? {
         let kind = match v.get("node_type").and_then(|v| v.as_str()) {
             Some("array") => NodeKind::Array,
             _ => NodeKind::Group,
         };
         return Ok(Some((kind, 3)));
     }
-    if store.exists(&key(path, ".zarray")) {
+    if store.exists(&key(path, ZARRAY)) {
         return Ok(Some((NodeKind::Array, 2)));
     }
-    if store.exists(&key(path, ".zgroup")) {
+    if store.exists(&key(path, ZGROUP)) {
         return Ok(Some((NodeKind::Group, 2)));
     }
     Ok(None)
@@ -97,14 +129,14 @@ pub fn node_at(store: &Store, path: &str) -> Result<Option<(NodeKind, u8)>> {
 pub fn read_attrs(store: &Store, path: &str, zarr_format: u8) -> Result<JsonMap> {
     if zarr_format == 3 {
         let v = store
-            .get_json(&key(path, "zarr.json"))?
+            .get_json(&key(path, ZARR_JSON))?
             .unwrap_or(Value::Null);
         Ok(v.get("attributes")
             .and_then(|a| a.as_object())
             .cloned()
             .unwrap_or_default())
     } else {
-        let v = store.get_json(&key(path, ".zattrs"))?;
+        let v = store.get_json(&key(path, ZATTRS))?;
         Ok(v.and_then(|v| v.as_object().cloned()).unwrap_or_default())
     }
 }
@@ -112,7 +144,7 @@ pub fn read_attrs(store: &Store, path: &str, zarr_format: u8) -> Result<JsonMap>
 /// Replace the user attributes of the node at `path`.
 pub fn write_attrs(store: &Store, path: &str, zarr_format: u8, attrs: &JsonMap) -> Result<()> {
     if zarr_format == 3 {
-        let k = key(path, "zarr.json");
+        let k = key(path, ZARR_JSON);
         let mut v = store
             .get_json(&k)?
             .ok_or_else(|| Error::value(format!("no zarr.json at {path}")))?;
@@ -121,7 +153,7 @@ pub fn write_attrs(store: &Store, path: &str, zarr_format: u8, attrs: &JsonMap) 
             .insert("attributes".into(), Value::Object(attrs.clone()));
         store.set_json(&k, &v)
     } else {
-        store.set_json(&key(path, ".zattrs"), &Value::Object(attrs.clone()))
+        store.set_json(&key(path, ZATTRS), &Value::Object(attrs.clone()))
     }
 }
 
@@ -228,11 +260,11 @@ impl Group {
                     "zarr_format": 3,
                     "node_type": "group",
                 });
-                store.set_json(&key(&path, "zarr.json"), &meta)?;
+                store.set_json(&key(&path, ZARR_JSON), &meta)?;
             }
             2 => {
-                store.set_json(&key(&path, ".zgroup"), &json!({"zarr_format": 2}))?;
-                store.set_json(&key(&path, ".zattrs"), &Value::Object(attrs))?;
+                store.set_json(&key(&path, ZGROUP), &json!({"zarr_format": 2}))?;
+                store.set_json(&key(&path, ZATTRS), &Value::Object(attrs))?;
             }
             f => return Err(Error::value(format!("unsupported zarr_format: {f}"))),
         }
@@ -706,8 +738,8 @@ impl ArraySpec {
                 "zarr_format": 2,
             });
             return Ok(vec![
-                (".zarray", zarray),
-                (".zattrs", Value::Object(self.attributes.clone())),
+                (ZARRAY, zarray),
+                (ZATTRS, Value::Object(self.attributes.clone())),
             ]);
         }
         let itemsize = self.dtype.itemsize();
@@ -770,11 +802,162 @@ impl ArraySpec {
         meta.insert("node_type".into(), json!("array"));
         meta.insert("storage_transformers".into(), json!([]));
         let meta = Value::Object(meta);
-        Ok(vec![("zarr.json", meta)])
+        Ok(vec![(ZARR_JSON, meta)])
     }
 }
 
-type DynArray = ZarrsArray<dyn ReadableWritableListableStorageTraits>;
+/// How an array's chunks are named and stored.
+#[derive(Debug)]
+struct Layout {
+    /// The chunk grid's chunk shape (the shard shape if sharded).
+    grid: Vec<u64>,
+    /// `0.0` keys (zarr v2, or v3's `v2` encoding) rather than `c/0/0`.
+    v2_keys: bool,
+    separator: String,
+    chain: Chain,
+    /// The fill value's little-endian bytes.
+    fill: Vec<u8>,
+}
+
+impl Layout {
+    fn v3(v: &Value, ndim: usize, dtype: DType) -> Result<Layout> {
+        let grid = &v["chunk_grid"];
+        if grid["name"].as_str() != Some("regular") {
+            return Err(Error::Zarr(format!("unsupported chunk grid: {grid}")));
+        }
+        if v.get("storage_transformers")
+            .and_then(Value::as_array)
+            .is_some_and(|t| !t.is_empty())
+        {
+            return Err(Error::Zarr("storage transformers are not supported".into()));
+        }
+        let encoding = &v["chunk_key_encoding"];
+        let v2_keys = match encoding["name"].as_str() {
+            Some("default") | None => false,
+            Some("v2") => true,
+            Some(other) => {
+                return Err(Error::Zarr(format!(
+                    "unsupported chunk key encoding: {other}"
+                )));
+            }
+        };
+        let separator = encoding["configuration"]["separator"]
+            .as_str()
+            .unwrap_or(if v2_keys { "." } else { "/" })
+            .to_string();
+        let codecs = v["codecs"].as_array().cloned().unwrap_or_default();
+        Ok(Layout {
+            grid: json_u64_vec(&grid["configuration"]["chunk_shape"])?,
+            v2_keys,
+            separator,
+            chain: Chain::from_v3(&codecs, ndim)?,
+            fill: fill_bytes(dtype, &v["fill_value"])?,
+        })
+    }
+
+    fn v2(v: &Value, ndim: usize, dtype: DType) -> Result<Layout> {
+        let big_endian = v["dtype"].as_str().is_some_and(|d| d.starts_with('>'));
+        Ok(Layout {
+            grid: json_u64_vec(&v["chunks"])?,
+            v2_keys: true,
+            separator: v["dimension_separator"].as_str().unwrap_or(".").to_string(),
+            chain: Chain::from_v2(
+                ndim,
+                v["order"].as_str() == Some("F"),
+                big_endian,
+                &v["filters"],
+                &v["compressor"],
+            )?,
+            fill: fill_bytes(dtype, &v["fill_value"])?,
+        })
+    }
+
+    /// The key of chunk `idx` of the array at `path`.
+    fn key(&self, path: &str, idx: &[u64]) -> String {
+        let parts: Vec<String> = idx.iter().map(u64::to_string).collect();
+        let name = if self.v2_keys {
+            if parts.is_empty() {
+                "0".to_string()
+            } else {
+                parts.join(&self.separator)
+            }
+        } else {
+            std::iter::once("c".to_string())
+                .chain(parts)
+                .collect::<Vec<_>>()
+                .join(&self.separator)
+        };
+        join_path(path, &name)
+    }
+
+    fn filled(&self, dtype: DType, shape: &[u64]) -> NdArray {
+        let s: Vec<usize> = shape.iter().map(|&s| s as usize).collect();
+        NdArray::filled_le(dtype, &s, &self.fill)
+    }
+}
+
+/// A fill value's little-endian bytes: a number, `"NaN"`, `"Infinity"`,
+/// `"-Infinity"`, a `"0x…"` bit pattern, a bool, `[real, imaginary]` for a
+/// complex type, or `null` (zero).
+fn fill_bytes(dtype: DType, v: &Value) -> Result<Vec<u8>> {
+    let size = dtype.itemsize();
+    let bad = || Error::Zarr(format!("invalid fill value for {dtype}: {v}"));
+    if v.is_null() {
+        return Ok(vec![0; size]);
+    }
+    if dtype.is_complex() {
+        let half = size / 2;
+        let part = |x: &Value| -> Result<Vec<u8>> {
+            let float = if half == 4 {
+                DType::Float32
+            } else {
+                DType::Float64
+            };
+            fill_bytes(float, x)
+        };
+        let (re, im) = match v {
+            Value::Array(a) if a.len() == 2 => (part(&a[0])?, part(&a[1])?),
+            _ => (part(v)?, vec![0; half]),
+        };
+        return Ok([re, im].concat());
+    }
+    let scalar = |x: f64| -> Vec<u8> {
+        let mut out = vec![0; size];
+        dtype_dispatch!(dtype, T => {
+            use crate::array::Element;
+            T::from_f64(x).write_le(&mut out)
+        });
+        out
+    };
+    match v {
+        Value::Bool(b) => Ok(scalar(*b as u8 as f64)),
+        Value::Number(n) => Ok(match dtype {
+            // exactly, beyond what an f64 holds
+            DType::Int64 => n.as_i64().ok_or_else(bad)?.to_le_bytes().to_vec(),
+            DType::UInt64 => n.as_u64().ok_or_else(bad)?.to_le_bytes().to_vec(),
+            _ => scalar(n.as_f64().ok_or_else(bad)?),
+        }),
+        Value::String(s) => {
+            if let Some(hex) = s.strip_prefix("0x") {
+                let bits = u64::from_str_radix(hex, 16).map_err(|_| bad())?;
+                return Ok(bits.to_le_bytes()[..size].to_vec());
+            }
+            let x = match s.as_str() {
+                "NaN" => f64::NAN,
+                "Infinity" => f64::INFINITY,
+                "-Infinity" => f64::NEG_INFINITY,
+                _ => s.parse::<f64>().map_err(|_| bad())?,
+            };
+            Ok(scalar(x))
+        }
+        _ => Err(bad()),
+    }
+}
+
+/// The first error, in order, of results computed in any order.
+fn first_error<T>(results: Vec<Result<T>>) -> Result<Vec<T>> {
+    results.into_iter().collect()
+}
 
 /// A zarr array.
 #[derive(Clone)]
@@ -790,7 +973,7 @@ pub struct ZArray {
     shards: Option<Vec<u64>>,
     dimension_names: Option<Vec<String>>,
     compressor: Option<Compressor>,
-    inner: Arc<DynArray>,
+    layout: Arc<Layout>,
 }
 
 impl std::fmt::Debug for ZArray {
@@ -819,14 +1002,15 @@ impl ZArray {
     /// Open an existing array.
     pub fn open(store: &Store, path: &str) -> Result<ZArray> {
         let path = path.trim_matches('/').to_string();
-        let (zarr_format, shape, dtype, chunks, shards, dimension_names, compressor) =
-            if let Some(v) = store.get_json(&key(&path, "zarr.json"))? {
+        let (zarr_format, shape, dtype, chunks, shards, dimension_names, compressor, layout) =
+            if let Some(v) = store.get_json(&key(&path, ZARR_JSON))? {
                 if v.get("node_type").and_then(|x| x.as_str()) != Some("array") {
                     return Err(Error::type_err(format!("'{path}' is not an array")));
                 }
                 let shape = json_u64_vec(&v["shape"])?;
                 let dtype = DType::parse(v["data_type"].as_str().unwrap_or(""))?;
-                let grid = json_u64_vec(&v["chunk_grid"]["configuration"]["chunk_shape"])?;
+                let layout = Layout::v3(&v, shape.len(), dtype)?;
+                let grid = layout.grid.clone();
                 let codecs = v["codecs"].as_array().cloned().unwrap_or_default();
                 let mut chunks = grid.clone();
                 let mut shards = None;
@@ -861,20 +1045,26 @@ impl ZArray {
                             .map(|x| x.as_str().unwrap_or("").to_string())
                             .collect()
                     });
-                (3u8, shape, dtype, chunks, shards, names, compressor)
-            } else if let Some(v) = store.get_json(&key(&path, ".zarray"))? {
+                (3u8, shape, dtype, chunks, shards, names, compressor, layout)
+            } else if let Some(v) = store.get_json(&key(&path, ZARRAY))? {
                 let shape = json_u64_vec(&v["shape"])?;
                 let dtype = DType::parse(v["dtype"].as_str().unwrap_or(""))?;
-                let chunks = json_u64_vec(&v["chunks"])?;
+                let layout = Layout::v2(&v, shape.len(), dtype)?;
+                let chunks = layout.grid.clone();
                 let compressor = Compressor::from_json(&v["compressor"]).ok();
-                (2u8, shape, dtype, chunks, None, None, compressor)
+                (2u8, shape, dtype, chunks, None, None, compressor, layout)
             } else {
                 return Err(Error::ArrayNotFound(format!(
                     "No array found in store {} at path {path}",
                     store.py_str()
                 )));
             };
-        let inner = ZarrsArray::open(store.inner().clone(), &format!("/{path}"))?;
+        if layout.grid.len() != shape.len() || layout.grid.contains(&0) {
+            return Err(Error::Zarr(format!(
+                "chunk shape {:?} for an array of shape {shape:?}",
+                layout.grid
+            )));
+        }
         Ok(ZArray {
             store: store.clone(),
             path,
@@ -885,7 +1075,7 @@ impl ZArray {
             shards,
             dimension_names,
             compressor,
-            inner: Arc::new(inner),
+            layout: Arc::new(layout),
         })
     }
 
@@ -939,11 +1129,22 @@ impl ZArray {
 
     /// Read a region.
     pub fn read(&self, region: &[Range<u64>]) -> Result<NdArray> {
-        let subset = ArraySubset::new_with_ranges(region);
-        Ok(dtype_dispatch!(self.dtype, T => {
-            let a: ndarray::ArrayD<T> = self.inner.retrieve_array_subset(&subset)?;
-            crate::array::IntoNdArray::into_nd(a)
-        }))
+        use crate::par::*;
+        self.check_region(region)?;
+        let mut out = self.layout.filled(self.dtype, &region_shape(region));
+        if out.is_empty() {
+            return Ok(out);
+        }
+        let pieces = first_error(
+            self.blocks_under(region)
+                .into_par_iter()
+                .map(|idx| self.read_block_part(&idx, region))
+                .collect(),
+        )?;
+        for (dst, part) in pieces.into_iter().flatten() {
+            out.assign_region(&dst, &part)?;
+        }
+        Ok(out)
     }
 
     /// Read the whole array.
@@ -952,41 +1153,149 @@ impl ZArray {
         self.read(&r)
     }
 
+    fn check_region(&self, region: &[Range<u64>]) -> Result<()> {
+        if region.len() != self.shape.len()
+            || region
+                .iter()
+                .zip(&self.shape)
+                .any(|(r, &s)| r.start > r.end || r.end > s)
+        {
+            return Err(Error::Zarr(format!(
+                "region {region:?} is not within an array of shape {:?}",
+                self.shape
+            )));
+        }
+        Ok(())
+    }
+
+    /// Grid indices of the blocks (chunks, or shards) under a region.
+    fn blocks_under(&self, region: &[Range<u64>]) -> Vec<Vec<u64>> {
+        blocks_under(region, &self.layout.grid)
+    }
+
+    /// The region of block `idx`, whole (past the array's edge too).
+    fn block_region(&self, idx: &[u64]) -> Vec<Range<u64>> {
+        block_region(idx, &self.layout.grid)
+    }
+
+    /// The part of block `idx` under `region`, and where in the region it
+    /// goes; `None` if the block is not stored (the fill value).
+    fn read_block_part(
+        &self,
+        idx: &[u64],
+        region: &[Range<u64>],
+    ) -> Result<Option<(Vec<Range<usize>>, NdArray)>> {
+        let layout = &self.layout;
+        let block = self.block_region(idx);
+        let (within, dst) = overlap(&block, region);
+        let key = layout.key(&self.path, idx);
+        if let Some(sharding) = layout.chain.partial_sharding() {
+            let within: Vec<Range<u64>> = within
+                .iter()
+                .map(|r| r.start as u64..r.end as u64)
+                .collect();
+            let part = if self.store.supports_ranges() {
+                let fetch = |ranges: &[ByteRange]| self.store.get_ranges(&key, ranges);
+                sharding.read_region(&fetch, &layout.grid, &within, self.dtype, &layout.fill)?
+            } else {
+                let Some(whole) = self.store.get(&key)? else {
+                    return Ok(None);
+                };
+                let fetch = |ranges: &[ByteRange]| slice_all(&whole, ranges).map(Some);
+                sharding.read_region(&fetch, &layout.grid, &within, self.dtype, &layout.fill)?
+            };
+            return Ok(part.map(|p| (dst, p)));
+        }
+        let Some(bytes) = self.store.get(&key)? else {
+            return Ok(None);
+        };
+        let chunk = layout
+            .chain
+            .decode(&bytes, &layout.grid, self.dtype, &layout.fill)
+            .map_err(|e| Error::Zarr(format!("{key}: {e}")))?;
+        Ok(Some((dst, chunk.slice_region(&within))))
+    }
+
+    /// Store block `idx`, whole: not at all if it is only the fill value.
+    fn store_block(&self, idx: &[u64], block: &NdArray) -> Result<()> {
+        let layout = &self.layout;
+        let key = layout.key(&self.path, idx);
+        let encoded = if block.all_le(&layout.fill) {
+            None
+        } else {
+            layout.chain.encode(block, &layout.fill)?
+        };
+        match encoded {
+            Some(b) => self.store.set(&key, b),
+            None => self.store.erase(&key),
+        }
+    }
+
     /// Write one block (chunk, or shard if sharded) at grid indices `idx`.
     /// `data` must have the block's shape (cropped at the array edge).
     pub fn write_block(&self, idx: &[u64], data: &NdArray) -> Result<()> {
-        let block = self.write_block_shape();
-        let full: Vec<usize> = block.iter().map(|&b| b as usize).collect();
         let data = if data.dtype() != self.dtype {
             data.astype(self.dtype)
         } else {
             data.clone()
         };
-        // pad edge blocks to the full block shape
-        let data = if data.shape() != full {
-            let mut padded = NdArray::zeros(self.dtype, &full);
+        // edge blocks are stored whole, the fill value past the edge
+        let block = if data.shape_u64() != self.layout.grid {
+            let mut padded = self.layout.filled(self.dtype, &self.layout.grid);
             let r: Vec<Range<usize>> = data.shape().iter().map(|&s| 0..s).collect();
             padded.assign_region(&r, &data)?;
             padded
         } else {
             data
         };
-        nd_dispatch!(&data, a => {
-            let v: Vec<_> = a.iter().cloned().collect();
-            self.inner.store_chunk(idx, &v)?;
-        });
-        Ok(())
+        self.store_block(idx, &block)
     }
 
     /// Write a region (aligned to the write grid or not).
     pub fn write_region(&self, region: &[Range<u64>], data: &NdArray) -> Result<()> {
-        let subset = ArraySubset::new_with_ranges(region);
-        nd_dispatch!(data.astype(self.dtype), a => {
-            let a = a.as_standard_layout().into_owned();
-            let v: Vec<_> = a.iter().cloned().collect();
-            self.inner.store_array_subset(&subset, &v)?;
-        });
+        use crate::par::*;
+        self.check_region(region)?;
+        if data.shape_u64() != region_shape(region) {
+            return Err(Error::value(format!(
+                "data of shape {:?} for region {region:?}",
+                data.shape()
+            )));
+        }
+        let data = data.astype(self.dtype);
+        first_error(
+            self.blocks_under(region)
+                .into_par_iter()
+                .map(|idx| {
+                    let block = self.block_region(&idx);
+                    let (within, src) = overlap(&block, region);
+                    // what of the block lies inside the array is all written
+                    let whole = block
+                        .iter()
+                        .zip(&within)
+                        .zip(&self.shape)
+                        .all(|((b, w), &s)| w.start == 0 && w.end as u64 >= s.min(b.end) - b.start);
+                    let mut base = if whole {
+                        self.layout.filled(self.dtype, &self.layout.grid)
+                    } else {
+                        self.read_block(&idx)?
+                    };
+                    base.assign_region(&within, &data.slice_region(&src))?;
+                    self.store_block(&idx, &base)
+                })
+                .collect(),
+        )?;
         Ok(())
+    }
+
+    /// Block `idx` as stored, whole (the fill value if it is not).
+    fn read_block(&self, idx: &[u64]) -> Result<NdArray> {
+        let layout = &self.layout;
+        match self.store.get(&layout.key(&self.path, idx))? {
+            Some(bytes) => layout
+                .chain
+                .decode(&bytes, &layout.grid, self.dtype, &layout.fill),
+            None => Ok(layout.filled(self.dtype, &layout.grid)),
+        }
     }
 
     /// Regions of all write blocks, with their grid indices.
@@ -1022,6 +1331,10 @@ impl ZArray {
             chunks,
         }))
     }
+}
+
+fn region_shape(region: &[Range<u64>]) -> Vec<u64> {
+    region.iter().map(|r| r.end - r.start).collect()
 }
 
 fn json_u64_vec(v: &Value) -> Result<Vec<u64>> {
@@ -1077,10 +1390,6 @@ pub fn store_lazy(data: &LazyArray, array: &ZArray) -> Result<()> {
         })
 }
 
-/// Convenience to keep the `Element` import used in generic helpers.
-#[allow(dead_code)]
-fn _element_marker<T: Element>() {}
-
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -1114,6 +1423,95 @@ mod tests {
     #[test]
     fn v3_sharded_roundtrip() {
         roundtrip(3, Some(vec![4, 6]));
+    }
+
+    /// Unaligned writes keep what the blocks held; a block back to the fill
+    /// value is erased.
+    fn partial_writes(zarr_format: u8, shards: Option<Vec<u64>>) {
+        let store = Store::memory();
+        let mut spec = ArraySpec::new(&[5, 7], DType::Int32, &[2, 3], zarr_format);
+        spec.shards = shards;
+        let arr = ZArray::create(&store, "a", &spec).unwrap();
+        let ones = NdArray::full(DType::Int32, &[5, 7], 1.0);
+        arr.write_region(&[0..5, 0..7], &ones).unwrap();
+        let twos = NdArray::full(DType::Int32, &[2, 4], 2.0);
+        arr.write_region(&[1..3, 2..6], &twos).unwrap();
+        let mut want = ones.clone();
+        want.assign_region(&[1..3, 2..6], &twos).unwrap();
+        assert_eq!(arr.read_all().unwrap(), want);
+        assert_eq!(
+            arr.read(&[2..4, 1..6]).unwrap(),
+            want.slice_region(&[2..4, 1..6])
+        );
+        let chunks = |s: &Store| {
+            s.inner()
+                .list_prefix("a/")
+                .unwrap()
+                .into_iter()
+                .filter(|k| !is_metadata(k))
+                .count()
+        };
+        assert!(chunks(&store) > 0);
+        arr.write_region(&[0..5, 0..7], &NdArray::zeros(DType::Int32, &[5, 7]))
+            .unwrap();
+        assert_eq!(chunks(&store), 0, "every block back to the fill value");
+        assert_eq!(
+            arr.read_all().unwrap(),
+            NdArray::zeros(DType::Int32, &[5, 7])
+        );
+    }
+
+    #[test]
+    fn partial_writes_v2() {
+        partial_writes(2, None);
+    }
+
+    #[test]
+    fn partial_writes_v3() {
+        partial_writes(3, None);
+    }
+
+    #[test]
+    fn partial_writes_v3_sharded() {
+        partial_writes(3, Some(vec![4, 6]));
+    }
+
+    #[test]
+    fn chunk_keys() {
+        let layout = |v2_keys: bool, separator: &str| Layout {
+            grid: vec![1, 1],
+            v2_keys,
+            separator: separator.into(),
+            chain: Chain::from_v2(2, false, false, &Value::Null, &Value::Null).unwrap(),
+            fill: vec![0],
+        };
+        assert_eq!(layout(false, "/").key("a/0", &[1, 2]), "a/0/c/1/2");
+        assert_eq!(layout(false, ".").key("", &[1, 2]), "c.1.2");
+        assert_eq!(layout(true, ".").key("a", &[1, 2]), "a/1.2");
+        assert_eq!(layout(true, "/").key("a", &[1, 2]), "a/1/2");
+        assert_eq!(layout(false, "/").key("a", &[]), "a/c");
+        assert_eq!(layout(true, ".").key("a", &[]), "a/0");
+    }
+
+    #[test]
+    fn fill_values() {
+        let f32s = |v: Value| {
+            f32::from_le_bytes(fill_bytes(DType::Float32, &v).unwrap().try_into().unwrap())
+        };
+        assert!(f32s(json!("NaN")).is_nan());
+        assert_eq!(f32s(json!("-Infinity")), f32::NEG_INFINITY);
+        assert_eq!(f32s(json!("0x3f800000")), 1.0);
+        assert_eq!(f32s(json!(2.5)), 2.5);
+        assert_eq!(
+            fill_bytes(DType::UInt64, &json!(u64::MAX)).unwrap(),
+            u64::MAX.to_le_bytes()
+        );
+        assert_eq!(fill_bytes(DType::Bool, &json!(true)).unwrap(), [1]);
+        assert_eq!(fill_bytes(DType::Int16, &Value::Null).unwrap(), [0, 0]);
+        let c = fill_bytes(DType::Complex64, &json!([1.0, "NaN"])).unwrap();
+        assert_eq!(f32::from_le_bytes(c[..4].try_into().unwrap()), 1.0);
+        assert!(f32::from_le_bytes(c[4..].try_into().unwrap()).is_nan());
+        assert!(fill_bytes(DType::UInt8, &json!("abc")).is_err());
     }
 
     #[test]

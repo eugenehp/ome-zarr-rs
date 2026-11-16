@@ -2,7 +2,7 @@
  "legacy_0.1.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.1.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/legacy_0.1.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -141,7 +141,7 @@
  "legacy_0.2.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.2.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/legacy_0.2.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -280,7 +280,7 @@
  "legacy_0.3.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/legacy_0.3.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/legacy_0.3.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -419,7 +419,7 @@
  "exists.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/exists.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/exists.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -575,7 +575,7 @@
  "scene.zarr/a": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr/a [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene.zarr/a [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -731,7 +731,7 @@
  "scene2.zarr/ia": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -880,7 +880,7 @@
     ]
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Labels"
@@ -889,7 +889,7 @@
     "data": []
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Label",
@@ -1046,7 +1046,7 @@
  "scene2.zarr/ia/labels/lab": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Multiscales",
@@ -1195,7 +1195,7 @@
     ]
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia/labels [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Labels"
@@ -1204,7 +1204,7 @@
     "data": []
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/scene2.zarr/ia/labels/lab [zgroup]",
     "visible": true,
     "specs": [
      "Label",
@@ -1373,7 +1373,7 @@
  "plate_0.4.zarr/A/1": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup]",
     "visible": true,
     "specs": [
      "Well"
@@ -1517,7 +1517,7 @@
  "plate_0.5.zarr/A/1/0": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -1663,7 +1663,7 @@
  "csv_0.4.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -1901,7 +1901,7 @@
     ]
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Labels"
@@ -1923,13 +1923,13 @@
  "multiscales_metadata_0.4.zarr": {
   "error": {
    "type": "ArrayNotFoundError",
-   "msg": "No array found in store file:///Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/multiscales_metadata_0.4.zarr at path 0"
+   "msg": "No array found in store file://${REPO}/tests/fixtures/parity/stores/multiscales_metadata_0.4.zarr at path 0"
   }
  },
  "compressed_0.5.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/compressed_0.5.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/compressed_0.5.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -2153,7 +2153,7 @@
  "dask5d.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dask5d.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/dask5d.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -2365,7 +2365,7 @@
  "bool_nearest.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/bool_nearest.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/bool_nearest.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -2457,13 +2457,13 @@
  "axes_no_name.zarr": {
   "error": {
    "type": "ArrayNotFoundError",
-   "msg": "No array found in store file:///Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/axes_no_name.zarr at path 0"
+   "msg": "No array found in store file://${REPO}/tests/fixtures/parity/stores/axes_no_name.zarr at path 0"
   }
  },
  "conv_v04_swap.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/conv_v04_swap.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/conv_v04_swap.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -2523,7 +2523,7 @@
  "conv_v05_top.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/conv_v05_top.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/conv_v05_top.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales"
@@ -2595,7 +2595,7 @@
  "astronaut_0.5.zarr": {
   "nodes": [
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]",
+    "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]",
     "visible": true,
     "specs": [
      "Multiscales",
@@ -2908,7 +2908,7 @@
     ]
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Labels"
@@ -2917,7 +2917,7 @@
     "data": []
    },
    {
-    "repr": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)",
+    "repr": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)",
     "visible": false,
     "specs": [
      "Label",

@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
 use crate::error::{Error, Result};
-use crate::zarr::JsonMap;
+use crate::pyjson::JsonMap;
 
 /// A colour used for a specific label value.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -65,8 +65,7 @@ impl ImageLabel {
                 "Expected an image-label dict, received {v}"
             )));
         }
-        let l: ImageLabel = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid image-label: {e}")))?;
+        let l: ImageLabel = super::from_value("image-label", v)?;
         l.validate()?;
         Ok(l)
     }
@@ -101,6 +100,6 @@ impl ImageLabel {
 
     /// `model_dump(exclude_none=True, by_alias=True)`.
     pub fn to_json(&self) -> Value {
-        serde_json::to_value(self).expect("serialize image-label")
+        super::dump(self)
     }
 }

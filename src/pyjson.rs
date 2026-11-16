@@ -4,6 +4,53 @@
 
 use serde_json::Value;
 
+/// A JSON object: attributes, and the extra fields metadata models keep.
+pub type JsonMap = serde_json::Map<String, Value>;
+
+/// Recursively remove `None` (null) values, empty dicts and empty lists from a
+/// nested JSON object (`_recursive_pop_nones`).
+pub fn recursive_pop_nones(data: &Value) -> Value {
+    match data {
+        Value::Object(map) => {
+            let mut out = serde_json::Map::new();
+            for (k, v) in map {
+                match v {
+                    Value::Object(_) => {
+                        let nested = recursive_pop_nones(v);
+                        if nested.as_object().is_some_and(|m| !m.is_empty()) {
+                            out.insert(k.clone(), nested);
+                        }
+                    }
+                    Value::Array(items) => {
+                        let mut list = vec![];
+                        for item in items {
+                            match item {
+                                Value::Object(_) => {
+                                    let n = recursive_pop_nones(item);
+                                    if n.as_object().is_some_and(|m| !m.is_empty()) {
+                                        list.push(n);
+                                    }
+                                }
+                                Value::Null => {}
+                                other => list.push(other.clone()),
+                            }
+                        }
+                        if !list.is_empty() {
+                            out.insert(k.clone(), Value::Array(list));
+                        }
+                    }
+                    Value::Null => {}
+                    other => {
+                        out.insert(k.clone(), other.clone());
+                    }
+                }
+            }
+            Value::Object(out)
+        }
+        other => other.clone(),
+    }
+}
+
 /// `json.dumps(value, indent=indent)`.
 pub fn dumps(value: &Value, indent: Option<usize>) -> String {
     let mut out = String::new();
@@ -258,6 +305,7 @@ pub fn str_list_repr(items: &[String]) -> String {
     )
 }
 
+#[cfg(feature = "io")]
 /// numpy 2 `repr()` of a scalar of `dtype`, e.g. `np.uint8(7)`,
 /// `np.float32(0.1)`, `np.True_`.
 pub fn np_scalar_repr(dtype: crate::array::DType, v: f64) -> String {
@@ -282,6 +330,7 @@ fn np_float_str(v: f64) -> String {
     }
 }
 
+#[cfg(feature = "io")]
 /// Shortest repr of a float16 in Python's style (as numpy prints it).
 pub fn float16_repr(x: half::f16) -> String {
     let v = x.to_f64();
@@ -311,6 +360,7 @@ pub fn float16_repr(x: half::f16) -> String {
     float_repr(v)
 }
 
+#[cfg(feature = "io")]
 /// numpy 2 `repr()` of a complex scalar: `np.complex64(2.5+1j)`,
 /// `np.complex128(10j)` (the parts as Python prints a complex number).
 pub fn np_complex_repr(dtype: crate::array::DType, re: f64, im: f64) -> String {

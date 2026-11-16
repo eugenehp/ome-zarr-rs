@@ -1,0 +1,738 @@
+[
+ {
+  "file": "blosc_u1_blosclz_0_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_0_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_2_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_2_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_-1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_blosclz_-1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_0_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_0_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_2_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_2_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_-1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4_-1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_0_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_0_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_2_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_2_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_-1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_lz4hc_-1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_0_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_0_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_2_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_2_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_-1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zlib_-1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_0_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_0_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_2_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_2_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_-1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_u1_zstd_-1_4096.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_1_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_1_1.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_3_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_3_1.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_9_0.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "zstd_u1_9_1.bin",
+  "raw": "u1.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_0_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_0_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_2_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_2_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_-1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_blosclz_-1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_0_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_0_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_2_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_2_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_-1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4_-1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_0_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_0_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_2_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_2_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_-1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_lz4hc_-1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_0_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_0_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_2_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_2_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_-1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zlib_-1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_0_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_0_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_2_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_2_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_-1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_i2_zstd_-1_4096.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_1_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_1_1.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_3_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_3_1.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_9_0.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "zstd_i2_9_1.bin",
+  "raw": "i2.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_0_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_0_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_2_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_2_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_-1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_blosclz_-1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_0_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_0_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_2_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_2_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_-1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4_-1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_0_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_0_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_2_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_2_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_-1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_lz4hc_-1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_0_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_0_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_2_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_2_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_-1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zlib_-1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_0_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_0_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_2_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_2_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_-1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f4_zstd_-1_4096.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_1_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_1_1.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_3_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_3_1.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_9_0.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "zstd_f4_9_1.bin",
+  "raw": "f4.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_0_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_0_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_2_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_2_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_-1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_blosclz_-1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_0_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_0_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_2_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_2_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_-1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4_-1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_0_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_0_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_2_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_2_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_-1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_lz4hc_-1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_0_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_0_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_2_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_2_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_-1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zlib_-1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_0_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_0_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_2_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_2_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_-1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "blosc_f8_zstd_-1_4096.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_1_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_1_1.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_3_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_3_1.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_9_0.bin",
+  "raw": "f8.raw"
+ },
+ {
+  "file": "zstd_f8_9_1.bin",
+  "raw": "f8.raw"
+ }
+]

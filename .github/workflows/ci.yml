@@ -23,12 +23,43 @@ jobs:
         env:
           RUSTDOCFLAGS: -D warnings
 
+  # Licenses, advisories and sources (deny.toml)
+  deny:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: EmbarkStudios/cargo-deny-action@v2
+
   msrv:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.91.0
+      - uses: dtolnay/rust-toolchain@1.99.0
       - run: cargo check --lib --bins
+
+  # The metadata alone: no Zarr I/O and no C.
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.99.0
+        with:
+          targets: wasm32-unknown-unknown
+      - run: cargo test --lib --no-default-features
+      - run: cargo check --lib --no-default-features --target wasm32-unknown-unknown
+
+  # https and the cloud clients on RustCrypto's cryptography rather than
+  # graviola's (the default)
+  tls-rustcrypto:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - run: cargo clippy --lib --no-default-features --features io,http,cloud,tls-rustcrypto -- -D warnings
+      - run: cargo test --lib --no-default-features --features io,http,cloud,tls-rustcrypto net::
+      - run: cargo test --no-default-features --features io,http,cloud,tls-rustcrypto --test test_remote
 
   wasm:
     runs-on: ubuntu-latest
@@ -37,8 +68,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: wasm32-unknown-unknown
-      - run: sudo apt-get update && sudo apt-get install -y clang llvm
-      - run: cargo install wasm-bindgen-cli --version 0.2.129 --locked
+      - run: cargo install wasm-bindgen-cli --version 0.2.130 --locked
       - uses: actions/setup-node@v4
         with:
           node-version: 22

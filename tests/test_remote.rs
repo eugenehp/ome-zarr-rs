@@ -312,3 +312,48 @@ fn s3_anonymous_aws_and_custom_endpoint() {
     let out = info("s3://idr/zarr/v0.4/idr0062A/6001240.zarr");
     assert!(out.contains("6001240.zarr/labels/0/"), "{out}");
 }
+
+/// Lists `url` one level down, and reads a byte range of its first object.
+fn list_and_read(url: &str) -> (Vec<String>, Vec<String>, usize) {
+    let store = ome_zarr::store::Store::cloud(url, true).unwrap();
+    let (keys, prefixes) = store.list_dir("").unwrap();
+    // the first object with 16 bytes to read
+    let sized = keys
+        .iter()
+        .find(|k| store.inner().size(k).unwrap().is_some_and(|n| n >= 16));
+    let read = sized.map_or(0, |k| {
+        let parts = store
+            .get_ranges(k, &[ome_zarr::store::ByteRange::Range(0, 16)])
+            .unwrap()
+            .unwrap();
+        parts[0].len()
+    });
+    (keys, prefixes, read)
+}
+
+#[test]
+#[ignore = "network: a public Google Cloud Storage bucket"]
+fn gcs_anonymous() {
+    let (keys, prefixes, read) = list_and_read(
+        "gs://gcp-public-data-landsat/LC08/01/044/034/LC08_L1GT_044034_20130330_20170310_01_T2",
+    );
+    assert!(keys.iter().any(|k| k.ends_with("_MTL.txt")), "{keys:?}");
+    assert!(prefixes.is_empty(), "{prefixes:?}");
+    assert_eq!(read, 16);
+}
+
+#[test]
+#[ignore = "network: a public Azure Blob Storage container"]
+fn azure_anonymous() {
+    let (keys, prefixes, _) =
+        list_and_read("abfs://nyctlc@azureopendatastorage.dfs.core.windows.net/");
+    assert!(
+        prefixes.iter().any(|p| p == "yellow"),
+        "{keys:?} {prefixes:?}"
+    );
+    let (keys, _, read) = list_and_read(
+        "abfs://nyctlc@azureopendatastorage.dfs.core.windows.net/yellow/puYear=2015/puMonth=1",
+    );
+    assert!(keys.iter().any(|k| k.ends_with(".parquet")), "{keys:?}");
+    assert_eq!(read, 16);
+}

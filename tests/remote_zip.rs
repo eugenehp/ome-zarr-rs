@@ -33,7 +33,7 @@ fn archive(files: &[(&str, Vec<u8>, bool)], large: bool, comment: &str) -> Vec<u
         w.start_file(*name, opts).unwrap();
         w.write_all(data).unwrap();
     }
-    w.set_comment(comment);
+    w.set_comment(comment).unwrap();
     w.finish().unwrap();
     buf.into_inner()
 }

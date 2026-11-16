@@ -87,7 +87,9 @@ fn diff(name: &str, what: &str, want: &[String], got: &[String], failures: &mut 
 fn info_and_download_output_and_logs() {
     log::set_boxed_logger(Box::new(Capture)).unwrap();
     let obs: Value = serde_json::from_str(
-        &std::fs::read_to_string(fixtures().join("observations5.json")).unwrap(),
+        &std::fs::read_to_string(fixtures().join("observations5.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
     )
     .unwrap();
     let mut failures = vec![];

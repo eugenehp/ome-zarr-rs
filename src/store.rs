@@ -3,24 +3,329 @@
 //! The equivalent of `zarr.storage.LocalStore`, `MemoryStore`, `FsspecStore` and
 //! `ZipStore` in zarr-python.
 
+use std::collections::BTreeMap;
 use std::io::Read;
+use std::ops::Range;
 use std::path::{Path, PathBuf};
-use std::sync::{Arc, Mutex};
+use std::sync::{Arc, Mutex, RwLock};
 
 use bytes::Bytes;
-use zarrs_storage::byte_range::ByteRangeIterator;
-use zarrs_storage::{
-    ListableStorageTraits, MaybeBytes, MaybeBytesIterator, OffsetBytesIterator,
-    ReadableStorageTraits, ReadableWritableListableStorageTraits, StorageError, StoreKey,
-    StoreKeys, StoreKeysPrefixes, StorePrefix, StorePrefixes, WritableStorageTraits,
-};
 
 use crate::error::{Error, Result};
 
-pub use zarrs_storage::store::MemoryStore;
+/// Part of a value: `start..end`, or the last `n` bytes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum ByteRange {
+    /// Bytes `start..end`.
+    Range(u64, u64),
+    /// The last `n` bytes.
+    Suffix(u64),
+}
+
+impl ByteRange {
+    /// The bytes this range covers of a value `len` long.
+    pub fn within(&self, len: u64) -> Result<Range<u64>> {
+        let r = match *self {
+            ByteRange::Range(a, b) => a..b,
+            ByteRange::Suffix(n) => len.saturating_sub(n)..len,
+        };
+        if r.start > r.end || r.end > len {
+            return Err(Error::Storage(format!(
+                "byte range {self:?} out of bounds of {len} bytes"
+            )));
+        }
+        Ok(r)
+    }
+
+    /// This range of `value`.
+    pub fn slice(&self, value: &Bytes) -> Result<Bytes> {
+        let r = self.within(value.len() as u64)?;
+        Ok(value.slice(r.start as usize..r.end as usize))
+    }
+
+    /// The value of an HTTP `Range` header asking for this range; `None` if
+    /// it is empty (nothing to ask for).
+    pub fn http_header(&self) -> Option<String> {
+        match *self {
+            ByteRange::Range(a, b) if b > a => Some(format!("bytes={a}-{}", b - 1)),
+            ByteRange::Suffix(n) if n > 0 => Some(format!("bytes=-{n}")),
+            _ => None,
+        }
+    }
+}
+
+/// Every range of `value`.
+pub fn slice_all(value: &Bytes, ranges: &[ByteRange]) -> Result<Vec<Bytes>> {
+    ranges.iter().map(|r| r.slice(value)).collect()
+}
+
+fn read_only(key: &str) -> Error {
+    Error::Storage(format!("store is read-only: cannot write {key}"))
+}
+
+fn unlistable() -> Error {
+    Error::Storage("listing is not supported by this store".into())
+}
+
+/// A key-value store of Zarr documents and chunks. Keys have no leading
+/// slash; a prefix is `""` or ends in `/`. Only [`get`](Self::get) is
+/// required: the rest default to reading whole values, refusing writes and
+/// refusing to list.
+pub trait Storage: crate::par::MaybeSendSync {
+    /// The value at `key`, if there is one.
+    fn get(&self, key: &str) -> Result<Option<Bytes>>;
+
+    /// Parts of the value at `key`, if there is one.
+    fn get_ranges(&self, key: &str, ranges: &[ByteRange]) -> Result<Option<Vec<Bytes>>> {
+        let Some(value) = self.get(key)? else {
+            return Ok(None);
+        };
+        slice_all(&value, ranges).map(Some)
+    }
+
+    /// Whether [`get_ranges`](Self::get_ranges) reads only the parts.
+    fn supports_ranges(&self) -> bool {
+        false
+    }
+
+    /// The length of the value at `key`, if there is one.
+    fn size(&self, key: &str) -> Result<Option<u64>> {
+        Ok(self.get(key)?.map(|v| v.len() as u64))
+    }
+
+    /// Store `value` at `key`.
+    fn set(&self, key: &str, _value: Bytes) -> Result<()> {
+        Err(read_only(key))
+    }
+
+    /// Delete `key` (nothing if it is not there).
+    fn erase(&self, key: &str) -> Result<()> {
+        Err(read_only(key))
+    }
+
+    /// Delete every key under `prefix`.
+    fn erase_prefix(&self, prefix: &str) -> Result<()> {
+        Err(read_only(prefix))
+    }
+
+    /// Every key under `prefix`, sorted.
+    fn list_prefix(&self, _prefix: &str) -> Result<Vec<String>> {
+        Err(unlistable())
+    }
+
+    /// The keys directly under `prefix`, and the prefixes one level down
+    /// (ending in `/`), both in full and sorted.
+    fn list_dir(&self, prefix: &str) -> Result<(Vec<String>, Vec<String>)> {
+        let mut keys = vec![];
+        let mut prefixes: Vec<String> = vec![];
+        for k in self.list_prefix(prefix)? {
+            match k[prefix.len()..].split_once('/') {
+                None => keys.push(k),
+                Some((dir, _)) => {
+                    let p = format!("{prefix}{dir}/");
+                    if prefixes.last() != Some(&p) && !prefixes.contains(&p) {
+                        prefixes.push(p);
+                    }
+                }
+            }
+        }
+        keys.sort();
+        prefixes.sort();
+        Ok((keys, prefixes))
+    }
+}
 
 /// A shareable, dynamically typed zarr store.
-pub type DynStore = Arc<dyn ReadableWritableListableStorageTraits>;
+pub type DynStore = Arc<dyn Storage>;
+
+/// An in-memory store.
+#[derive(Debug, Default)]
+pub struct MemoryStore {
+    data: RwLock<BTreeMap<String, Bytes>>,
+}
+
+impl MemoryStore {
+    pub fn new() -> MemoryStore {
+        MemoryStore::default()
+    }
+}
+
+impl Storage for MemoryStore {
+    fn get(&self, key: &str) -> Result<Option<Bytes>> {
+        Ok(self.data.read().unwrap().get(key).cloned())
+    }
+    fn supports_ranges(&self) -> bool {
+        true
+    }
+    fn set(&self, key: &str, value: Bytes) -> Result<()> {
+        self.data.write().unwrap().insert(key.to_string(), value);
+        Ok(())
+    }
+    fn erase(&self, key: &str) -> Result<()> {
+        self.data.write().unwrap().remove(key);
+        Ok(())
+    }
+    fn erase_prefix(&self, prefix: &str) -> Result<()> {
+        self.data
+            .write()
+            .unwrap()
+            .retain(|k, _| !k.starts_with(prefix));
+        Ok(())
+    }
+    fn list_prefix(&self, prefix: &str) -> Result<Vec<String>> {
+        Ok(self
+            .data
+            .read()
+            .unwrap()
+            .range(prefix.to_string()..)
+            .take_while(|(k, _)| k.starts_with(prefix))
+            .map(|(k, _)| k.clone())
+            .collect())
+    }
+}
+
+/// A directory on the local filesystem, each key a file.
+#[cfg(not(target_arch = "wasm32"))]
+#[derive(Debug)]
+pub struct FilesystemStore {
+    root: PathBuf,
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+impl FilesystemStore {
+    pub fn new(root: impl AsRef<Path>) -> FilesystemStore {
+        FilesystemStore {
+            root: root.as_ref().to_path_buf(),
+        }
+    }
+
+    fn path(&self, key: &str) -> PathBuf {
+        if key.is_empty() {
+            self.root.clone()
+        } else {
+            self.root.join(key)
+        }
+    }
+
+    /// Not there: no such file, or a directory where the file would be.
+    fn absent(e: &std::io::Error) -> bool {
+        use std::io::ErrorKind::*;
+        matches!(e.kind(), NotFound | IsADirectory | NotADirectory)
+    }
+
+    fn walk(&self, dir: &Path, key: &str, out: &mut Vec<String>) -> Result<()> {
+        let entries = match std::fs::read_dir(dir) {
+            Ok(e) => e,
+            Err(e) if Self::absent(&e) => return Ok(()),
+            Err(e) => return Err(e.into()),
+        };
+        for e in entries {
+            let e = e?;
+            let name = e.file_name().to_string_lossy().to_string();
+            let k = format!("{key}{name}");
+            if e.file_type()?.is_dir() {
+                self.walk(&e.path(), &format!("{k}/"), out)?;
+            } else {
+                out.push(k);
+            }
+        }
+        Ok(())
+    }
+}
+
+#[cfg(not(target_arch = "wasm32"))]
+impl Storage for FilesystemStore {
+    fn get(&self, key: &str) -> Result<Option<Bytes>> {
+        match std::fs::read(self.path(key)) {
+            Ok(v) => Ok(Some(Bytes::from(v))),
+            Err(e) if Self::absent(&e) => Ok(None),
+            Err(e) => Err(e.into()),
+        }
+    }
+    fn get_ranges(&self, key: &str, ranges: &[ByteRange]) -> Result<Option<Vec<Bytes>>> {
+        use std::io::{Seek, SeekFrom};
+        let mut f = match std::fs::File::open(self.path(key)) {
+            Ok(f) if f.metadata()?.is_file() => f,
+            Ok(_) => return Ok(None),
+            Err(e) if Self::absent(&e) => return Ok(None),
+            Err(e) => return Err(e.into()),
+        };
+        let len = f.metadata()?.len();
+        let mut out = Vec::with_capacity(ranges.len());
+        for r in ranges {
+            let r = r.within(len)?;
+            f.seek(SeekFrom::Start(r.start))?;
+            let mut buf = vec![0; (r.end - r.start) as usize];
+            f.read_exact(&mut buf)?;
+            out.push(Bytes::from(buf));
+        }
+        Ok(Some(out))
+    }
+    fn supports_ranges(&self) -> bool {
+        true
+    }
+    fn size(&self, key: &str) -> Result<Option<u64>> {
+        match std::fs::metadata(self.path(key)) {
+            Ok(m) if m.is_file() => Ok(Some(m.len())),
+            Ok(_) => Ok(None),
+            Err(e) if Self::absent(&e) => Ok(None),
+            Err(e) => Err(e.into()),
+        }
+    }
+    fn set(&self, key: &str, value: Bytes) -> Result<()> {
+        let path = self.path(key);
+        if let Some(dir) = path.parent() {
+            std::fs::create_dir_all(dir)?;
+        }
+        Ok(std::fs::write(path, &value)?)
+    }
+    fn erase(&self, key: &str) -> Result<()> {
+        match std::fs::remove_file(self.path(key)) {
+            Err(e) if !Self::absent(&e) => Err(e.into()),
+            _ => Ok(()),
+        }
+    }
+    fn erase_prefix(&self, prefix: &str) -> Result<()> {
+        match std::fs::remove_dir_all(self.path(prefix.trim_end_matches('/'))) {
+            Err(e) if !Self::absent(&e) => Err(e.into()),
+            _ => Ok(()),
+        }
+    }
+    fn list_prefix(&self, prefix: &str) -> Result<Vec<String>> {
+        // the directory the prefix names, or the one it ends in
+        let (dir, _) = prefix.rsplit_once('/').unwrap_or(("", prefix));
+        let base = if dir.is_empty() {
+            String::new()
+        } else {
+            format!("{dir}/")
+        };
+        let mut out = vec![];
+        self.walk(&self.path(dir), &base, &mut out)?;
+        out.retain(|k| k.starts_with(prefix));
+        out.sort();
+        Ok(out)
+    }
+    fn list_dir(&self, prefix: &str) -> Result<(Vec<String>, Vec<String>)> {
+        let entries = match std::fs::read_dir(self.path(prefix.trim_end_matches('/'))) {
+            Ok(e) => e,
+            Err(e) if Self::absent(&e) => return Ok((vec![], vec![])),
+            Err(e) => return Err(e.into()),
+        };
+        let (mut keys, mut prefixes) = (vec![], vec![]);
+        for e in entries {
+            let e = e?;
+            let name = e.file_name().to_string_lossy().to_string();
+            if e.file_type()?.is_dir() {
+                prefixes.push(format!("{prefix}{name}/"));
+            } else {
+                keys.push(format!("{prefix}{name}"));
+            }
+        }
+        keys.sort();
+        prefixes.sort();
+        Ok((keys, prefixes))
+    }
+}
 
 /// What kind of backend a store is (used e.g. for path joining semantics).
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -70,6 +375,12 @@ impl Store {
         }
     }
 
+    /// This store, read only or not.
+    pub fn read_only(mut self, read_only: bool) -> Store {
+        self.read_only = read_only;
+        self
+    }
+
     /// A new, empty in-memory store.
     pub fn memory() -> Store {
         Store::from_dyn(Arc::new(MemoryStore::new()), StoreKind::Memory, None)
@@ -79,10 +390,8 @@ impl Store {
     #[cfg(not(target_arch = "wasm32"))]
     pub fn local(path: impl AsRef<Path>, read_only: bool) -> Result<Store> {
         let path = path.as_ref();
-        let fs = zarrs::filesystem::FilesystemStore::new(path)
-            .map_err(|e| Error::Storage(e.to_string()))?;
         Ok(Store {
-            inner: Arc::new(fs),
+            inner: Arc::new(FilesystemStore::new(path)),
             kind: StoreKind::Local,
             root: Some(path.to_string_lossy().to_string()),
             read_only,
@@ -103,7 +412,7 @@ impl Store {
         let path = path.as_ref();
         let zs = ZipStore::open(path)?;
         Ok(Store {
-            inner: Arc::new(ReadOnly(zs)),
+            inner: Arc::new(zs),
             kind: StoreKind::Zip,
             root: Some(path.to_string_lossy().to_string()),
             read_only: true,
@@ -114,7 +423,7 @@ impl Store {
     /// host application on wasm). `name` is reported as the store's root.
     pub fn zip_bytes(bytes: Vec<u8>, name: &str) -> Result<Store> {
         Ok(Store {
-            inner: Arc::new(ReadOnly(ZipStore::from_bytes(bytes)?)),
+            inner: Arc::new(ZipStore::from_bytes(bytes)?),
             kind: StoreKind::Zip,
             root: Some(name.to_string()),
             read_only: true,
@@ -126,9 +435,9 @@ impl Store {
     /// servers without range support are read in full.
     #[cfg(all(feature = "http", not(target_arch = "wasm32")))]
     pub fn zip_url(url: &str) -> Result<Store> {
-        let reader = http_range::RangeReader::open(url)?;
+        let reader = crate::net::http::RangeReader::open(url)?;
         Ok(Store {
-            inner: Arc::new(ReadOnly(ZipStore::from_source(Box::new(reader))?)),
+            inner: Arc::new(ZipStore::from_source(Box::new(reader))?),
             kind: StoreKind::Zip,
             root: Some(url.to_string()),
             read_only: true,
@@ -138,21 +447,18 @@ impl Store {
     /// A read-only HTTP(S) store.
     #[cfg(all(feature = "http", not(target_arch = "wasm32")))]
     pub fn http(url: &str) -> Result<Store> {
-        let hs = zarrs_http::HTTPStore::new(url.trim_end_matches('/'))
-            .map_err(|e| Error::Storage(e.to_string()))?;
         Ok(Store {
-            inner: Arc::new(ReadOnly(UnlistableReadable(MetadataCache::new(hs)))),
+            inner: Arc::new(MetadataCache::new(crate::net::http::HttpStore::new(url))),
             kind: StoreKind::Http,
             root: Some(url.to_string()),
             read_only: true,
         })
     }
-
     /// An S3 store, e.g. `s3://bucket/prefix`. Credentials are taken from the
     /// environment; if none are found, requests are unsigned (anonymous).
     #[cfg(all(feature = "cloud", not(target_arch = "wasm32")))]
     pub fn s3(url: &str, read_only: bool) -> Result<Store> {
-        cloud::open(url, read_only)
+        crate::net::cloud::open(url, read_only)
     }
 
     /// A cloud object store: `s3://bucket/prefix`, `gs://bucket/prefix`,
@@ -162,7 +468,7 @@ impl Store {
     /// requests are unsigned so public buckets can be read.
     #[cfg(all(feature = "cloud", not(target_arch = "wasm32")))]
     pub fn cloud(url: &str, read_only: bool) -> Result<Store> {
-        cloud::open(url, read_only)
+        crate::net::cloud::open(url, read_only)
     }
 
     /// Open a store from a path or URL: `http(s)://` (a zip archive if the
@@ -188,7 +494,7 @@ impl Store {
             #[cfg(all(feature = "cloud", not(target_arch = "wasm32")))]
             {
                 let _ = scheme;
-                return cloud::open(path, read_only);
+                return crate::net::cloud::open(path, read_only);
             }
             #[cfg(not(all(feature = "cloud", not(target_arch = "wasm32"))))]
             {
@@ -259,22 +565,28 @@ impl Store {
         }
     }
 
-    fn key(k: &str) -> Result<StoreKey> {
-        StoreKey::new(k.trim_start_matches('/')).map_err(|e| Error::Storage(e.to_string()))
+    fn key(k: &str) -> &str {
+        k.trim_start_matches('/')
     }
 
     /// Read raw bytes at a key.
     pub fn get(&self, key: &str) -> Result<Option<Bytes>> {
-        Ok(self.inner.get(&Self::key(key)?)?)
+        self.inner.get(Self::key(key))
+    }
+
+    /// Read parts of the value at a key.
+    pub fn get_ranges(&self, key: &str, ranges: &[ByteRange]) -> Result<Option<Vec<Bytes>>> {
+        self.inner.get_ranges(Self::key(key), ranges)
+    }
+
+    /// Whether [`get_ranges`](Self::get_ranges) reads only the parts.
+    pub fn supports_ranges(&self) -> bool {
+        self.inner.supports_ranges()
     }
 
     /// Whether a key exists.
     pub fn exists(&self, key: &str) -> bool {
-        matches!(
-            self.inner
-                .size_key(&Self::key(key).unwrap_or_else(|_| StoreKey::new("x").unwrap())),
-            Ok(Some(_))
-        ) && Self::key(key).is_ok()
+        matches!(self.inner.size(Self::key(key)), Ok(Some(_)))
     }
 
     /// Write raw bytes at a key.
@@ -284,7 +596,7 @@ impl Store {
                 "store is read-only: cannot write {key}"
             )));
         }
-        Ok(self.inner.set(&Self::key(key)?, Bytes::from(value))?)
+        self.inner.set(Self::key(key), Bytes::from(value))
     }
 
     /// Delete a key.
@@ -292,7 +604,7 @@ impl Store {
         if self.read_only {
             return Err(Error::value("store is read-only"));
         }
-        Ok(self.inner.erase(&Self::key(key)?)?)
+        self.inner.erase(Self::key(key))
     }
 
     /// Delete everything under a prefix (`""` deletes everything).
@@ -300,9 +612,7 @@ impl Store {
         if self.read_only {
             return Err(Error::value("store is read-only"));
         }
-        let prefix = normalize_prefix(prefix);
-        let p = StorePrefix::new(prefix).map_err(|e| Error::Storage(e.to_string()))?;
-        Ok(self.inner.erase_prefix(&p)?)
+        self.inner.erase_prefix(&normalize_prefix(prefix))
     }
 
     /// Read and parse JSON at a key.
@@ -322,22 +632,17 @@ impl Store {
     /// List the direct children (keys and sub-prefixes) of a prefix.
     pub fn list_dir(&self, prefix: &str) -> Result<(Vec<String>, Vec<String>)> {
         let prefix = normalize_prefix(prefix);
-        let p = StorePrefix::new(prefix.clone()).map_err(|e| Error::Storage(e.to_string()))?;
-        let kp = self.inner.list_dir(&p)?;
+        let (keys, prefixes) = self.inner.list_dir(&prefix)?;
         let strip = |s: &str| -> String {
             s.strip_prefix(prefix.as_str())
                 .unwrap_or(s)
                 .trim_end_matches('/')
                 .to_string()
         };
-        let keys = kp.keys().iter().map(|k| strip(k.as_str())).collect();
-        let prefixes = kp.prefixes().iter().map(|k| strip(k.as_str())).collect();
-        Ok((keys, prefixes))
-    }
-
-    /// The store used by zarrs for array I/O.
-    pub fn as_readable(&self) -> Arc<dyn ReadableStorageTraits> {
-        self.inner.clone().readable_writable().readable()
+        Ok((
+            keys.iter().map(|k| strip(k)).collect(),
+            prefixes.iter().map(|k| strip(k)).collect(),
+        ))
     }
 }
 
@@ -350,121 +655,12 @@ fn normalize_prefix(prefix: &str) -> String {
     }
 }
 
-/// Adapter making a readable+listable store usable where a writable store is
-/// expected: all writes fail.
-pub struct ReadOnly<T>(pub T);
-
-impl<T: ReadableStorageTraits> ReadableStorageTraits for ReadOnly<T> {
-    fn get(&self, key: &StoreKey) -> Result<MaybeBytes, StorageError> {
-        self.0.get(key)
-    }
-    fn get_partial_many<'a>(
-        &'a self,
-        key: &StoreKey,
-        byte_ranges: ByteRangeIterator<'a>,
-    ) -> Result<MaybeBytesIterator<'a>, StorageError> {
-        self.0.get_partial_many(key, byte_ranges)
-    }
-    fn size_key(&self, key: &StoreKey) -> Result<Option<u64>, StorageError> {
-        self.0.size_key(key)
-    }
-    fn supports_get_partial(&self) -> bool {
-        self.0.supports_get_partial()
-    }
-}
-
-impl<T: ListableStorageTraits> ListableStorageTraits for ReadOnly<T> {
-    fn list(&self) -> Result<StoreKeys, StorageError> {
-        self.0.list()
-    }
-    fn list_prefix(&self, prefix: &StorePrefix) -> Result<StoreKeys, StorageError> {
-        self.0.list_prefix(prefix)
-    }
-    fn list_dir(&self, prefix: &StorePrefix) -> Result<StoreKeysPrefixes, StorageError> {
-        self.0.list_dir(prefix)
-    }
-    fn size_prefix(&self, prefix: &StorePrefix) -> Result<u64, StorageError> {
-        self.0.size_prefix(prefix)
-    }
-}
-
-impl<T: crate::par::MaybeSendSync> WritableStorageTraits for ReadOnly<T> {
-    fn set(&self, _key: &StoreKey, _value: Bytes) -> Result<(), StorageError> {
-        Err(StorageError::ReadOnly)
-    }
-    fn set_partial_many(
-        &self,
-        _key: &StoreKey,
-        _offset_values: OffsetBytesIterator,
-    ) -> Result<(), StorageError> {
-        Err(StorageError::ReadOnly)
-    }
-    fn erase(&self, _key: &StoreKey) -> Result<(), StorageError> {
-        Err(StorageError::ReadOnly)
-    }
-    fn erase_prefix(&self, _prefix: &StorePrefix) -> Result<(), StorageError> {
-        Err(StorageError::ReadOnly)
-    }
-    fn supports_set_partial(&self) -> bool {
-        false
-    }
-}
-
-/// Adapter for readable stores that cannot list (e.g. plain HTTP).
-pub struct UnlistableReadable<T>(pub T);
-
-impl<T: ReadableStorageTraits> ReadableStorageTraits for UnlistableReadable<T> {
-    fn get(&self, key: &StoreKey) -> Result<MaybeBytes, StorageError> {
-        self.0.get(key)
-    }
-    fn get_partial_many<'a>(
-        &'a self,
-        key: &StoreKey,
-        byte_ranges: ByteRangeIterator<'a>,
-    ) -> Result<MaybeBytesIterator<'a>, StorageError> {
-        self.0.get_partial_many(key, byte_ranges)
-    }
-    fn size_key(&self, key: &StoreKey) -> Result<Option<u64>, StorageError> {
-        // Some servers do not support HEAD; fall back to a GET.
-        match self.0.size_key(key) {
-            Ok(Some(s)) => Ok(Some(s)),
-            _ => Ok(self.0.get(key)?.map(|b| b.len() as u64)),
-        }
-    }
-    fn supports_get_partial(&self) -> bool {
-        self.0.supports_get_partial()
-    }
-}
-
-impl<T: crate::par::MaybeSendSync> ListableStorageTraits for UnlistableReadable<T> {
-    fn list(&self) -> Result<StoreKeys, StorageError> {
-        Err(StorageError::Unsupported(
-            "listing is not supported by this store".into(),
-        ))
-    }
-    fn list_prefix(&self, _prefix: &StorePrefix) -> Result<StoreKeys, StorageError> {
-        Err(StorageError::Unsupported(
-            "listing is not supported by this store".into(),
-        ))
-    }
-    fn list_dir(&self, _prefix: &StorePrefix) -> Result<StoreKeysPrefixes, StorageError> {
-        Err(StorageError::Unsupported(
-            "listing is not supported by this store".into(),
-        ))
-    }
-    fn size_prefix(&self, _prefix: &StorePrefix) -> Result<u64, StorageError> {
-        Err(StorageError::Unsupported(
-            "listing is not supported by this store".into(),
-        ))
-    }
-}
-
 /// Caches reads (including misses) of metadata documents (`zarr.json`,
 /// `.zgroup`, `.zattrs`, `.zarray`), which are looked up repeatedly while
 /// walking a hierarchy; each lookup is a round trip on remote stores.
 pub struct MetadataCache<T> {
     inner: T,
-    cache: Mutex<std::collections::HashMap<String, MaybeBytes>>,
+    cache: Mutex<std::collections::HashMap<String, Option<Bytes>>>,
 }
 
 impl<T> MetadataCache<T> {
@@ -474,54 +670,33 @@ impl<T> MetadataCache<T> {
             cache: Mutex::new(Default::default()),
         }
     }
-
-    fn is_metadata(key: &StoreKey) -> bool {
-        let k = key.as_str();
-        let name = k.rsplit('/').next().unwrap_or(k);
-        matches!(name, "zarr.json" | ".zgroup" | ".zattrs" | ".zarray")
-    }
 }
 
-impl<T: ReadableStorageTraits> MetadataCache<T> {
+impl<T: Storage> MetadataCache<T> {
     /// Fetch all metadata documents of the node containing `key` concurrently.
-    fn prefetch(&self, key: &StoreKey) -> Result<(), StorageError> {
-        let k = key.as_str();
-        let dir = match k.rfind('/') {
-            Some(i) => &k[..=i],
+    fn prefetch(&self, key: &str) -> Result<()> {
+        let dir = match key.rfind('/') {
+            Some(i) => &key[..=i],
             None => "",
         };
-        let keys: Vec<String> = ["zarr.json", ".zgroup", ".zattrs", ".zarray"]
+        let keys: Vec<String> = crate::zarr::NODE_DOCUMENTS
             .iter()
             .map(|n| format!("{dir}{n}"))
             .filter(|k| !self.cache.lock().unwrap().contains_key(k))
             .collect();
         #[cfg(target_arch = "wasm32")]
-        let results: Vec<(String, Result<MaybeBytes, StorageError>)> = keys
+        let results: Vec<(String, Result<Option<Bytes>>)> = keys
             .iter()
-            .map(|k| {
-                let r = StoreKey::new(k.clone())
-                    .map_err(|e| StorageError::Other(e.to_string()))
-                    .and_then(|sk| self.inner.get(&sk));
-                (k.clone(), r)
-            })
+            .map(|k| (k.clone(), self.inner.get(k)))
             .collect();
         #[cfg(not(target_arch = "wasm32"))]
-        let results: Vec<(String, Result<MaybeBytes, StorageError>)> =
-            std::thread::scope(|scope| {
-                let handles: Vec<_> = keys
-                    .iter()
-                    .map(|k| {
-                        let k = k.clone();
-                        scope.spawn(move || {
-                            let r = StoreKey::new(k.clone())
-                                .map_err(|e| StorageError::Other(e.to_string()))
-                                .and_then(|sk| self.inner.get(&sk));
-                            (k, r)
-                        })
-                    })
-                    .collect();
-                handles.into_iter().map(|h| h.join().unwrap()).collect()
-            });
+        let results: Vec<(String, Result<Option<Bytes>>)> = std::thread::scope(|scope| {
+            let handles: Vec<_> = keys
+                .iter()
+                .map(|k| scope.spawn(move || (k.clone(), self.inner.get(k))))
+                .collect();
+            handles.into_iter().map(|h| h.join().unwrap()).collect()
+        });
         let mut cache = self.cache.lock().unwrap();
         for (k, r) in results {
             cache.insert(k, r?);
@@ -530,47 +705,101 @@ impl<T: ReadableStorageTraits> MetadataCache<T> {
     }
 }
 
-impl<T: ReadableStorageTraits> ReadableStorageTraits for MetadataCache<T> {
-    fn get(&self, key: &StoreKey) -> Result<MaybeBytes, StorageError> {
-        if !Self::is_metadata(key) {
+impl<T: Storage> Storage for MetadataCache<T> {
+    fn get(&self, key: &str) -> Result<Option<Bytes>> {
+        if !crate::zarr::is_metadata(key) {
             return self.inner.get(key);
         }
-        if let Some(v) = self.cache.lock().unwrap().get(key.as_str()) {
+        if let Some(v) = self.cache.lock().unwrap().get(key) {
             return Ok(v.clone());
         }
         self.prefetch(key)?;
-        if let Some(v) = self.cache.lock().unwrap().get(key.as_str()) {
+        if let Some(v) = self.cache.lock().unwrap().get(key) {
             return Ok(v.clone());
         }
         let v = self.inner.get(key)?;
         self.cache
             .lock()
             .unwrap()
-            .insert(key.as_str().to_string(), v.clone());
+            .insert(key.to_string(), v.clone());
         Ok(v)
     }
-    fn get_partial_many<'a>(
-        &'a self,
-        key: &StoreKey,
-        byte_ranges: ByteRangeIterator<'a>,
-    ) -> Result<MaybeBytesIterator<'a>, StorageError> {
-        self.inner.get_partial_many(key, byte_ranges)
+    fn get_ranges(&self, key: &str, ranges: &[ByteRange]) -> Result<Option<Vec<Bytes>>> {
+        self.inner.get_ranges(key, ranges)
     }
-    fn size_key(&self, key: &StoreKey) -> Result<Option<u64>, StorageError> {
-        if Self::is_metadata(key) {
+    fn supports_ranges(&self) -> bool {
+        self.inner.supports_ranges()
+    }
+    fn size(&self, key: &str) -> Result<Option<u64>> {
+        if crate::zarr::is_metadata(key) {
             return Ok(self.get(key)?.map(|b| b.len() as u64));
         }
-        self.inner.size_key(key)
-    }
-    fn supports_get_partial(&self) -> bool {
-        self.inner.supports_get_partial()
+        self.inner.size(key)
     }
 }
 
 /// A seekable byte source for a zip archive (a file, memory, or a remote
 /// file read with HTTP range requests).
-pub trait ZipSource: std::io::Read + std::io::Seek + Send {}
-impl<T: std::io::Read + std::io::Seek + Send> ZipSource for T {}
+///
+/// A clone reads on its own, from its own position: each read of a member has
+/// one, so reads of a remote archive overlap rather than queue.
+pub trait ZipSource: std::io::Read + std::io::Seek + Send {
+    fn clone_source(&self) -> Box<dyn ZipSource>;
+}
+impl<T: std::io::Read + std::io::Seek + Send + Clone + 'static> ZipSource for T {
+    fn clone_source(&self) -> Box<dyn ZipSource> {
+        Box::new(self.clone())
+    }
+}
+impl Clone for Box<dyn ZipSource> {
+    fn clone(&self) -> Self {
+        self.as_ref().clone_source()
+    }
+}
+
+/// A file as a [`ZipSource`]: each clone opens it for itself, when first read.
+struct FileSource {
+    path: PathBuf,
+    file: Option<std::io::BufReader<std::fs::File>>,
+    pos: u64,
+}
+
+impl Clone for FileSource {
+    fn clone(&self) -> Self {
+        FileSource {
+            path: self.path.clone(),
+            file: None,
+            pos: self.pos,
+        }
+    }
+}
+
+impl FileSource {
+    fn file(&mut self) -> std::io::Result<&mut std::io::BufReader<std::fs::File>> {
+        use std::io::Seek;
+        if self.file.is_none() {
+            let mut f = std::io::BufReader::new(std::fs::File::open(&self.path)?);
+            f.seek(std::io::SeekFrom::Start(self.pos))?;
+            self.file = Some(f);
+        }
+        Ok(self.file.as_mut().unwrap())
+    }
+}
+
+impl std::io::Read for FileSource {
+    fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+        let n = self.file()?.read(buf)?;
+        self.pos += n as u64;
+        Ok(n)
+    }
+}
+
+impl std::io::Seek for FileSource {
+    fn seek(&mut self, to: std::io::SeekFrom) -> std::io::Result<u64> {
+        self.pos = self.file()?.seek(to)?;
+        Ok(self.pos)
+    }
+}
 
 /// A read-only store backed by a zip archive.
 pub struct ZipStore {
@@ -580,29 +809,43 @@ pub struct ZipStore {
 
 impl ZipStore {
     pub fn open(path: &Path) -> Result<ZipStore> {
-        let f = std::fs::File::open(path)?;
-        ZipStore::from_source(Box::new(std::io::BufReader::new(f)))
+        std::fs::metadata(path)?;
+        ZipStore::from_source(Box::new(FileSource {
+            path: path.to_path_buf(),
+            file: None,
+            pos: 0,
+        }))
     }
 
     /// A zip archive held in memory.
     pub fn from_bytes(bytes: Vec<u8>) -> Result<ZipStore> {
-        ZipStore::from_source(Box::new(std::io::Cursor::new(bytes)))
+        // `Bytes`: every read clones its source, and this clones no data.
+        ZipStore::from_source(Box::new(std::io::Cursor::new(Bytes::from(bytes))))
     }
 
     pub fn from_source(source: Box<dyn ZipSource>) -> Result<ZipStore> {
         let archive = zip::ZipArchive::new(source).map_err(|e| Error::Storage(e.to_string()))?;
         let names = archive
             .file_names()
-            .map(|s| s.trim_start_matches('/').to_string())
-            .collect();
+            .map(|s| {
+                let name = s.map_err(|e| Error::Storage(e.to_string()))?;
+                Ok(name.trim_start_matches('/').to_string())
+            })
+            .collect::<Result<_>>()?;
         Ok(ZipStore {
             archive: Mutex::new(archive),
             names,
         })
     }
 
-    fn read(&self, key: &str) -> Result<Option<Vec<u8>>, StorageError> {
-        let mut ar = self.archive.lock().unwrap();
+    /// An archive to read through, held by nobody else: the index is shared,
+    /// the source is its own, and the lock lasts only as long as the clone.
+    fn archive(&self) -> zip::ZipArchive<Box<dyn ZipSource>> {
+        self.archive.lock().unwrap().clone()
+    }
+
+    fn read(&self, key: &str) -> Result<Option<Vec<u8>>> {
+        let mut ar = self.archive();
         let idx = match ar.index_for_name(key) {
             Some(i) => i,
             None => match ar.index_for_name(&format!("/{key}")) {
@@ -612,94 +855,37 @@ impl ZipStore {
         };
         let mut file = ar
             .by_index(idx)
-            .map_err(|e| StorageError::Other(e.to_string()))?;
+            .map_err(|e| Error::Storage(e.to_string()))?;
         let mut buf = Vec::with_capacity(file.size() as usize);
         file.read_to_end(&mut buf)?;
         Ok(Some(buf))
     }
 }
 
-impl ReadableStorageTraits for ZipStore {
-    fn get(&self, key: &StoreKey) -> Result<MaybeBytes, StorageError> {
-        Ok(self.read(key.as_str())?.map(Bytes::from))
+impl Storage for ZipStore {
+    fn get(&self, key: &str) -> Result<Option<Bytes>> {
+        Ok(self.read(key)?.map(Bytes::from))
     }
-    fn get_partial_many<'a>(
-        &'a self,
-        key: &StoreKey,
-        byte_ranges: ByteRangeIterator<'a>,
-    ) -> Result<MaybeBytesIterator<'a>, StorageError> {
-        let Some(data) = self.read(key.as_str())? else {
-            return Ok(None);
-        };
-        let data = Bytes::from(data);
-        let out = Box::new(byte_ranges.map(move |br| {
-            let len = data.len() as u64;
-            let start = br.start(len) as usize;
-            let end = br.end(len) as usize;
-            if end > data.len() {
-                Err(StorageError::Other("byte range out of bounds".into()))
-            } else {
-                Ok(data.slice(start..end))
-            }
-        }));
-        Ok(Some(out))
-    }
-    fn size_key(&self, key: &StoreKey) -> Result<Option<u64>, StorageError> {
-        let mut ar = self.archive.lock().unwrap();
-        match ar.index_for_name(key.as_str()) {
+    fn size(&self, key: &str) -> Result<Option<u64>> {
+        let mut ar = self.archive();
+        match ar.index_for_name(key) {
             Some(i) => Ok(Some(
                 ar.by_index(i)
-                    .map_err(|e| StorageError::Other(e.to_string()))?
+                    .map_err(|e| Error::Storage(e.to_string()))?
                     .size(),
             )),
             None => Ok(None),
         }
     }
-    fn supports_get_partial(&self) -> bool {
-        true
-    }
-}
-
-impl ListableStorageTraits for ZipStore {
-    fn list(&self) -> Result<StoreKeys, StorageError> {
-        Ok(self
+    fn list_prefix(&self, prefix: &str) -> Result<Vec<String>> {
+        let mut keys: Vec<String> = self
             .names
             .iter()
-            .filter(|n| !n.ends_with('/'))
-            .filter_map(|n| StoreKey::new(n.clone()).ok())
-            .collect())
-    }
-    fn list_prefix(&self, prefix: &StorePrefix) -> Result<StoreKeys, StorageError> {
-        Ok(self
-            .list()?
-            .into_iter()
-            .filter(|k| k.as_str().starts_with(prefix.as_str()))
-            .collect())
-    }
-    fn list_dir(&self, prefix: &StorePrefix) -> Result<StoreKeysPrefixes, StorageError> {
-        let mut keys = vec![];
-        let mut prefixes: StorePrefixes = vec![];
-        for k in self.list_prefix(prefix)? {
-            let rest = &k.as_str()[prefix.as_str().len()..];
-            match rest.split_once('/') {
-                None => keys.push(k.clone()),
-                Some((dir, _)) => {
-                    let p = StorePrefix::new(format!("{}{}/", prefix.as_str(), dir))
-                        .map_err(|e| StorageError::Other(e.to_string()))?;
-                    if !prefixes.contains(&p) {
-                        prefixes.push(p);
-                    }
-                }
-            }
-        }
-        Ok(StoreKeysPrefixes::new(keys, prefixes))
-    }
-    fn size_prefix(&self, prefix: &StorePrefix) -> Result<u64, StorageError> {
-        let mut total = 0;
-        for k in self.list_prefix(prefix)? {
-            total += self.size_key(&k)?.unwrap_or(0);
-        }
-        Ok(total)
+            .filter(|n| !n.ends_with('/') && n.starts_with(prefix))
+            .cloned()
+            .collect();
+        keys.sort();
+        Ok(keys)
     }
 }
 
@@ -716,242 +902,94 @@ pub fn cloud_scheme(url: &str) -> Option<&'static str> {
         .find(|s| url.strip_prefix(s).is_some_and(|r| r.starts_with("://")))
 }
 
-#[cfg(all(feature = "cloud", not(target_arch = "wasm32")))]
-mod cloud {
-    use super::*;
-    use object_store::ObjectStore;
-    use zarrs_object_store::AsyncObjectStore;
-    use zarrs_storage::storage_adapter::async_to_sync::{
-        AsyncToSyncBlockOn, AsyncToSyncStorageAdapter,
-    };
-
-    struct TokioBlockOn(tokio::runtime::Runtime);
-
-    impl AsyncToSyncBlockOn for TokioBlockOn {
-        fn block_on<F: core::future::Future>(&self, future: F) -> F::Output {
-            self.0.block_on(future)
-        }
-    }
-
-    fn has_env(vars: &[&str]) -> bool {
-        vars.iter().any(|v| std::env::var_os(v).is_some())
-    }
-
-    fn build(url: &str) -> Result<Arc<dyn ObjectStore>> {
-        let err = |e: object_store::Error| Error::Storage(e.to_string());
-        let scheme = cloud_scheme(url).unwrap_or("");
-        Ok(match scheme {
-            "s3" => {
-                let mut b = object_store::aws::AmazonS3Builder::from_env().with_url(url);
-                if !has_env(&[
-                    "AWS_ACCESS_KEY_ID",
-                    "AWS_PROFILE",
-                    "AWS_WEB_IDENTITY_TOKEN_FILE",
-                ]) {
-                    b = b.with_skip_signature(true);
-                }
-                if let Ok(ep) = std::env::var("AWS_ENDPOINT_URL") {
-                    b = b.with_endpoint(ep);
-                }
-                Arc::new(b.build().map_err(err)?)
-            }
-            "gs" | "gcs" => {
-                let gs_url = format!("gs://{}", &url[scheme.len() + 3..]);
-                let mut b =
-                    object_store::gcp::GoogleCloudStorageBuilder::from_env().with_url(gs_url);
-                if !has_env(&[
-                    "GOOGLE_APPLICATION_CREDENTIALS",
-                    "GOOGLE_SERVICE_ACCOUNT",
-                    "GOOGLE_SERVICE_ACCOUNT_PATH",
-                    "GOOGLE_SERVICE_ACCOUNT_KEY",
-                ]) {
-                    b = b.with_skip_signature(true);
-                }
-                Arc::new(b.build().map_err(err)?)
-            }
-            _ => {
-                let az_url = if scheme == "azure" {
-                    format!("az://{}", &url[8..])
-                } else {
-                    url.to_string()
-                };
-                let mut b = object_store::azure::MicrosoftAzureBuilder::from_env().with_url(az_url);
-                if !has_env(&[
-                    "AZURE_STORAGE_ACCOUNT_KEY",
-                    "AZURE_STORAGE_ACCESS_KEY",
-                    "AZURE_STORAGE_SAS_KEY",
-                    "AZURE_STORAGE_TOKEN",
-                    "AZURE_CLIENT_ID",
-                    "AZURE_STORAGE_USE_EMULATOR",
-                ]) {
-                    b = b.with_skip_signature(true);
-                }
-                Arc::new(b.build().map_err(err)?)
-            }
-        })
-    }
-
-    pub(super) fn open(url: &str, read_only: bool) -> Result<Store> {
-        let parsed =
-            url::Url::parse(url).map_err(|e| Error::value(format!("invalid url {url}: {e}")))?;
-        let prefix = percent_encoding::percent_decode_str(parsed.path().trim_matches('/'))
-            .decode_utf8_lossy()
-            .to_string();
-        let os = build(url)?;
-        let os: Arc<dyn ObjectStore> = if prefix.is_empty() {
-            os
-        } else {
-            Arc::new(object_store::prefix::PrefixStore::new(os, prefix.as_str()))
-        };
-        let store = AsyncObjectStore::new(os);
-        let rt = tokio::runtime::Runtime::new().map_err(|e| Error::Storage(e.to_string()))?;
-        let sync = AsyncToSyncStorageAdapter::new(Arc::new(store), TokioBlockOn(rt));
-        Ok(Store {
-            inner: Arc::new(sync),
-            kind: StoreKind::ObjectStore,
-            root: Some(url.to_string()),
-            read_only,
-        })
-    }
-}
-
-/// `Read + Seek` over a remote file using HTTP range requests, with a small
-/// block cache (zip readers seek back and forth around the central directory).
-#[cfg(all(feature = "http", not(target_arch = "wasm32")))]
-mod http_range {
-    use super::*;
-    use std::collections::HashMap;
-    use std::io::{Read, Seek, SeekFrom};
-
-    const BLOCK: u64 = 1 << 20;
-    const MAX_BLOCKS: usize = 64;
-
-    pub struct RangeReader {
-        client: reqwest::blocking::Client,
-        url: String,
-        len: u64,
-        pos: u64,
-        blocks: HashMap<u64, Vec<u8>>,
-        order: Vec<u64>,
-        /// The whole file, if the server ignores range requests.
-        whole: Option<Vec<u8>>,
-    }
-
-    fn err(e: impl std::fmt::Display) -> Error {
-        Error::Storage(e.to_string())
-    }
-
-    impl RangeReader {
-        pub fn open(url: &str) -> Result<RangeReader> {
-            let client = reqwest::blocking::Client::new();
-            let resp = client.head(url).send().map_err(err)?;
-            if !resp.status().is_success() {
-                return Err(Error::Storage(format!("{url}: HTTP {}", resp.status())));
-            }
-            let ranges = resp
-                .headers()
-                .get(reqwest::header::ACCEPT_RANGES)
-                .is_some_and(|v| v.as_bytes() == b"bytes");
-            let len = resp
-                .headers()
-                .get(reqwest::header::CONTENT_LENGTH)
-                .and_then(|v| v.to_str().ok()?.parse::<u64>().ok());
-            let mut r = RangeReader {
-                client,
-                url: url.to_string(),
-                len: len.unwrap_or(0),
-                pos: 0,
-                blocks: HashMap::new(),
-                order: vec![],
-                whole: None,
-            };
-            if !ranges || len.is_none() {
-                let body = r
-                    .client
-                    .get(url)
-                    .send()
-                    .and_then(|r| r.error_for_status())
-                    .map_err(err)?;
-                let bytes = body.bytes().map_err(err)?.to_vec();
-                r.len = bytes.len() as u64;
-                r.whole = Some(bytes);
-            }
-            Ok(r)
-        }
-
-        fn block(&mut self, idx: u64) -> std::io::Result<&[u8]> {
-            if !self.blocks.contains_key(&idx) {
-                let start = idx * BLOCK;
-                let end = (start + BLOCK).min(self.len) - 1;
-                let resp = self
-                    .client
-                    .get(&self.url)
-                    .header(reqwest::header::RANGE, format!("bytes={start}-{end}"))
-                    .send()
-                    .and_then(|r| r.error_for_status())
-                    .map_err(std::io::Error::other)?;
-                let partial = resp.status() == reqwest::StatusCode::PARTIAL_CONTENT;
-                let bytes = resp.bytes().map_err(std::io::Error::other)?.to_vec();
-                let data = if partial {
-                    bytes
-                } else {
-                    bytes[start as usize..=end as usize].to_vec()
-                };
-                if self.order.len() >= MAX_BLOCKS {
-                    let old = self.order.remove(0);
-                    self.blocks.remove(&old);
-                }
-                self.order.push(idx);
-                self.blocks.insert(idx, data);
-            }
-            Ok(&self.blocks[&idx])
-        }
-    }
-
-    impl Read for RangeReader {
-        fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
-            if self.pos >= self.len || buf.is_empty() {
-                return Ok(0);
-            }
-            let pos = self.pos;
-            let n = if let Some(w) = &self.whole {
-                let n = buf.len().min((self.len - pos) as usize);
-                buf[..n].copy_from_slice(&w[pos as usize..pos as usize + n]);
-                n
-            } else {
-                let b = self.block(pos / BLOCK)?;
-                let off = (pos % BLOCK) as usize;
-                let n = buf.len().min(b.len() - off);
-                buf[..n].copy_from_slice(&b[off..off + n]);
-                n
-            };
-            self.pos += n as u64;
-            Ok(n)
-        }
-    }
-
-    impl Seek for RangeReader {
-        fn seek(&mut self, to: SeekFrom) -> std::io::Result<u64> {
-            let p = match to {
-                SeekFrom::Start(p) => p as i128,
-                SeekFrom::End(d) => self.len as i128 + d as i128,
-                SeekFrom::Current(d) => self.pos as i128 + d as i128,
-            };
-            if p < 0 {
-                return Err(std::io::Error::new(
-                    std::io::ErrorKind::InvalidInput,
-                    "seek before start",
-                ));
-            }
-            self.pos = p as u64;
-            Ok(self.pos)
-        }
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// A source that takes a moment per read, counting how many overlap.
+    #[derive(Clone)]
+    struct Slow {
+        inner: std::io::Cursor<Bytes>,
+        now: Arc<std::sync::atomic::AtomicUsize>,
+        peak: Arc<std::sync::atomic::AtomicUsize>,
+    }
+
+    impl Read for Slow {
+        fn read(&mut self, buf: &mut [u8]) -> std::io::Result<usize> {
+            use std::sync::atomic::Ordering::SeqCst;
+            let n = self.now.fetch_add(1, SeqCst) + 1;
+            self.peak.fetch_max(n, SeqCst);
+            std::thread::sleep(std::time::Duration::from_millis(2));
+            let r = self.inner.read(buf);
+            self.now.fetch_sub(1, SeqCst);
+            r
+        }
+    }
+
+    impl std::io::Seek for Slow {
+        fn seek(&mut self, to: std::io::SeekFrom) -> std::io::Result<u64> {
+            self.inner.seek(to)
+        }
+    }
+
+    fn zipped(members: &[(&str, &[u8])]) -> Vec<u8> {
+        use std::io::Write;
+        let mut w = zip::ZipWriter::new(std::io::Cursor::new(vec![]));
+        for (name, data) in members {
+            let opts = zip::write::SimpleFileOptions::default()
+                .compression_method(zip::CompressionMethod::Stored);
+            w.start_file(*name, opts).unwrap();
+            w.write_all(data).unwrap();
+        }
+        w.finish().unwrap().into_inner()
+    }
+
+    #[test]
+    fn reads_of_a_zip_overlap() {
+        let bytes = Bytes::from(zipped(&[("a", b"first"), ("b", b"second")]));
+        let peak = Arc::new(std::sync::atomic::AtomicUsize::new(0));
+        let source = Slow {
+            inner: std::io::Cursor::new(bytes),
+            now: Default::default(),
+            peak: peak.clone(),
+        };
+        let store = Arc::new(ZipStore::from_source(Box::new(source)).unwrap());
+        peak.store(0, std::sync::atomic::Ordering::SeqCst);
+        let threads: Vec<_> = (0..8)
+            .map(|i| {
+                let store = store.clone();
+                std::thread::spawn(move || {
+                    let (key, want): (&str, &[u8]) = if i % 2 == 0 {
+                        ("a", b"first")
+                    } else {
+                        ("b", b"second")
+                    };
+                    assert_eq!(store.read(key).unwrap().unwrap(), want);
+                })
+            })
+            .collect();
+        for t in threads {
+            t.join().unwrap();
+        }
+        assert!(
+            peak.load(std::sync::atomic::Ordering::SeqCst) > 1,
+            "the reads queued"
+        );
+    }
+
+    #[test]
+    fn a_zip_on_disk_reads_from_every_clone() {
+        let dir = std::env::temp_dir().join(format!("ome-zarr-zip-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let path = dir.join("a.zip");
+        std::fs::write(&path, zipped(&[("a", b"first"), ("b", b"second")])).unwrap();
+        let store = ZipStore::open(&path).unwrap();
+        assert_eq!(store.read("b").unwrap().unwrap(), b"second");
+        assert_eq!(store.read("a").unwrap().unwrap(), b"first");
+        assert_eq!(store.read("missing").unwrap(), None);
+        assert!(ZipStore::open(&dir.join("absent.zip")).is_err());
+        std::fs::remove_dir_all(&dir).unwrap();
+    }
 
     #[test]
     fn memory_roundtrip() {

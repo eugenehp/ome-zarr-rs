@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
 use crate::error::{Error, Result};
-use crate::zarr::JsonMap;
+use crate::pyjson::JsonMap;
 
 /// A channel window.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -58,9 +58,7 @@ pub fn validate_rgb_hex(s: &str) -> Result<()> {
 impl Omero {
     /// `Omero.model_validate(...)`.
     pub fn from_json(v: &Value) -> Result<Omero> {
-        crate::models::pydantic::validate_model("Omero", v)?;
-        let o: Omero = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid omero: {e}")))?;
+        let o: Omero = super::parse("Omero", "omero", v)?;
         for c in &o.channels {
             validate_rgb_hex(&c.color)?;
         }
@@ -69,6 +67,6 @@ impl Omero {
 
     /// `model_dump(by_alias=True)` + `_recursive_pop_nones`.
     pub fn to_json(&self) -> Value {
-        crate::utils::recursive_pop_nones(&serde_json::to_value(self).expect("serialize omero"))
+        super::dump_without_nones(self)
     }
 }

@@ -1,6 +1,6 @@
 {
  "info:astronaut_0.4.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
   "logs": [
    [
     "WARNING",
@@ -265,17 +265,17 @@
   ]
  },
  "info:astronaut_0.4.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -290,7 +290,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -300,12 +300,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -435,17 +435,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -475,12 +475,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -495,17 +495,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, r)"
    ],
    [
     "DEBUG",
@@ -520,12 +520,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Label"
    ],
    [
     "INFO",
@@ -550,17 +550,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -575,22 +575,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -720,27 +720,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -765,12 +765,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -780,7 +780,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -790,7 +790,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -800,7 +800,7 @@
   ]
  },
  "info:astronaut_0.4.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
   "logs": [
    [
     "WARNING",
@@ -1065,17 +1065,17 @@
   ]
  },
  "info:astronaut_0.4.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -1090,7 +1090,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -1100,12 +1100,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -1235,17 +1235,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -1275,12 +1275,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -1295,17 +1295,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels, r)"
    ],
    [
     "DEBUG",
@@ -1320,12 +1320,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Label"
    ],
    [
     "INFO",
@@ -1350,17 +1350,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -1375,22 +1375,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -1520,27 +1520,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -1565,12 +1565,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -1580,7 +1580,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -1590,7 +1590,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.4.zarr/labels/astronaut_labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -1600,7 +1600,7 @@
   ]
  },
  "info:astronaut_0.5.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
   "logs": [
    [
     "INFO",
@@ -1885,17 +1885,17 @@
   ]
  },
  "info:astronaut_0.5.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024)\n   - (3, 512, 512)\n   - (3, 256, 256)\n   - (3, 128, 128)\n   - (3, 64, 64)\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024)\n   - (512, 512)\n   - (256, 256)\n   - (128, 128)\n   - (64, 64)\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -1925,12 +1925,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -2070,17 +2070,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -2110,12 +2110,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -2140,17 +2140,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, r)"
    ],
    [
     "DEBUG",
@@ -2180,12 +2180,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Label"
    ],
    [
     "INFO",
@@ -2220,17 +2220,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -2260,22 +2260,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -2415,27 +2415,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -2470,12 +2470,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -2485,7 +2485,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -2495,7 +2495,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -2505,7 +2505,7 @@
   ]
  },
  "info:astronaut_0.5.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
   "logs": [
    [
     "INFO",
@@ -2790,17 +2790,17 @@
   ]
  },
  "info:astronaut_0.5.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (3, 1024, 1024) minmax=(np.uint8(0), np.uint8(255))\n   - (3, 512, 512) minmax=(np.uint8(0), np.uint8(254))\n   - (3, 256, 256) minmax=(np.uint8(0), np.uint8(253))\n   - (3, 128, 128) minmax=(np.uint8(0), np.uint8(251))\n   - (3, 64, 64) minmax=(np.uint8(0), np.uint8(233))\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)\n - version: 0.5\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (1024, 1024) minmax=(np.int8(0), np.int8(2))\n   - (512, 512) minmax=(np.int8(0), np.int8(2))\n   - (256, 256) minmax=(np.int8(0), np.int8(2))\n   - (128, 128) minmax=(np.int8(0), np.int8(2))\n   - (64, 64) minmax=(np.int8(0), np.int8(2))\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -2830,12 +2830,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -2975,17 +2975,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -3015,12 +3015,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -3045,17 +3045,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels, r)"
    ],
    [
     "DEBUG",
@@ -3085,12 +3085,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Label"
    ],
    [
     "INFO",
@@ -3125,17 +3125,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -3165,22 +3165,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -3320,27 +3320,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels/labels detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -3375,12 +3375,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -3390,7 +3390,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -3400,7 +3400,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/astronaut_0.5.zarr/labels/astronaut_labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -3410,7 +3410,7 @@
   ]
  },
  "info:coins_0.4.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
   "logs": [
    [
     "WARNING",
@@ -3675,17 +3675,17 @@
   ]
  },
  "info:coins_0.4.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -3700,7 +3700,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -3710,12 +3710,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -3845,17 +3845,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -3885,12 +3885,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -3905,17 +3905,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, r)"
    ],
    [
     "DEBUG",
@@ -3930,12 +3930,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Label"
    ],
    [
     "INFO",
@@ -3960,17 +3960,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -3985,22 +3985,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -4130,27 +4130,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -4175,12 +4175,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -4190,7 +4190,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -4200,7 +4200,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -4210,7 +4210,7 @@
   ]
  },
  "info:coins_0.4.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
   "logs": [
    [
     "WARNING",
@@ -4475,17 +4475,17 @@
   ]
  },
  "info:coins_0.4.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)\n - version: 0.4\n - metadata\n   - Label\n   - Multiscales\n - data\n   - (203, 284) minmax=(np.int32(0), np.int32(8))\n   - (101, 142) minmax=(np.int32(0), np.int32(8))\n   - (50, 71) minmax=(np.int32(0), np.int32(8))\n   - (25, 35) minmax=(np.int32(0), np.int32(8))\n   - (12, 17) minmax=(np.int32(0), np.int32(8))\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -4500,7 +4500,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -4510,12 +4510,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -4645,17 +4645,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -4685,12 +4685,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -4705,17 +4705,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins, r)"
    ],
    [
     "DEBUG",
@@ -4730,12 +4730,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Label"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Label"
    ],
    [
     "INFO",
@@ -4760,17 +4760,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -4785,22 +4785,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "delegating to parent image: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+    "delegating to parent image: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "already seen  /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]; stopping recursion"
+    "already seen  ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]; stopping recursion"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -4930,27 +4930,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -4975,12 +4975,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -4990,7 +4990,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -5000,7 +5000,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/coins_0.4.zarr/labels/coins [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -5010,7 +5010,7 @@
   ]
  },
  "info:plate_0.4.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
   "logs": [
    [
     "WARNING",
@@ -5090,17 +5090,17 @@
   ]
  },
  "info:plate_0.4.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -5115,7 +5115,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -5125,12 +5125,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as Plate"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as Plate"
    ],
    [
     "INFO",
@@ -5155,17 +5155,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, r)"
    ],
    [
     "DEBUG",
@@ -5180,12 +5180,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup] as Well"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup] as Well"
    ],
    [
     "INFO",
@@ -5205,17 +5205,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -5230,12 +5230,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -5295,22 +5295,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels detected: FormatV04"
    ],
    [
     "DEBUG",
@@ -5355,17 +5355,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -5380,7 +5380,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
    ],
    [
     "DEBUG",
@@ -5520,12 +5520,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -5535,7 +5535,7 @@
   ]
  },
  "info:plate_0.4.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
   "logs": [
    [
     "WARNING",
@@ -5615,17 +5615,17 @@
   ]
  },
  "info:plate_0.4.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]\n - version: \n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -5640,7 +5640,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -5650,12 +5650,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as Plate"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as Plate"
    ],
    [
     "INFO",
@@ -5680,17 +5680,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1, r)"
    ],
    [
     "DEBUG",
@@ -5705,12 +5705,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup] as Well"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1 [zgroup] as Well"
    ],
    [
     "INFO",
@@ -5730,17 +5730,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -5755,12 +5755,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -5820,22 +5820,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0/labels detected: FormatV04"
    ],
    [
     "DEBUG",
@@ -5880,17 +5880,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -5905,7 +5905,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr/A/1/0 detected: FormatV04"
    ],
    [
     "DEBUG",
@@ -6045,12 +6045,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/plate_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -6060,7 +6060,7 @@
   ]
  },
  "info:plate_0.5.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
   "logs": [
    [
     "INFO",
@@ -6150,17 +6150,17 @@
   ]
  },
  "info:plate_0.5.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120)\n   - (1, 2, 1, 36, 60)\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -6170,12 +6170,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as Plate"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as Plate"
    ],
    [
     "INFO",
@@ -6210,17 +6210,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, r)"
    ],
    [
     "DEBUG",
@@ -6250,12 +6250,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 [zgroup] as Well"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 [zgroup] as Well"
    ],
    [
     "INFO",
@@ -6285,17 +6285,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -6325,12 +6325,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -6400,22 +6400,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels detected: FormatV05"
    ],
    [
     "DEBUG",
@@ -6460,17 +6460,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -6500,7 +6500,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
    ],
    [
     "DEBUG",
@@ -6640,12 +6640,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -6655,7 +6655,7 @@
   ]
  },
  "info:plate_0.5.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
   "logs": [
    [
     "INFO",
@@ -6745,17 +6745,17 @@
   ]
  },
  "info:plate_0.5.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]\n - version: 0.5\n - metadata\n   - Plate\n - data\n   - (1, 2, 1, 72, 120) minmax=(np.uint8(0), np.uint8(103))\n   - (1, 2, 1, 36, 60) minmax=(np.uint8(0), np.uint8(80))\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr, r)"
    ],
    [
     "DEBUG",
@@ -6765,12 +6765,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as Plate"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as Plate"
    ],
    [
     "INFO",
@@ -6805,17 +6805,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1, r)"
    ],
    [
     "DEBUG",
@@ -6845,12 +6845,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 [zgroup] as Well"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1 [zgroup] as Well"
    ],
    [
     "INFO",
@@ -6880,17 +6880,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -6920,12 +6920,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -6995,22 +6995,22 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0/labels detected: FormatV05"
    ],
    [
     "DEBUG",
@@ -7055,17 +7055,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0, r)"
    ],
    [
     "DEBUG",
@@ -7095,7 +7095,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr/A/1/0 detected: FormatV05"
    ],
    [
     "DEBUG",
@@ -7235,12 +7235,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/plate_0.5.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -7259,12 +7259,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/scene.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/scene.zarr, r)"
    ],
    [
     "DEBUG",
@@ -7294,12 +7294,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/scene.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "ignoring /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr [zgroup]"
+    "ignoring ${REPO}/tests/fixtures/parity/stores/scene.zarr [zgroup]"
    ]
   ]
  },
@@ -7313,12 +7313,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/scene.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/scene.zarr, r)"
    ],
    [
     "DEBUG",
@@ -7348,17 +7348,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr detected: FormatV05"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/scene.zarr detected: FormatV05"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "ignoring /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/scene.zarr [zgroup]"
+    "ignoring ${REPO}/tests/fixtures/parity/stores/scene.zarr [zgroup]"
    ]
   ]
  },
  "info:csv_0.4.zarr:False:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
   "logs": [
    [
     "WARNING",
@@ -7498,17 +7498,17 @@
   ]
  },
  "info:csv_0.4.zarr:False:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284)\n   - (101, 142)\n   - (50, 71)\n   - (25, 35)\n   - (12, 17)\n${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -7523,7 +7523,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -7533,12 +7533,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -7668,17 +7668,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -7708,12 +7708,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -7728,27 +7728,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -7773,12 +7773,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -7788,7 +7788,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -7798,7 +7798,7 @@
   ]
  },
  "info:csv_0.4.zarr:True:INFO": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
   "logs": [
    [
     "WARNING",
@@ -7938,17 +7938,17 @@
   ]
  },
  "info:csv_0.4.zarr:True:DEBUG": {
-  "stdout": "/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
+  "stdout": "${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]\n - version: 0.4\n - metadata\n   - Multiscales\n   - OMERO\n - data\n   - (203, 284) minmax=(np.uint8(7), np.uint8(252))\n   - (101, 142) minmax=(np.uint8(18), np.uint8(227))\n   - (50, 71) minmax=(np.uint8(22), np.uint8(213))\n   - (25, 35) minmax=(np.uint8(23), np.uint8(198))\n   - (12, 17) minmax=(np.uint8(25), np.uint8(186))\n${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)\n - version: \n - metadata\n   - Labels\n - data\n",
   "logs": [
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, fmt: 0.5"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, fmt: 0.5"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
    ],
    [
     "DEBUG",
@@ -7963,7 +7963,7 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr detected: FormatV04"
    ],
    [
     "WARNING",
@@ -7973,12 +7973,12 @@
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as Multiscales"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as Multiscales"
    ],
    [
     "INFO",
@@ -8108,17 +8108,17 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels, r)"
    ],
    [
     "DEBUG",
@@ -8148,12 +8148,12 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] as Labels"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] as Labels"
    ],
    [
     "INFO",
@@ -8168,27 +8168,27 @@
    [
     "DEBUG",
     "ome_zarr.io",
-    "open(ZarrLocation(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins))"
+    "open(ZarrLocation(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins))"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ path: /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, fmt: 0.4"
+    "ZarrLocation.__init__ path: ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, fmt: 0.4"
    ],
    [
     "DEBUG",
     "ome_zarr.format",
-    "Created nested FsspecStore(/Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, r)"
+    "Created nested FsspecStore(${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins, r)"
    ],
    [
     "DEBUG",
     "ome_zarr.io",
-    "ZarrLocation.__init__ /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins detected: FormatV04"
+    "ZarrLocation.__init__ ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels/coins detected: FormatV04"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as OMERO"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as OMERO"
    ],
    [
     "INFO",
@@ -8213,12 +8213,12 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "treating /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as ome-zarr"
+    "treating ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup] as ome-zarr"
    ],
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]"
+    "returning ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr [zgroup]"
    ],
    [
     "DEBUG",
@@ -8228,7 +8228,7 @@
    [
     "DEBUG",
     "ome_zarr.reader",
-    "returning /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)"
+    "returning ${REPO}/tests/fixtures/parity/stores/csv_0.4.zarr/labels [zgroup] (hidden)"
    ],
    [
     "DEBUG",
@@ -8238,7 +8238,7 @@
   ]
  },
  "download:astronaut_0.4.zarr": {
-  "stdout": "downloading...\n   astronaut_0.4.zarr\n   astronaut_0.4.zarr/labels\n   astronaut_0.4.zarr/labels/astronaut_labels\nto /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dl5_astronaut_0.4.zarr\n\r[                                        ] | 0% Completed | 69.21 us\r[########################################] | 100% Completed | 100.57 ms\n\r[                                        ] | 0% Completed | 69.13 us\r[########################################] | 100% Completed | 105.12 ms\n\r[                                        ] | 0% Completed | 80.21 us\r[########################################] | 100% Completed | 101.31 ms\n\r[                                        ] | 0% Completed | 71.67 us\r[########################################] | 100% Completed | 102.70 ms\n\r[                                        ] | 0% Completed | 85.50 us\r[###########################             ] | 68% Completed | 102.90 ms\r[########################################] | 100% Completed | 205.37 ms\n\r[                                        ] | 0% Completed | 69.08 us\r[########################################] | 100% Completed | 104.14 ms\n\r[                                        ] | 0% Completed | 77.04 us\r[########################################] | 100% Completed | 100.27 ms\n\r[                                        ] | 0% Completed | 68.58 us\r[########################################] | 100% Completed | 101.35 ms\n\r[                                        ] | 0% Completed | 75.67 us\r[########################################] | 100% Completed | 102.56 ms\n\r[                                        ] | 0% Completed | 79.79 us\r[########################################] | 100% Completed | 101.06 ms\n",
+  "stdout": "downloading...\n   astronaut_0.4.zarr\n   astronaut_0.4.zarr/labels\n   astronaut_0.4.zarr/labels/astronaut_labels\nto ${REPO}/tests/fixtures/parity/stores/dl5_astronaut_0.4.zarr\n\r[                                        ] | 0% Completed | 69.21 us\r[########################################] | 100% Completed | 100.57 ms\n\r[                                        ] | 0% Completed | 69.13 us\r[########################################] | 100% Completed | 105.12 ms\n\r[                                        ] | 0% Completed | 80.21 us\r[########################################] | 100% Completed | 101.31 ms\n\r[                                        ] | 0% Completed | 71.67 us\r[########################################] | 100% Completed | 102.70 ms\n\r[                                        ] | 0% Completed | 85.50 us\r[###########################             ] | 68% Completed | 102.90 ms\r[########################################] | 100% Completed | 205.37 ms\n\r[                                        ] | 0% Completed | 69.08 us\r[########################################] | 100% Completed | 104.14 ms\n\r[                                        ] | 0% Completed | 77.04 us\r[########################################] | 100% Completed | 100.27 ms\n\r[                                        ] | 0% Completed | 68.58 us\r[########################################] | 100% Completed | 101.35 ms\n\r[                                        ] | 0% Completed | 75.67 us\r[########################################] | 100% Completed | 102.56 ms\n\r[                                        ] | 0% Completed | 79.79 us\r[########################################] | 100% Completed | 101.06 ms\n",
   "logs": [
    [
     "WARNING",
@@ -8553,7 +8553,7 @@
   ]
  },
  "download:astronaut_0.5.zarr": {
-  "stdout": "downloading...\n   astronaut_0.5.zarr\n   astronaut_0.5.zarr/labels\n   astronaut_0.5.zarr/labels/astronaut_labels\nto /Users/Shared/ome-zarr-rs/tests/fixtures/parity/stores/dl5_astronaut_0.5.zarr\n\r[                                        ] | 0% Completed | 68.17 us\r[########################################] | 100% Completed | 101.30 ms\n\r[                                        ] | 0% Completed | 68.17 us\r[########################################] | 100% Completed | 102.40 ms\n\r[                                        ] | 0% Completed | 72.25 us\r[########################################] | 100% Completed | 103.95 ms\n\r[                                        ] | 0% Completed | 72.21 us\r[########################################] | 100% Completed | 104.79 ms\n\r[                                        ] | 0% Completed | 79.04 us\r[#########################               ] | 62% Completed | 100.18 ms\r[########################################] | 100% Completed | 205.26 ms\n\r[                                        ] | 0% Completed | 76.71 us\r[########################################] | 100% Completed | 105.13 ms\n\r[                                        ] | 0% Completed | 68.75 us\r[########################################] | 100% Completed | 101.19 ms\n\r[                                        ] | 0% Completed | 67.33 us\r[########################################] | 100% Completed | 105.12 ms\n\r[                                        ] | 0% Completed | 87.92 us\r[########################################] | 100% Completed | 104.87 ms\n\r[                                        ] | 0% Completed | 66.29 us\r[########################################] | 100% Completed | 103.59 ms\n",
+  "stdout": "downloading...\n   astronaut_0.5.zarr\n   astronaut_0.5.zarr/labels\n   astronaut_0.5.zarr/labels/astronaut_labels\nto ${REPO}/tests/fixtures/parity/stores/dl5_astronaut_0.5.zarr\n\r[                                        ] | 0% Completed | 68.17 us\r[########################################] | 100% Completed | 101.30 ms\n\r[                                        ] | 0% Completed | 68.17 us\r[########################################] | 100% Completed | 102.40 ms\n\r[                                        ] | 0% Completed | 72.25 us\r[########################################] | 100% Completed | 103.95 ms\n\r[                                        ] | 0% Completed | 72.21 us\r[########################################] | 100% Completed | 104.79 ms\n\r[                                        ] | 0% Completed | 79.04 us\r[#########################               ] | 62% Completed | 100.18 ms\r[########################################] | 100% Completed | 205.26 ms\n\r[                                        ] | 0% Completed | 76.71 us\r[########################################] | 100% Completed | 105.13 ms\n\r[                                        ] | 0% Completed | 68.75 us\r[########################################] | 100% Completed | 101.19 ms\n\r[                                        ] | 0% Completed | 67.33 us\r[########################################] | 100% Completed | 105.12 ms\n\r[                                        ] | 0% Completed | 87.92 us\r[########################################] | 100% Completed | 104.87 ms\n\r[                                        ] | 0% Completed | 66.29 us\r[########################################] | 100% Completed | 103.59 ms\n",
   "logs": [
    [
     "INFO",

@@ -73,6 +73,16 @@ impl DType {
         }
     }
 
+    /// Size of the unit a big-endian element swaps: the element, or each
+    /// part of a complex one.
+    pub fn swap_size(&self) -> usize {
+        if self.is_complex() {
+            self.itemsize() / 2
+        } else {
+            self.itemsize()
+        }
+    }
+
     pub fn is_integer(&self) -> bool {
         !matches!(
             self,
@@ -199,18 +209,14 @@ impl fmt::Display for DType {
 }
 
 /// Scalar element trait implemented for all supported element types.
-pub trait Element:
-    Copy
-    + Send
-    + Sync
-    + PartialEq
-    + Default
-    + fmt::Debug
-    + 'static
-    + zarrs::array::Element
-    + zarrs::array::ElementOwned
-{
+pub trait Element: Copy + Send + Sync + PartialEq + Default + fmt::Debug + 'static {
     const DTYPE: DType;
+    /// This element as numpy stores it little endian (`<`): `out` is
+    /// [`DType::itemsize`] long; complex values are the real part, then the
+    /// imaginary.
+    fn write_le(self, out: &mut [u8]);
+    /// The inverse of [`write_le`](Self::write_le).
+    fn read_le(b: &[u8]) -> Self;
     /// Lossless-ish conversion to f64 (numpy `astype(float)`).
     fn to_f64(self) -> f64;
     /// numpy `astype` from float: truncation toward zero (saturating).
@@ -243,6 +249,14 @@ pub trait Element:
 impl Element for half::f16 {
     const DTYPE: DType = DType::Float16;
     #[inline]
+    fn write_le(self, out: &mut [u8]) {
+        out.copy_from_slice(&self.to_le_bytes());
+    }
+    #[inline]
+    fn read_le(b: &[u8]) -> Self {
+        half::f16::from_le_bytes([b[0], b[1]])
+    }
+    #[inline]
     fn to_f64(self) -> f64 {
         self.to_f64()
     }
@@ -260,6 +274,20 @@ macro_rules! impl_complex {
     ($f:ty, $d:expr) => {
         impl Element for num_complex::Complex<$f> {
             const DTYPE: DType = $d;
+            #[inline]
+            fn write_le(self, out: &mut [u8]) {
+                let n = size_of::<$f>();
+                out[..n].copy_from_slice(&self.re.to_le_bytes());
+                out[n..].copy_from_slice(&self.im.to_le_bytes());
+            }
+            #[inline]
+            fn read_le(b: &[u8]) -> Self {
+                let n = size_of::<$f>();
+                num_complex::Complex::new(
+                    <$f>::from_le_bytes(b[..n].try_into().unwrap()),
+                    <$f>::from_le_bytes(b[n..].try_into().unwrap()),
+                )
+            }
             /// The real part (numpy `astype(float)` discards the imaginary part).
             #[inline]
             fn to_f64(self) -> f64 {
@@ -293,6 +321,14 @@ macro_rules! impl_uint {
         impl Element for $t {
             const DTYPE: DType = $d;
             #[inline]
+            fn write_le(self, out: &mut [u8]) {
+                out.copy_from_slice(&self.to_le_bytes());
+            }
+            #[inline]
+            fn read_le(b: &[u8]) -> Self {
+                <$t>::from_le_bytes(b.try_into().unwrap())
+            }
+            #[inline]
             fn to_f64(self) -> f64 {
                 self as f64
             }
@@ -321,6 +357,14 @@ macro_rules! impl_int {
     ($t:ty, $d:expr) => {
         impl Element for $t {
             const DTYPE: DType = $d;
+            #[inline]
+            fn write_le(self, out: &mut [u8]) {
+                out.copy_from_slice(&self.to_le_bytes());
+            }
+            #[inline]
+            fn read_le(b: &[u8]) -> Self {
+                <$t>::from_le_bytes(b.try_into().unwrap())
+            }
             #[inline]
             fn to_f64(self) -> f64 {
                 self as f64
@@ -358,6 +402,14 @@ impl_int!(i64, DType::Int64);
 impl Element for f32 {
     const DTYPE: DType = DType::Float32;
     #[inline]
+    fn write_le(self, out: &mut [u8]) {
+        out.copy_from_slice(&self.to_le_bytes());
+    }
+    #[inline]
+    fn read_le(b: &[u8]) -> Self {
+        f32::from_le_bytes(b.try_into().unwrap())
+    }
+    #[inline]
     fn to_f64(self) -> f64 {
         self as f64
     }
@@ -374,6 +426,14 @@ impl Element for f32 {
 impl Element for f64 {
     const DTYPE: DType = DType::Float64;
     #[inline]
+    fn write_le(self, out: &mut [u8]) {
+        out.copy_from_slice(&self.to_le_bytes());
+    }
+    #[inline]
+    fn read_le(b: &[u8]) -> Self {
+        f64::from_le_bytes(b.try_into().unwrap())
+    }
+    #[inline]
     fn to_f64(self) -> f64 {
         self
     }
@@ -389,6 +449,14 @@ impl Element for f64 {
 
 impl Element for bool {
     const DTYPE: DType = DType::Bool;
+    #[inline]
+    fn write_le(self, out: &mut [u8]) {
+        out[0] = self as u8;
+    }
+    #[inline]
+    fn read_le(b: &[u8]) -> Self {
+        b[0] != 0
+    }
     #[inline]
     fn to_f64(self) -> f64 {
         if self { 1.0 } else { 0.0 }

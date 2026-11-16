@@ -16,8 +16,12 @@ use ome_zarr::zarr::{Compressor, Group, Mode};
 use serde_json::{Value, json};
 
 fn obs() -> Value {
-    serde_json::from_str(&std::fs::read_to_string(fixtures().join("observations7.json")).unwrap())
-        .unwrap()
+    serde_json::from_str(
+        &std::fs::read_to_string(fixtures().join("observations7.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
+    )
+    .unwrap()
 }
 
 /// `(np.arange(40 * 52).reshape(40, 52) % 37) / 3.0`

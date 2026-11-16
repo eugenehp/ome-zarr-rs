@@ -109,6 +109,54 @@ pub fn retuple(chunks: &[u64], shape: &[u64]) -> Vec<u64> {
     out
 }
 
+/// Grid indices, in C order, of the blocks of shape `block` that a region
+/// overlaps.
+pub(crate) fn blocks_under(region: &[std::ops::Range<u64>], block: &[u64]) -> Vec<Vec<u64>> {
+    let first: Vec<u64> = region.iter().zip(block).map(|(r, b)| r.start / b).collect();
+    let counts: Vec<usize> = region
+        .iter()
+        .zip(block)
+        .map(|(r, b)| {
+            if r.is_empty() {
+                0
+            } else {
+                ((r.end - 1) / b - r.start / b + 1) as usize
+            }
+        })
+        .collect();
+    super::lazy::grid_indices(&counts)
+        .into_iter()
+        .map(|rel| rel.iter().zip(&first).map(|(&i, f)| i as u64 + f).collect())
+        .collect()
+}
+
+/// The region of the block of shape `block` at grid indices `idx`, whole.
+pub(crate) fn block_region(idx: &[u64], block: &[u64]) -> Vec<std::ops::Range<u64>> {
+    idx.iter()
+        .zip(block)
+        .map(|(&i, &b)| i * b..(i + 1) * b)
+        .collect()
+}
+
+/// The part of `block` inside `region`: where it is in the block, and where
+/// in the region.
+pub(crate) fn overlap(
+    block: &[std::ops::Range<u64>],
+    region: &[std::ops::Range<u64>],
+) -> (Vec<std::ops::Range<usize>>, Vec<std::ops::Range<usize>>) {
+    block
+        .iter()
+        .zip(region)
+        .map(|(b, r)| {
+            let (a, e) = (b.start.max(r.start), b.end.min(r.end));
+            (
+                (a - b.start) as usize..(e - b.start) as usize,
+                (a - r.start) as usize..(e - r.start) as usize,
+            )
+        })
+        .unzip()
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

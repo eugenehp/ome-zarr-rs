@@ -39,8 +39,12 @@ pub fn py_store(name: &str) -> PathBuf {
 }
 
 pub fn observations() -> Value {
-    serde_json::from_str(&std::fs::read_to_string(fixtures().join("observations.json")).unwrap())
-        .unwrap()
+    serde_json::from_str(
+        &std::fs::read_to_string(fixtures().join("observations.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
+    )
+    .unwrap()
 }
 
 /// Remove random label colours before comparing.

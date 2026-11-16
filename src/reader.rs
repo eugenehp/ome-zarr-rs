@@ -421,13 +421,14 @@ impl Node {
         let axes_names: Option<Vec<String>> = axes
             .and_then(|a| AxesInput::from_json(a).ok())
             .and_then(|a| a.names().ok());
-        let loaded: Vec<LazyArray> = {
+        // Opened in parallel, but judged in order: collecting straight into a
+        // `Result` keeps whichever failure came first in time, so an image
+        // missing two levels reported either one.
+        let loaded: Vec<Result<LazyArray>> = {
             use crate::par::*;
-            paths
-                .par_iter()
-                .map(|p| self.zarr.load(p))
-                .collect::<Result<_>>()?
+            paths.par_iter().map(|p| self.zarr.load(p)).collect()
         };
+        let loaded = loaded.into_iter().collect::<Result<Vec<_>>>()?;
         for (resolution, data) in paths.iter().zip(loaded) {
             let chunk_sizes: Vec<String> = data
                 .chunks()

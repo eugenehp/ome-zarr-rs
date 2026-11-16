@@ -38,8 +38,8 @@ mod seq {
 #[cfg(target_arch = "wasm32")]
 pub use seq::*;
 
-/// `Send + Sync` on native targets; no bound on wasm (where zarrs' storage
-/// traits are not `Send`/`Sync` either).
+/// `Send + Sync` on native targets; no bound on wasm (where stores and
+/// what they hold need not be `Send`/`Sync`).
 #[cfg(not(target_arch = "wasm32"))]
 pub trait MaybeSendSync: Send + Sync {}
 #[cfg(not(target_arch = "wasm32"))]

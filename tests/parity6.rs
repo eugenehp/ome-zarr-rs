@@ -69,7 +69,9 @@ fn nodes(path: &str) -> ome_zarr::Result<Option<Value>> {
 #[test]
 fn reader_from_many_starting_points() {
     let obs: Value = serde_json::from_str(
-        &std::fs::read_to_string(fixtures().join("observations6.json")).unwrap(),
+        &std::fs::read_to_string(fixtures().join("observations6.json"))
+            .unwrap()
+            .replace("${REPO}", env!("CARGO_MANIFEST_DIR")),
     )
     .unwrap();
     let mut failures = vec![];

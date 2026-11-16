@@ -1,52 +1,8 @@
 //! Utility methods for ome_zarr access.
 
-use serde_json::Value;
-
 use crate::error::{Error, Result};
 
-/// Recursively remove `None` (null) values, empty dicts and empty lists from a
-/// nested JSON object (`_recursive_pop_nones`).
-pub fn recursive_pop_nones(data: &Value) -> Value {
-    match data {
-        Value::Object(map) => {
-            let mut out = serde_json::Map::new();
-            for (k, v) in map {
-                match v {
-                    Value::Object(_) => {
-                        let nested = recursive_pop_nones(v);
-                        if nested.as_object().is_some_and(|m| !m.is_empty()) {
-                            out.insert(k.clone(), nested);
-                        }
-                    }
-                    Value::Array(items) => {
-                        let mut list = vec![];
-                        for item in items {
-                            match item {
-                                Value::Object(_) => {
-                                    let n = recursive_pop_nones(item);
-                                    if n.as_object().is_some_and(|m| !m.is_empty()) {
-                                        list.push(n);
-                                    }
-                                }
-                                Value::Null => {}
-                                other => list.push(other.clone()),
-                            }
-                        }
-                        if !list.is_empty() {
-                            out.insert(k.clone(), Value::Array(list));
-                        }
-                    }
-                    Value::Null => {}
-                    other => {
-                        out.insert(k.clone(), other.clone());
-                    }
-                }
-            }
-            Value::Object(out)
-        }
-        other => other.clone(),
-    }
-}
+pub use crate::pyjson::recursive_pop_nones;
 
 /// Find and remove the prefix common to all paths. Returns the last element of
 /// the common prefix; each path keeps that element as its first element.
@@ -122,7 +78,7 @@ use crate::classes::OmeZarrScene;
 use crate::format::format_from_version;
 use crate::io::{StoreLike, ZarrLocation, parse_url_r};
 use crate::reader::{Node, Reader, Spec, py_tuple};
-use crate::zarr::{ArraySpec, Group, JsonMap, Mode, store_lazy};
+use crate::zarr::{ArraySpec, Group, JsonMap, Mode, ZARR_JSON, ZATTRS, store_lazy};
 
 /// Print information about an OME-Zarr fileset, returning all nodes found.
 ///
@@ -207,7 +163,7 @@ pub fn info_to(path: &str, stats: bool, out: &mut String) -> Result<Vec<Node>> {
 pub type FoundImage = (PathBuf, String, String);
 
 fn read_zattrs(dir: &Path) -> Option<serde_json::Value> {
-    for name in [".zattrs", "zarr.json"] {
+    for name in [ZATTRS, ZARR_JSON] {
         let p = dir.join(name);
         if p.exists() {
             let text = std::fs::read_to_string(&p).ok()?;
@@ -307,7 +263,7 @@ pub fn find_multiscales(path: &Path) -> Vec<FoundImage> {
 }
 
 fn has_zarr_metadata(p: &Path) -> bool {
-    p.join(".zattrs").exists() || p.join("zarr.json").exists()
+    p.join(ZATTRS).exists() || p.join(ZARR_JSON).exists()
 }
 
 /// The public `https://` URL of a remote fileset, for browser-based tools:

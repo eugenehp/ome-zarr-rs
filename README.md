@@ -56,7 +56,14 @@ Every command that reads an image accepts a local path or an online source:
 
 Cloud credentials and settings come from the usual `AWS_*`, `GOOGLE_*` and
 `AZURE_*` environment variables; with none set, requests are unsigned, so
-public buckets work without an account. Remote zip archives are read with
+public buckets work without an account:
+
+| Service | Settings and credentials |
+| --- | --- |
+| S3 | `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `AWS_SESSION_TOKEN`; `AWS_PROFILE` (`~/.aws/credentials`); `AWS_WEB_IDENTITY_TOKEN_FILE` with `AWS_ROLE_ARN`; `AWS_REGION` (else the bucket's own); `AWS_ENDPOINT_URL` for S3-compatible services |
+| Google Cloud Storage | a service account's key file at `GOOGLE_APPLICATION_CREDENTIALS` (or `GOOGLE_SERVICE_ACCOUNT`, or the key in `GOOGLE_SERVICE_ACCOUNT_KEY`), or a user's credentials from `gcloud auth application-default login` there |
+| Azure Blob Storage | `AZURE_STORAGE_ACCOUNT_NAME`; `AZURE_STORAGE_ACCOUNT_KEY`, `AZURE_STORAGE_SAS_KEY`, `AZURE_STORAGE_TOKEN`, or `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET` and `AZURE_TENANT_ID`; `AZURE_STORAGE_USE_EMULATOR` for Azurite |
+ Remote zip archives are read with
 HTTP range requests (only the parts needed), or downloaded once if the server
 does not support them. `view --web` of a remote image opens
 ome-ngff-validator on its public URL directly.
@@ -129,7 +136,7 @@ for node in Reader::new(parse_url_r("out.zarr")?.unwrap())?.nodes()? {
 | transformnd | [`transformnd`](src/transformnd.rs) |
 | numpy / dask arrays | [`array`](src/array) (`NdArray`, `LazyArray`) |
 | scipy.ndimage, scikit-image | [`ndimage`](src/ndimage.rs), [`skimage`](src/skimage.rs) |
-| zarr-python | [`zarr`](src/zarr.rs), [`store`](src/store.rs) (on [zarrs](https://zarrs.dev)) |
+| zarr-python, numcodecs | [`zarr`](src/zarr.rs), [`store`](src/store.rs), [`codecs`](src/codecs.rs), [`blosc`](src/blosc.rs) |
 | — | [`render`](src/render) (threers) |
 
 ## Tests
@@ -185,9 +192,13 @@ in the last bit.
 
 ### WebAssembly
 
+An app with its own Zarr reader can take the metadata alone: with
+`default-features = false` the crate is the OME-NGFF models and their
+validation, with no Zarr I/O and no C. The rest is the `io` feature. Rust 1.99
+or later is needed either way.
+
 The library builds for `wasm32-unknown-unknown`, with every data type and
-compressor (zstd, blosc and bz2 are compiled from C with LLVM clang; lz4,
-lzma, zlib and gzip are pure Rust), pyramids, transforms, pydantic-identical
+compressor (all pure Rust: no C compiler is needed on any target), pyramids, transforms, pydantic-identical
 validation and the CLI's argument parser (`cli::parse_args`). The
 filesystem, HTTP and cloud stores, the file server, the viewer and
 multi-threading are native-only; memory and zip stores work everywhere. To read online data in a web app, fetch it with
@@ -195,9 +206,30 @@ the browser and hand it over: `Store::zip_bytes(bytes, name)` for a zipped
 fileset, or `Store::from_dyn` with a storage adapter of your own.
 
 ```bash
-scripts/check-wasm.sh           # cargo check for wasm32 (zstd/blosc need LLVM clang)
+scripts/check-wasm.sh           # cargo build for wasm32
 scripts/test-wasm.sh            # run tests/wasm.rs under node (wasm-bindgen-test-runner)
 ```
+
+### No C
+
+Zarr I/O is the crate's own and pure Rust: stores behind
+[`store::Storage`](src/store.rs) (memory, filesystem, zip, http(s), S3, Google
+Cloud Storage, Azure Blob Storage), chunk grids, keys and fill values in [`zarr`](src/zarr.rs), and the
+codec chain in [`codecs`](src/codecs.rs): `bytes`, `transpose`,
+`sharding_indexed` (inner chunks read by byte range, only those a region
+needs), blosc (blosclz, lz4, lz4hc, zlib, zstd and snappy inside, byte and
+bit shuffle) in [`blosc`](src/blosc.rs), zstd through
+[zstd-rs](https://crates.io/crates/zstd-rs), and gzip, zlib, bz2, lz4, lzma
+and crc32c through their Rust crates.
+
+So is the network: https through [ureq](https://crates.io/crates/ureq) and
+rustls, with the cryptography of [graviola](https://crates.io/crates/graviola)
+(`tls-graviola`, the default; x86-64 and aarch64) or of RustCrypto
+(`tls-rustcrypto`, any target), and the cloud services' request signing
+([`net::cloud`](src/net/cloud)): SigV4 for S3, RS256 tokens for Google's
+service accounts, Shared Key for Azure. No ring, aws-lc or OpenSSL.
+
+With the default features nothing is compiled from C, on any target.
 
 ## Differences from ome-zarr-py
 

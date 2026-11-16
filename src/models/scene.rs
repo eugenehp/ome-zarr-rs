@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value;
 
 use super::transforms::{CoordinateSystem, Transform};
-use crate::error::{Error, Result};
+use crate::error::Result;
 
 /// Metadata for OME-Zarr scene groups.
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
@@ -31,16 +31,14 @@ impl SceneAttrs {
     }
 
     pub fn from_json(v: &Value) -> Result<SceneAttrs> {
-        crate::models::pydantic::validate_model("SceneAttrs", v)?;
-        let s: SceneAttrs = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid scene metadata: {e}")))?;
+        let s: SceneAttrs = super::parse("SceneAttrs", "scene metadata", v)?;
         s.validate()?;
         Ok(s)
     }
 
     /// `model_dump(exclude_none=True)`.
     pub fn to_json(&self) -> Value {
-        serde_json::to_value(self).expect("serialize scene")
+        super::dump(self)
     }
 }
 
@@ -53,9 +51,7 @@ pub struct BaseSceneAttrs {
 
 impl BaseSceneAttrs {
     pub fn from_json(v: &Value) -> Result<BaseSceneAttrs> {
-        crate::models::pydantic::validate_model("BaseSceneAttrs", v)?;
-        let s: BaseSceneAttrs = serde_json::from_value(v.clone())
-            .map_err(|e| Error::value(format!("invalid scene attributes: {e}")))?;
+        let s: BaseSceneAttrs = super::parse("BaseSceneAttrs", "scene attributes", v)?;
         s.scene.validate()?;
         Ok(s)
     }

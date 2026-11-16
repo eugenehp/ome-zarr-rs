@@ -23,4 +23,8 @@ for p in ["coins_0.4.zarr", "coins_0.4.zarr/", "./coins_0.5.zarr", "coins_0.4.za
         r["create_labels"] = repr(loc.create("labels"))
     r["parse_url"] = repr(parse_url(p)) if parse_url(p) else None
     out[p] = r
-(fx / "zarr_location.json").write_text(json.dumps({"cwd": os.getcwd(), "cases": out}, indent=1))
+# paths named by the repository's root as `${REPO}` (the test puts its own back)
+repo = str(fx.parent.parent)
+(fx / "zarr_location.json").write_text(
+    json.dumps({"cwd": os.getcwd(), "cases": out}, indent=1).replace(repo, "${REPO}")
+)

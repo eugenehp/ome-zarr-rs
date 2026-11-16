@@ -215,3 +215,36 @@ fn prefetching_opens_in_two_round_trips() {
     assert!(rounds(false) >= 4);
     assert_eq!(rounds(true), 2);
 }
+
+#[test]
+fn a_failed_key_does_not_lose_the_round() {
+    let lazy = Arc::new(LazyStore::new());
+    let asked = RefCell::new(vec![]);
+    let fetch = |key: String| {
+        asked.borrow_mut().push(key.clone());
+        let bad = key == "bad";
+        async move {
+            if bad {
+                Err("refused".to_string())
+            } else {
+                Ok(Some(vec![1]))
+            }
+        }
+    };
+    let keys = ["a", "bad", "c"].map(str::to_owned).to_vec();
+    let mut progress = Progress::default();
+    let error = block_on(ome_zarr::lazy::fetch_keys(
+        &lazy,
+        keys,
+        &fetch,
+        1,
+        &mut |_| {},
+        &mut progress,
+    ))
+    .unwrap_err();
+    assert!(error.to_string().contains("refused"), "{error}");
+    // Asked twice, and the key after it still came.
+    assert_eq!(*asked.borrow(), ["a", "bad", "bad", "c"]);
+    assert_eq!((progress.files, progress.pending), (2, 0));
+    assert_eq!(lazy.store().get("c").unwrap().as_deref(), Some(&[1u8][..]));
+}
